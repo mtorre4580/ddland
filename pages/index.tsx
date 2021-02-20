@@ -1,5 +1,5 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
@@ -8,12 +8,8 @@ export default function Home() {
         <title>DDLand</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-       
-      </main>
-      <footer className={styles.footer}>
-       
-      </footer>
+      <main className={styles.main}></main>
+      <footer className={styles.footer}></footer>
     </div>
-  )
+  );
 }

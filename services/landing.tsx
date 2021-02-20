@@ -1,9 +1,9 @@
-import { Db } from "mongodb";
-import ILanding from "../models/web/landing";
-import { connectToDatabase } from "./mongodb";
+import { Db } from 'mongodb';
+import ILanding from '../models/web/landing';
+import { connectToDatabase } from './mongodb';
 
 class LandingService {
-  private collection: string = "webs";
+  private collection: string = 'webs';
 
   /**
    * Retrieve all the landings created by the User
@@ -21,8 +21,8 @@ class LandingService {
     } catch (err) {
       this.handleException(
         err,
-        "getLandings",
-        "Error when trying to find all landings by the user"
+        'getLandings',
+        'Error when trying to find all landings by the user'
       );
     }
   }
@@ -43,8 +43,8 @@ class LandingService {
     } catch (err) {
       this.handleException(
         err,
-        "getLanding",
-        "Error when trying to find the current landing by the path | _id"
+        'getLanding',
+        'Error when trying to find the current landing by the path | _id'
       );
     }
   }
@@ -69,8 +69,8 @@ class LandingService {
     } catch (err) {
       this.handleException(
         err,
-        "saveLanding",
-        "Error when trying to save the current landing"
+        'saveLanding',
+        'Error when trying to save the current landing'
       );
     }
   }
@@ -101,8 +101,8 @@ class LandingService {
     } catch (err) {
       this.handleException(
         err,
-        "updateLanding",
-        "Error when trying to update the current landing"
+        'updateLanding',
+        'Error when trying to update the current landing'
       );
     }
   }
@@ -119,14 +119,14 @@ class LandingService {
         .collection(this.collection)
         .deleteOne({ path: this.getPath(path), author });
       if (deletedCount === 1) {
-        return { msg: "Success" };
+        return { msg: 'Success' };
       }
       return null;
     } catch (err) {
       this.handleException(
         err,
-        "deleteLanding",
-        "Error when trying to delete the landing"
+        'deleteLanding',
+        'Error when trying to delete the landing'
       );
     }
   }
@@ -142,7 +142,7 @@ class LandingService {
     if (isConnected) {
       return db;
     }
-    throw new Error("Unexpected error with database");
+    throw new Error('Unexpected error with database');
   }
 
   /**

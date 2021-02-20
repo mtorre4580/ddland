@@ -1,5 +1,5 @@
-import Joi, { ValidationResult } from "joi";
-import ILanding from "../models/web/landing";
+import Joi, { ValidationResult } from 'joi';
+import ILanding from '../models/web/landing';
 
 const SchemaLanding = Joi.object({
   path: Joi.string().required(),
