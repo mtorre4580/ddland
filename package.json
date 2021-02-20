@@ -21,6 +21,7 @@
     "joi": "^17.4.0",
     "mongodb": "^3.6.4",
     "next": "10.0.7",
+    "next-iron-session": "^4.1.11",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },

@@ -1,166 +1,86 @@
-import { Db } from 'mongodb';
+import Joi from 'joi';
 import ILanding from '../models/web/landing';
-import { connectToDatabase } from './mongodb';
+import ModelMongo from './model';
 
-class LandingService {
-  private collection: string = 'webs';
+class LandingService extends ModelMongo {
+  constructor() {
+    super('webs');
+  }
 
   /**
-   * Retrieve all the landings created by the User
-   * @param author
+   * Checker to validate the properties for the current model
+   * @param landing ILanding
+   * @return string | null
+   */
+  public validate(landing: ILanding) {
+    const { error } = Joi.object({
+      path: Joi.string().required(),
+      title: Joi.string().required(),
+      blocks: Joi.array(),
+    }).validate(landing);
+    if (error) {
+      return error.message;
+    }
+    return null;
+  }
+
+  /**
+   * Retrieve the current landing by the path
+   * @param path string
+   * @param author string
    * @return Promise
    */
-  public async getLandings(author: string) {
-    const db: Db = await this.connect();
-    try {
-      const landings = await db
-        .collection(this.collection)
-        .find({ author })
-        .toArray();
-      return landings;
-    } catch (err) {
-      this.handleException(
-        err,
-        'getLandings',
-        'Error when trying to find all landings by the user'
-      );
-    }
+  public get(path: string | string[], author: string) {
+    return this.findOne({ path: this.getPath(path), author });
   }
 
   /**
-   * Retrieve the landing by the current path or the id
-   * @param path
-   * @param _id
+   * Retrieve all the landings by the user
+   * @param author string
    * @return Promise
    */
-  public async getLanding(path: string | string[]) {
-    const db: Db = await this.connect();
-    try {
-      const landing = await db
-        .collection(this.collection)
-        .findOne({ path: this.getPath(path) });
-      return landing;
-    } catch (err) {
-      this.handleException(
-        err,
-        'getLanding',
-        'Error when trying to find the current landing by the path | _id'
-      );
-    }
+  public getAll(author: string) {
+    return this.find({ author });
   }
 
   /**
-   * Save the current landing created by the User
-   * @param author
-   * @param landing
+   * Save the current landing for the user
+   * @param author string
+   * @param landing ILanding
    * @return Promise
    */
-  public async saveLanding(author: string, landing: ILanding) {
-    const db: Db = await this.connect();
-    try {
-      const { insertedId } = await db.collection(this.collection).insertOne({
-        ...landing,
-        path: this.getPath(landing.path),
-        author,
-        created_at: new Date(),
-        updated_at: null,
-      });
-      return insertedId;
-    } catch (err) {
-      this.handleException(
-        err,
-        'saveLanding',
-        'Error when trying to save the current landing'
-      );
-    }
+  public save(author: string, landing: ILanding) {
+    return this.insertOne({ ...landing, author, path: this.getPath(landing.path) });
   }
 
   /**
-   * Update the current blocks for the landing by the path
-   * @param path
-   * @param landing
+   * Update the current landing by the path and the current user
+   * @param path string
+   * @param author string
+   * @param landing ILanding
+   * @return Promise
    */
-  public async updateLanding(
-    path: string | string[],
-    landing: ILanding,
-    author: string
-  ) {
-    const db: Db = await this.connect();
-    try {
-      const landingNew = { ...landing, updated_at: new Date() };
-      const { ok, value } = await db
-        .collection(this.collection)
-        .findOneAndUpdate(
-          { path: this.getPath(path), author },
-          { $set: landingNew }
-        );
-      if (ok === 1) {
-        return { ...value, ...landingNew };
-      }
-      return null;
-    } catch (err) {
-      this.handleException(
-        err,
-        'updateLanding',
-        'Error when trying to update the current landing'
-      );
-    }
+  public update(path: string | string[], author: string, landing: ILanding) {
+    return this.findAndUpdateOne({ path: this.getPath(path), author }, landing);
   }
 
   /**
-   * Delete the current landing by the path and the current author
-   * @param path
-   * @param author
+   * Remove the current landing by the path and the current user
+   * @param path string
+   * @param author string
+   * @return Promise
    */
-  public async deleteLanding(path: string | string[], author: string) {
-    const db: Db = await this.connect();
-    try {
-      const { deletedCount } = await db
-        .collection(this.collection)
-        .deleteOne({ path: this.getPath(path), author });
-      if (deletedCount === 1) {
-        return { msg: 'Success' };
-      }
-      return null;
-    } catch (err) {
-      this.handleException(
-        err,
-        'deleteLanding',
-        'Error when trying to delete the landing'
-      );
-    }
+  public delete(path: string | string[], author: string) {
+    return this.deleteOne({ path: this.getPath(path), author });
   }
 
   /**
-   * Handle the current connection from mongoDB
-   * @return Db
-   * @throws Error
-   */
-  private async connect(): Promise<Db> {
-    const { client, db } = await connectToDatabase();
-    const isConnected = await client.isConnected();
-    if (isConnected) {
-      return db;
-    }
-    throw new Error('Unexpected error with database');
-  }
-
-  /**
-   * Retrieve the format path
-   * @param path
+   * Retrieve the full path
+   * @param path string
    * @return string
    */
-  private getPath(path: string | string[]): string {
+  private getPath(path: string | string[]) {
     return `/${path}`;
-  }
-
-  private handleException(
-    exception: Error,
-    _method: string,
-    friendlyMessage: string
-  ) {
-    console.log(exception);
-    throw new Error(friendlyMessage);
   }
 }
 
