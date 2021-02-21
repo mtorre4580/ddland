@@ -1,40 +1,14 @@
+@import '../../../styles/colors';
+
 .form {
-  padding: 5px;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
+  color: $color-white;
   width: 400px;
 
-  .input {
-    padding: 10px;
-    border-radius: 4px;
-    background-color: #fff;
-    width: 100%;
+  .loading {
+    margin-left: 4px;
+  }
+
+  .error {
     margin: 10px 0;
-    border: 0;
-    &:active {
-      background-color: #fff;
-    }
-  }
-
-  .label {
-    color: #fff;
-    font-weight: 400;
-  }
-
-  .btn {
-    background-color: #ff7043;
-    color: #fff;
-    padding: 10px;
-    border-radius: 4px;
-    border: 0;
-    outline: none;
-    font-family: 'RocknRoll One', sans-serif;
-    width: 200px;
-    &:hover {
-      cursor: pointer;
-      background-color: #ff5722;
-      transition: ease-out 0.2s;
-    }
   }
 }

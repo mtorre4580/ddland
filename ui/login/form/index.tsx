@@ -1,75 +1,87 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import axios from 'axios';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
+import Alert from 'react-bootstrap/Alert';
 import { useRouter } from 'next/router';
+import { InitialState, Reducer, Actions, Models } from './effects';
 import styles from './form.module.scss';
 
-interface FormProps {
-  redirect: string;
-}
-//test
-
-export default React.memo(({ redirect }: FormProps) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [hasError, setHasError] = useState('');
-  const [formData, setFormData] = useState({ email: '', password: '' });
-  const { email, password } = formData;
+export default React.memo(({ redirect }: Models.FormProps) => {
+  const [{ form, loading, error }, dispatch] = useReducer(Reducer, InitialState);
   const router = useRouter();
 
-  const handleOnChange = (event: any) => {
+  /**
+   * Handler the onChange for the inputs
+   * @param event
+   */
+  const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    dispatch(Actions.changeInput({ [name]: value }));
   };
 
-  const handleOnSubmit = async (event: any) => {
+  /**
+   * Handler the submit event form
+   * @param event
+   */
+  const handleOnSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();
 
     try {
-      setHasError('');
-      setIsLoading(true);
+      dispatch(Actions.autenticate());
+
       const { status } = await axios.post('/api/login', {
-        ...formData,
+        ...form,
       });
+
       if (status === 200) {
-        setHasError('');
-        setIsLoading(false);
+        dispatch(Actions.autenticateSucces());
         router.push(redirect);
       }
     } catch (err) {
       const { status } = err.response;
-      setIsLoading(false);
-      if (status === 400) {
-        setHasError('Datos inválidos');
-      } else {
-        setHasError('Error inesperado, intente en unos momentos');
-      }
+      const message = status === 400 ? 'Los datos ingresados no son válidos' : 'Error inesperado';
+      dispatch(Actions.autenticateError(message));
     }
   };
 
   return (
-    <div>
-      <form className={styles.form} onSubmit={handleOnSubmit}>
-        <label htmlFor="email" className={styles.label}>
-          Email
-        </label>
-        <input id="email" className={styles.input} type="email" name="email" onChange={handleOnChange} value={email} />
-        <label htmlFor="password" className={styles.label}>
-          Password
-        </label>
-        <input
-          id="password"
-          className={styles.input}
-          type="password"
-          name="password"
-          onChange={handleOnChange}
-          value={password}
-        />
-        <button className={styles.btn}>Acceder</button>
-      </form>
-      {isLoading && <p>carngao..</p>}
-      {hasError && <p>{hasError}</p>}
-    </div>
+    <>
+      <Form className={styles.form} onSubmit={handleOnSubmit}>
+        <Form.Group controlId="formEmail">
+          <Form.Label>Email</Form.Label>
+          <Form.Control
+            type="email"
+            name="email"
+            placeholder="Ingresá tu email"
+            onChange={handleOnChange}
+            value={form.email}
+          />
+        </Form.Group>
+        <Form.Group controlId="formPassword">
+          <Form.Label>Contraseña</Form.Label>
+          <Form.Control
+            type="password"
+            name="password"
+            placeholder="Ingresá tu contraseña"
+            onChange={handleOnChange}
+            value={form.password}
+          />
+        </Form.Group>
+        <Button variant="danger" type="submit">
+          {!loading && <span>Acceder</span>}
+          {loading && (
+            <>
+              <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />
+              <span className={styles.loading}>Accediendo...</span>
+            </>
+          )}
+        </Button>
+        <Alert className={styles.error} show={error !== null} variant="danger">
+          {error}
+        </Alert>
+      </Form>
+    </>
   );
 });

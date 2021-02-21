@@ -1,4 +1,7 @@
 import withSession from '../../middlewares/session';
+import styles from '../../styles/Dashboard.module.scss';
+import Navigation from '../../ui/shared/navigation';
+import Footer from '../../ui/shared/footer';
 
 export const getServerSideProps = withSession(async ({ req, res }) => {
   const user = req.session.get('user');
@@ -16,11 +19,13 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
 });
 
 export default function Dashboard({ user }: any) {
-  const datos = JSON.stringify(user);
   return (
-    <div>
-      estoy logueado
-      <p>{datos}</p>
-    </div>
+    <section className={styles.dashboard}>
+      <Navigation />
+      <div style={{height: '100vh'}}>
+
+      </div>
+      <Footer />
+    </section>
   );
 }
