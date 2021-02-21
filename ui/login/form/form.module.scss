@@ -13,7 +13,7 @@
     margin: 10px 0;
     border: 0;
     &:active {
-        background-color: #fff;
+      background-color: #fff;
     }
   }
 
@@ -32,9 +32,9 @@
     font-family: 'RocknRoll One', sans-serif;
     width: 200px;
     &:hover {
-        cursor: pointer;
-        background-color: #ff5722;
-        transition: ease-out 0.2s;
+      cursor: pointer;
+      background-color: #ff5722;
+      transition: ease-out 0.2s;
     }
   }
 }
