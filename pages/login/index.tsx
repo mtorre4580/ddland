@@ -1,40 +1,18 @@
-import { FormEvent, useState } from 'react';
+import Head from 'next/head';
+import styles from '../../styles/Login.module.scss';
+import Form from '../../ui/login/form';
 
 export default function Login() {
-  const [formData, setFormData] = useState({ email: '', password: '' });
-
-  const handleOnSubmit = async (event: FormEvent) => {
-    event.preventDefault();
-
-    try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        body: JSON.stringify(formData),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      const data = await response.json();
-    } catch (err) {
-      console.log('err', err);
-    }
-  };
-
-  const handleOnChange = (event: any) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
   return (
-    <div>
-      <form onSubmit={handleOnSubmit}>
-        <input type="text" name="email" placeholder="email" onChange={handleOnChange} />
-        <input type="password" name="password" placeholder="password" onChange={handleOnChange} />
-        <button type="submit">Login</button>
-      </form>
-    </div>
+    <>
+      <Head>
+        <title>Login</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet" />
+      </Head>
+      <section className={styles.login}>
+        <Form redirect="/dashboard" />
+      </section>
+    </>
   );
 }

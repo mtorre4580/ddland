@@ -6,6 +6,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>DDLand</title>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}></main>
