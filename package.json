@@ -8,12 +8,12 @@
     "start": "next start",
     "type-check": "tsc",
     "lint": "eslint --ext .ts,.tsx",
-    "prettier": "prettier --write '**/*.{tsx,css}'",
+    "pretty-quick": "pretty-quick",
     "release": "standard-version"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "pretty-quick --staged && npm run lint"
+      "pre-commit": "pretty-quick --staged"
     }
   },
   "dependencies": {
