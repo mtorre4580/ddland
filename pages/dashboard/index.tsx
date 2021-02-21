@@ -1,4 +1,4 @@
-import withSession from '../../services/session';
+import withSession from '../../middlewares/session';
 
 export const getServerSideProps = withSession(async ({ req, res }) => {
   const user = req.session.get('user');

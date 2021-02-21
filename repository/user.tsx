@@ -1,6 +1,6 @@
 import Joi from 'joi';
-import IUser from '../models/user';
-import ModelMongo from './model';
+import IUser from './models/user';
+import ModelMongo from './utils/model';
 
 class UserService extends ModelMongo {
   constructor() {
@@ -31,7 +31,7 @@ class UserService extends ModelMongo {
    * @return Promise
    */
   public async get(email: string, password: string) {
-    const user = await this.findOne({ email, password }) || null;
+    const user = (await this.findOne({ email, password })) || null;
     if (user) {
       const { _id, password, ...infoUser } = user;
       return infoUser;

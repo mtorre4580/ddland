@@ -1,11 +1,11 @@
 import { NextApiResponse } from 'next';
-import withSession from '../../../services/session';
-import userService from '../../../services/user';
+import withSession from '../../../middlewares/session';
+import userRepository from '../../../repository/user';
 
-export default withSession(async (req, res: NextApiResponse) => {
+export default withSession(async (req: any, res: NextApiResponse) => {
   try {
     const { email, password } = req.body;
-    const user = await userService.get(email, password);
+    const user = await userRepository.get(email, password);
     if (user) {
       const details = { isLoggedIn: true, ...user };
       req.session.set('user', details);

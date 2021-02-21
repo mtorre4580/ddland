@@ -8,6 +8,11 @@ class Model {
     this.collection = collection;
   }
 
+  /**
+   * Wrapper for insertOne
+   * @param model object
+   * @return Promise
+   */
   protected async insertOne(model: any) {
     const db: Db = await this.connect();
     try {
@@ -20,6 +25,12 @@ class Model {
     }
   }
 
+  /**
+   * Wrapper for find and update the current model
+   * @param query object
+   * @param model object
+   * @return Promise
+   */
   protected async findAndUpdateOne(query: object, model: any) {
     const db: Db = await this.connect();
     try {
@@ -34,6 +45,11 @@ class Model {
     }
   }
 
+  /**
+   * Wrapper to delete one item by query
+   * @param query object
+   * @return Promise
+   */
   protected async deleteOne(query: object) {
     const db: Db = await this.connect();
     try {
@@ -47,6 +63,11 @@ class Model {
     }
   }
 
+  /**
+   * Wrapper to findOne any model via query
+   * @param query object
+   * @return Promise
+   */
   protected async findOne(query: object) {
     const db: Db = await this.connect();
     try {
@@ -57,6 +78,11 @@ class Model {
     }
   }
 
+  /**
+   * Wrapper to find model via query object
+   * @param query object
+   * @return Promise
+   */
   protected async find(query: object) {
     const db: Db = await this.connect();
     try {
@@ -67,6 +93,10 @@ class Model {
     }
   }
 
+  /**
+   * Handler connection for mongoDB with the current DB
+   * @return Promise
+   */
   private async connect(): Promise<Db> {
     const { client, db } = await connectToDatabase();
     const isConnected = await client.isConnected();
@@ -76,6 +106,11 @@ class Model {
     throw new Error('Unexpected error with database');
   }
 
+  /**
+   * Handler the error for mongoDB connections and querys
+   * @param exception Error
+   * @param friendlyMessage string
+   */
   private handleException(exception: Error, friendlyMessage: string) {
     console.log(exception);
     throw new Error(friendlyMessage);

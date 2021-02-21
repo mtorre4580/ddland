@@ -1,5 +1,5 @@
 import { NextApiResponse } from 'next';
-import withSession from '../../../services/session';
+import withSession from '../../../middlewares/session';
 
 export default withSession((req, res: NextApiResponse) => {
   req.session.destroy();

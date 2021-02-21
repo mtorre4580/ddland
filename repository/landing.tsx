@@ -1,6 +1,6 @@
 import Joi from 'joi';
-import ILanding from '../models/web/landing';
-import ModelMongo from './model';
+import ILanding from './models/web/landing';
+import ModelMongo from './utils/model';
 
 class LandingService extends ModelMongo {
   constructor() {
