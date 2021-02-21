@@ -1,6 +1,8 @@
+import * as DefaultValues from './properties';
+
 /**
  * Retrieve the current elements to generate the web
- * @return {Object[]}
+ * @return object[]
  */
 function getBlocks() {
   return [
@@ -14,4 +16,13 @@ function getBlocks() {
   ];
 }
 
-export { getBlocks };
+/**
+ * Retrieve the current properties avalaibles for the Element
+ * @param type string
+ * @return object
+ */
+function getDefaultValues(id: string) {
+  return (DefaultValues as any)[id];
+}
+
+export { getBlocks, getDefaultValues };

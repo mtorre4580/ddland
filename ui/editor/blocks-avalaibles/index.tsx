@@ -5,7 +5,7 @@ import styles from './blocks-avalaibles.module.scss';
 
 const blocks = getBlocks();
 
-export default function BlocksAvalaibles() {
+export default React.memo(function BlocksAvalaibles() {
   return (
     <aside className={styles.aside}>
       <h2 className={styles.title}> Bloques</h2>
@@ -17,4 +17,4 @@ export default function BlocksAvalaibles() {
       </div>
     </aside>
   );
-}
+});

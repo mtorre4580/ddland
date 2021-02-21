@@ -3,7 +3,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Link from 'next/link';
 
-export default function Navigation() {
+export default React.memo(function Navigation() {
   return (
     <Navbar fixed="top" bg="danger" variant="dark">
       <Navbar.Brand href="#home">
@@ -22,4 +22,4 @@ export default function Navigation() {
       </Nav>
     </Navbar>
   );
-}
+});
