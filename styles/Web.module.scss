@@ -1,0 +1,13 @@
+@import '../styles/colors';
+
+.web {
+  background-color: $color-grey;
+  min-height: 100vh;
+
+  .notFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $color-dark;
+  }
+}
