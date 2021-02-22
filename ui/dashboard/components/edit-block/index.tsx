@@ -14,13 +14,15 @@ interface EditBlockProps {
 }
 
 export default React.memo(function EditBlock({ block, index, onRemove, onEdit }: EditBlockProps) {
-  const handleRemove = () => {
-    onRemove(index);
-  };
+  /**
+   * Handler when the user has intented to remove the block
+   */
+  const handleRemove = () => onRemove(index);
 
-  const handleEdit = () => {
-    onEdit(index, block);
-  };
+  /**
+   * Handler when the user has intented to edit the current block
+   */
+  const handleEdit = () => onEdit(index, block);
 
   return (
     <Card className={styles.editBlock}>

@@ -1,46 +1,50 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import BlocksAvalaibles from './blocks-avalaibles';
-import Canva from './canva';
-import Preview from './preview';
+import BlocksAvalaibles from '../blocks-avalaibles';
+import Canva from '../canva';
+import Preview from '../preview';
+import ButtonFloat from '../../../shared/button-float';
+import { saveLanding } from '../../services';
+import { Reducer, InitialState, Actions, Models } from '../../effects';
 import styles from './editor.module.scss';
-import ButtonFloat from '../shared/button-float';
-import { saveLanding } from './services';
 
 export default React.memo(function Editor() {
-  const [blocks, setBlocks] = useState([]);
+  const [{ blocks }, dispatch] = useReducer(Reducer, InitialState);
 
-  const handleOnAdd = (block: any) => {
-    const newBlocks: any = [...blocks, block];
-    setBlocks(newBlocks);
-  };
+  /**
+   * Handler when user add block to the Dashboard
+   * @param block Block
+   */
+  const handleOnAdd = (block: Models.Block) => dispatch(Actions.addBlock(block));
 
-  const handleOnRemove = (index: number) => {
-    const copyBlocks = [...blocks];
-    copyBlocks.splice(index, 1);
-    setBlocks(copyBlocks);
-  };
+  /**
+   * Handler when user remove block to the Dashboard
+   * @param index number
+   */
+  const handleOnRemove = (index: number) => dispatch(Actions.removeBlock(index));
 
-  const handleOnEdit = (index: number, block: any) => {
-    const newBlocks: any = [...blocks];
-    newBlocks[index] = block;
-    setBlocks(newBlocks);
-  };
+  /**
+   * Handler when user edit success the block
+   * @param index number
+   * @param block Block
+   */
+  const handleOnEdit = (index: number, block: Models.Block) => dispatch(Actions.editBlock(index, block));
 
+  /**
+   * Handler the current landing
+   */
   const handleSave = async () => {
     const request = {
       path: 'mi-landing-1',
       title: 'mi primera pagina',
       blocks,
     };
-
     try {
-      const { data } = await saveLanding(request);
-      console.log('data', data);
+      await saveLanding(request);
     } catch (err) {
       console.log('err', err);
     }

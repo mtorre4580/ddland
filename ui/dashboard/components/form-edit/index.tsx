@@ -7,6 +7,10 @@ export default React.memo(function FormEdit({ block, onEditApply }: any) {
   const { id, values } = block;
   const [formProperties, setFormProperties] = useState(values);
 
+  /**
+   * Handler to change the current state of the inputs when user change...
+   * @param event React.ChangeEvent<HTMLInputElement>
+   */
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormProperties({
@@ -15,6 +19,10 @@ export default React.memo(function FormEdit({ block, onEditApply }: any) {
     });
   };
 
+  /**
+   * Handler onSubmit event to notify the edition of the current block
+   * @param event React.SyntheticEvent
+   */
   const handleOnSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
     onEditApply({ id, values: formProperties });

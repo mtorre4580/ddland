@@ -4,8 +4,8 @@ import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import Alert from 'react-bootstrap/Alert';
 import { useRouter } from 'next/router';
-import { loginUser } from './services';
-import { InitialState, Reducer, Actions, Models } from './effects';
+import { loginUser } from '../../services';
+import { InitialState, Reducer, Actions, Models } from '../../effects';
 import styles from './form.module.scss';
 
 export default React.memo(({ redirect }: Models.FormProps) => {

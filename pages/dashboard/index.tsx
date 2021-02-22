@@ -1,7 +1,7 @@
 import withSession from '../../middlewares/session';
 import Navigation from '../../ui/shared/navigation';
 import Footer from '../../ui/shared/footer';
-import Editor from '../../ui/editor';
+import Editor from '../../ui/dashboard/components/editor';
 import styles from '../../styles/Dashboard.module.scss';
 
 export const getServerSideProps = withSession(async ({ req, res }) => {

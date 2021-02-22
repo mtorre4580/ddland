@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import styles from '../../styles/Login.module.scss';
-import Form from '../../ui/login/form';
+import Form from '../../ui/login/components/form';
 
 export default function Login() {
   return (

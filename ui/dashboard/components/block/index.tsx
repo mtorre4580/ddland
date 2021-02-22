@@ -3,7 +3,13 @@ import Card from 'react-bootstrap/Card';
 import { useDrag } from 'react-dnd';
 import styles from './block.module.scss';
 
-export default React.memo(function Block({ name, id, description }: any) {
+interface BlockProps {
+  name: string;
+  id: string;
+  description: string;
+}
+
+export default React.memo(function Block({ name, id, description }: BlockProps) {
   const [, drag] = useDrag({ item: { type: 'block', id, name } });
 
   return (

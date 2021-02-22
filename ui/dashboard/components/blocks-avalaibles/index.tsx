@@ -1,6 +1,6 @@
 import React from 'react';
 import Block from '../block';
-import { getBlocks } from '../services';
+import { getBlocks } from '../../services';
 import styles from './blocks-avalaibles.module.scss';
 
 const blocks = getBlocks();

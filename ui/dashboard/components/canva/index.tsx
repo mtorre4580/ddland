@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDrop } from 'react-dnd';
-import { getDefaultValues } from '../services';
+import { getDefaultValues } from '../../services';
 import EditBlock from '../edit-block';
-import Modal from '../../shared/modal';
+import Modal from '../../../shared/modal';
 import FormEdit from '../form-edit';
 import styles from './canva.module.scss';
 
@@ -17,6 +17,7 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit 
   const [isEdit, setIsEdit] = useState(false);
   const [currentEdition, setCurrentEdition] = useState({ component: null, index: 0 });
 
+  // Hook to handle the drop event for the blocks
   const [, dropRef] = useDrop({
     accept: 'block',
     drop: (item: any) => {
@@ -27,15 +28,25 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit 
     }),
   });
 
+  /**
+   * Handler the action to edit the current block
+   * @param index number
+   * @param block Block
+   */
   const handleOnEdit = (index: number, block: any) => {
     setIsEdit(true);
     setCurrentEdition({ index, component: block });
   };
 
-  const handleOnCloseModal = () => {
-    setIsEdit(false);
-  };
+  /**
+   * Handler the event when the modal is close
+   */
+  const handleOnCloseModal = () => setIsEdit(false);
 
+  /**
+   * Handler the event when user edit the block and accept the new changes
+   * @param block Block
+   */
   const handleOnEditApply = (block: any) => {
     setCurrentEdition({
       ...currentEdition,
@@ -44,12 +55,14 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit 
     setIsEdit(false);
   };
 
+  // Effect to validate the current state of the block to Edit
   useEffect(() => {
     if (currentEdition.component) {
       onEdit(currentEdition.index, currentEdition.component);
     }
   }, [currentEdition]);
 
+  // Effect to reset the current state of the block to Edit
   useEffect(() => {
     if (!isEdit) {
       setCurrentEdition({ component: null, index: 0 });
