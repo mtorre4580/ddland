@@ -10,6 +10,9 @@ export default React.memo(function Navigation() {
         <img alt="logo-app" src="/wblocks.svg" width="30" height="30" className="d-inline-block align-top" /> DDLand
       </Navbar.Brand>
       <Nav className="ml-auto">
+        <Link href="/" passHref>
+          <Nav.Link>Inicio</Nav.Link>
+        </Link>
         <Link href="/dashboard" passHref>
           <Nav.Link>Dashboard</Nav.Link>
         </Link>
