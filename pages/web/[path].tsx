@@ -1,4 +1,4 @@
-import Reader from '../../ui/dashboard/editor/reader';
+import Reader from '../../ui/dashboard/components/reader';
 // import axios from 'axios';
 // import { useRouter } from 'next/router';
 // import { useEffect } from 'react';
