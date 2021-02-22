@@ -1,4 +1,11 @@
 import * as DefaultValues from './properties';
+import axios from 'axios';
+
+interface LandingRequest {
+  path: string;
+  title: string;
+  blocks: object[];
+}
 
 /**
  * Retrieve the current elements to generate the web
@@ -25,4 +32,13 @@ function getDefaultValues(id: string) {
   return (DefaultValues as any)[id];
 }
 
-export { getBlocks, getDefaultValues };
+/**
+ * Save a new landing for the current user
+ * @param request LandingRequest
+ * @return Promise
+ */
+function saveLanding(request: LandingRequest) {
+  return axios.post('/api/landings', request);
+}
+
+export { getBlocks, getDefaultValues, saveLanding };

@@ -30,8 +30,8 @@ class LandingService extends ModelMongo {
    * @param author string
    * @return Promise
    */
-  public get(path: string | string[], author: string) {
-    return this.findOne({ path: this.getPath(path), author });
+  public get(path: string | string[]) {
+    return this.findOne({ path: this.getPath(path) });
   }
 
   /**

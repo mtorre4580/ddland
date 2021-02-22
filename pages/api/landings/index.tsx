@@ -10,7 +10,7 @@ export default withAuth(async (req: any, res: NextApiResponse) => {
     const { path } = req.query;
     let response = null;
     if (path) {
-      response = await landingRepository.get(path, email);
+      response = await landingRepository.get(path);
     } else {
       response = await landingRepository.getAll(email);
     }
