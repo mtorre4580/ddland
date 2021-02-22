@@ -15,3 +15,12 @@ export interface StateForm {
   loading: boolean;
   error: string;
 }
+
+export interface RequestLogin {
+  email: string;
+  password: string;
+}
+
+export interface Payload {
+  [key: string]: string;
+}

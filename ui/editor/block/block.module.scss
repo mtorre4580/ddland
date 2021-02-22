@@ -5,10 +5,27 @@
     cursor: grab;
     cursor: -moz-grab;
     cursor: -webkit-grab;
+    animation: grab-effect 0.8s infinite;
   }
   &:active {
     cursor: grabbing;
     cursor: -moz-grabbing;
     cursor: -webkit-grabbing;
+  }
+}
+
+@keyframes grab-effect {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
   }
 }

@@ -10,11 +10,9 @@ export default React.memo(function BlocksAvalaibles() {
     <aside className={styles.aside}>
       <h2 className={styles.title}> Bloques</h2>
       <p className="text-muted text-center">Crea tu web haciendo drag and drop!</p>
-      <div className={styles.blocks}>
-        {blocks.map((block, index) => (
-          <Block key={index} {...block} />
-        ))}
-      </div>
+      {blocks.map((block, index) => (
+        <Block key={index} {...block} />
+      ))}
     </aside>
   );
 });

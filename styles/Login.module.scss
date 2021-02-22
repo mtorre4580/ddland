@@ -1,6 +1,8 @@
+@import '../styles/colors';
+
 .login {
   padding: '10px';
-  background-color: #212121;
+  background-color: $color-dark;
   height: 100vh;
   display: flex;
   justify-content: center;

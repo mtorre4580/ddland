@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useDrop } from 'react-dnd';
-import styles from './canva.module.scss';
 import { getDefaultValues } from '../services';
 import EditBlock from '../edit-block';
 import Modal from '../../shared/modal';
 import FormEdit from '../form-edit';
+import styles from './canva.module.scss';
 
 interface CanvaProps {
   onAdd: Function;
@@ -60,16 +60,19 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit 
     <>
       <section ref={dropRef} className={styles.canva}>
         {blocks.length === 0 && (
-          <div className={styles.description}>
-            <img className={styles.image} src="/start.svg" alt="start-canva" />
+          <div className={styles.letStart}>
+            <img className={styles.image} src="/start.svg" alt="let start to edit" />
             <p>Arrastra un bloque para empezar</p>
           </div>
         )}
-        <h2 className={styles.title}>Mi landing</h2>
-        {blocks.length > 0 &&
-          blocks.map((block, index) => (
-            <EditBlock key={index} index={index} block={block} onRemove={onRemove} onEdit={handleOnEdit} />
-          ))}
+        {blocks.length > 0 && (
+          <>
+            <h2 className={styles.title}>Mi landing</h2>
+            {blocks.map((block, index) => (
+              <EditBlock key={index} index={index} block={block} onRemove={onRemove} onEdit={handleOnEdit} />
+            ))}
+          </>
+        )}
       </section>
       <Modal title="Editar" active={isEdit} onClose={handleOnCloseModal}>
         <p className="text-muted">En esta sección puedes modificar los datos de los bloques</p>

@@ -1,15 +1,13 @@
+@import '../../../styles/colors';
+
 .aside {
-  background-color: #ddd;
+  background-color: $color-grey-dark;
   padding: 10px;
 
   .title {
-    color: #212121;
+    color: $color-dark;
     padding: 4px;
     text-align: center;
     font-size: 1.5rem;
-  }
-
-  .blocks {
-    
   }
 }
