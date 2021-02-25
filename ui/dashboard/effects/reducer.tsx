@@ -1,5 +1,5 @@
 import { ADD_BLOCK, REMOVE_BLOCK, EDIT_BLOCK } from './constants';
-import { StateEditor, Action } from './models';
+import { Action } from './models';
 
 export default function reducer(prevState: any, action: Action) {
   const { type, payload } = action;
