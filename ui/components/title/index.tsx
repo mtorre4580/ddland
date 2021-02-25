@@ -5,7 +5,7 @@ interface TitleProps {
   subtitle?: string;
 }
 
-export default React.memo(function Title({ title, subtitle }: TitleProps) {
+export default React.memo(function TitleWrapper({ title, subtitle }: TitleProps) {
   return (
     <>
       <h1>{title}</h1>

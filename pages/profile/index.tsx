@@ -37,9 +37,11 @@ export default function Profile({ user }: any) {
           <Row>
             <Col>
               <div className={styles.user}>
-                <div style={{display: 'flex', flexDirection: 'column'}}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <Image src="https://randomuser.me/api/portraits/women/75.jpg" rounded />
-                  <Button style={{margin: '4px'}} variant="outline-danger">Editar</Button>
+                  <Button style={{ margin: '4px' }} variant="outline-danger">
+                    Editar
+                  </Button>
                 </div>
                 <div className={styles.info}>
                   <h2>{user.name}</h2>

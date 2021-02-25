@@ -61,7 +61,7 @@ export default function Landings({ landings }: any) {
    */
   const handleOnDelete = async (path: string) => {
     try {
-      const { data } = await axios.delete(`/api/landings${path}`);
+      const { data } = await axios.delete(`/api/landings${path}`);
       console.log('se elimino', data);
     } catch (err) {
       console.log('err', err);
@@ -102,7 +102,11 @@ export default function Landings({ landings }: any) {
                       <td>{formatDate(landing.created_at)}</td>
                       <td>{landing.updated_at ? formatDate(landing.updated_at) : 'Sin modificaciones'}</td>
                       <td className={styles.actions}>
-                        <Button href={`/dashboard?path=${landing.path}`} className={styles.actionButton} variant="outline-success">
+                        <Button
+                          href={`/dashboard?path=${landing.path}`}
+                          className={styles.actionButton}
+                          variant="outline-success"
+                        >
                           Editar
                         </Button>
                         <Button

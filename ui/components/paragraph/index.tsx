@@ -4,6 +4,6 @@ interface ParagraphProps {
   text: string;
 }
 
-export default React.memo(function Title({ text }: ParagraphProps) {
+export default React.memo(function ParagraphWrapper({ text }: ParagraphProps) {
   return <p>{text}</p>;
 });
