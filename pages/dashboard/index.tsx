@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import withSession from '../../middlewares/session';
 import Navigation from '../../ui/shared/navigation';
 import Footer from '../../ui/shared/footer';
@@ -18,7 +19,10 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
 export default function Dashboard() {
   return (
     <section className={styles.dashboard}>
-      <Navigation />
+      <Head>
+        <title>Dashboard</title>
+      </Head>
+      <Navigation active="/dashboard" />
       <div style={{ paddingTop: '56px' }}>
         <Editor />
       </div>

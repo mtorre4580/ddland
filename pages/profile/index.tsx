@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import withSession from '../../middlewares/session';
 import styles from '../../styles/Landings.module.scss';
 import Navigation from '../../ui/shared/navigation';
@@ -22,7 +23,10 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
 export default function Profile({ user }: any) {
   return (
     <section className={styles.profile}>
-      <Navigation />
+      <Head>
+        <title>Perfil</title>
+      </Head>
+      <Navigation active="/profile" />
       <div style={{ minHeight: '100vh', paddingTop: '56px' }}>
         <p>{JSON.stringify(user)}</p>
       </div>
