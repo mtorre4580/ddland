@@ -12,7 +12,7 @@ export default withAuth(async (req: any, res: NextApiResponse) => {
   const userLogged = session.get('user');
 
   if (userLogged.email !== email) {
-    res.status(400).json({ msg: 'Invalid email, you are the user!' });
+    res.status(400).json({ msg: 'Invalid email, you are the user?' });
   }
 
   if (method === 'DELETE') {
