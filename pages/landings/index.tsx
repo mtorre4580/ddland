@@ -102,7 +102,7 @@ export default function Landings({ landings }: any) {
                       <td>{formatDate(landing.created_at)}</td>
                       <td>{landing.updated_at ? formatDate(landing.updated_at) : 'Sin modificaciones'}</td>
                       <td className={styles.actions}>
-                        <Button className={styles.actionButton} variant="outline-success">
+                        <Button href={`/dashboard?path=${landing.path}`} className={styles.actionButton} variant="outline-success">
                           Editar
                         </Button>
                         <Button

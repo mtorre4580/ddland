@@ -14,7 +14,7 @@ class LandingService extends ModelMongo {
    */
   public validate(landing: ILanding) {
     const { error } = Joi.object({
-      path: Joi.string().required(),
+      path: Joi.string(),
       title: Joi.string().required(),
       blocks: Joi.array(),
     }).validate(landing);

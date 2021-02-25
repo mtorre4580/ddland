@@ -2,7 +2,7 @@ import * as DefaultValues from './properties';
 import axios from 'axios';
 
 interface LandingRequest {
-  path: string;
+  path?: string;
   title: string;
   blocks: object[];
 }
@@ -41,4 +41,14 @@ function saveLanding(request: LandingRequest) {
   return axios.post('/api/landings', request);
 }
 
-export { getBlocks, getDefaultValues, saveLanding };
+/**
+ * Upate the current landing
+ * @param path string
+ * @param request object
+ * @return Promise
+ */
+function updateLanding(path: string, request: LandingRequest) {
+  return axios.put(`/api/landings${path}`, request);
+}
+
+export { getBlocks, getDefaultValues, saveLanding, updateLanding };

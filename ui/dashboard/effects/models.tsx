@@ -1,5 +1,8 @@
 export interface StateEditor {
   blocks: any[];
+  [key: string]: any;
+  path: string;
+  title: string;
 }
 
 export interface Action {

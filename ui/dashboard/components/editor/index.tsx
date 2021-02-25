@@ -8,12 +8,18 @@ import BlocksAvalaibles from '../blocks-avalaibles';
 import Canva from '../canva';
 import Preview from '../preview';
 import ButtonFloat from '../../../shared/button-float';
-import { saveLanding } from '../../services';
+import { saveLanding, updateLanding } from '../../services';
 import { Reducer, InitialState, Actions, Models } from '../../effects';
 import styles from './editor.module.scss';
+import ILanding from '../../../../repository/models/web/landing';
 
-export default React.memo(function Editor() {
-  const [{ blocks }, dispatch] = useReducer(Reducer, InitialState);
+interface EditorProps {
+  landing: ILanding | object;
+  isEdit: boolean;
+}
+
+export default React.memo(function Editor({ landing = {}, isEdit = false }: EditorProps) {
+  const [{ blocks, path, title }, dispatch] = useReducer(Reducer, { ...InitialState, ...landing });
 
   /**
    * Handler when user add block to the Dashboard
@@ -35,16 +41,15 @@ export default React.memo(function Editor() {
   const handleOnEdit = (index: number, block: Models.Block) => dispatch(Actions.editBlock(index, block));
 
   /**
-   * Handler the current landing
+   * Handler the current landing save or update
    */
-  const handleSave = async () => {
-    const request = {
-      path: 'mi-landing-1',
-      title: 'mi primera pagina',
-      blocks,
-    };
+  const handleSaveOrUpdate = async () => {
     try {
-      await saveLanding(request);
+      if (isEdit) {
+        await updateLanding(path, { title, blocks });
+      } else {
+        await saveLanding({ path: 'landing-2', title: 'testing-2', blocks });
+      }
     } catch (err) {
       console.log('err', err);
     }
@@ -64,7 +69,7 @@ export default React.memo(function Editor() {
             <Preview blocks={blocks} />
           </Col>
         </Row>
-        <ButtonFloat style={{ bottom: '40px', right: '120px' }} onClick={handleSave}>
+        <ButtonFloat style={{ bottom: '40px', right: '120px' }} onClick={handleSaveOrUpdate}>
           <img className={styles.icons} src="/save.svg" alt="save-action" />
         </ButtonFloat>
         <ButtonFloat style={{ bottom: '40px', right: '40px' }}>
