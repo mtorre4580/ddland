@@ -4,7 +4,13 @@ import Navigation from '../../ui/shared/navigation';
 import Footer from '../../ui/shared/footer';
 import Editor from '../../ui/dashboard/components/editor';
 import landingRepository from '../../repository/landing';
+import ILanding from '../../repository/models/web/landing';
 import styles from '../../styles/Dashboard.module.scss';
+
+interface DashboardPageProps {
+  landing: ILanding;
+  isEdit: boolean;
+}
 
 export const getServerSideProps = withSession(async ({ req, res, query }) => {
   const user = req.session.get('user');
@@ -40,7 +46,7 @@ export const getServerSideProps = withSession(async ({ req, res, query }) => {
   return { props: {} };
 });
 
-export default function Dashboard({ landing, isEdit }: any) {
+export default function Dashboard({ landing, isEdit }: DashboardPageProps) {
   return (
     <section className={styles.dashboard}>
       <Head>

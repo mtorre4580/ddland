@@ -12,6 +12,10 @@ import styles from '../../styles/Landings.module.scss';
 import axios from 'axios';
 import fileDownload from 'js-file-download';
 
+interface LandingsPageProps {
+  landings: ILanding[];
+}
+
 export const getServerSideProps = withSession(async ({ req, res }) => {
   const user = req.session.get('user');
 
@@ -38,7 +42,7 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
 
 const formatDate = (date: Date) => new Date(date).toLocaleDateString();
 
-export default function Landings({ landings }: any) {
+export default function Landings({ landings }: LandingsPageProps) {
   /**
    * Handler to download the web in .html with the current title
    * @param path string

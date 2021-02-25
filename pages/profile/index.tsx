@@ -8,6 +8,11 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
+import IUser from '../../repository/models/user';
+
+interface ProfilePageProps {
+  user: IUser;
+}
 
 export const getServerSideProps = withSession(async ({ req, res }) => {
   const user = req.session.get('user');
@@ -25,7 +30,7 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
   };
 });
 
-export default function Profile({ user }: any) {
+export default function Profile({ user }: ProfilePageProps) {
   return (
     <section className={styles.profile}>
       <Head>

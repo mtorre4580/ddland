@@ -27,7 +27,7 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navigation />
+      <Navigation active="/" />
       <div style={{ minHeight: '100vh', paddingTop: '56px' }}>
         <p>home</p>
       </div>

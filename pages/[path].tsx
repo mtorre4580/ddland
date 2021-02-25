@@ -1,8 +1,14 @@
 import Head from 'next/head';
 import Reader from '../ui/dashboard/components/reader';
-import ILanding from '../repository/models/web/landing';
 import landingRepository from '../repository/landing';
 import styles from '../styles/Web.module.scss';
+import IBlock from '../repository/models/web/block';
+
+interface WebPageProps {
+  title: string;
+  blocks: IBlock[];
+  notFound: boolean;
+}
 
 export async function getServerSideProps(context: any) {
   try {
@@ -23,7 +29,7 @@ export async function getServerSideProps(context: any) {
   }
 }
 
-export default function Web({ title, blocks = [], notFound }: ILanding & { notFound: boolean }) {
+export default function Web({ title, blocks = [], notFound }: WebPageProps) {
   return (
     <section className={styles.web}>
       <Head>
