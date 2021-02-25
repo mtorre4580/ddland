@@ -3,7 +3,7 @@ import styles from './modal.module.scss';
 
 interface ModalProps {
   title: string;
-  children: Function;
+  children: JSX.Element;
   active: boolean;
   onClose: Function;
 }
