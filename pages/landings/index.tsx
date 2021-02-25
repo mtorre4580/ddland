@@ -1,13 +1,16 @@
 import Head from 'next/head';
 import withSession from '../../middlewares/session';
-import styles from '../../styles/Landings.module.scss';
-import landingRepository from '../../repository/landing';
 import Navigation from '../../ui/shared/navigation';
 import Footer from '../../ui/shared/footer';
-
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Container from 'react-bootstrap/Container';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import ILanding from '../../repository/models/web/landing';
+import landingRepository from '../../repository/landing';
+import styles from '../../styles/Landings.module.scss';
+import axios from 'axios';
+import fileDownload from 'js-file-download';
 
 export const getServerSideProps = withSession(async ({ req, res }) => {
   const user = req.session.get('user');
@@ -19,9 +22,12 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
   }
 
   try {
-    const landings = await landingRepository.getAll(user.email);
+    const landings: any = await landingRepository.getAll(user.email);
+    const landingsParse: any = JSON.parse(JSON.stringify(landings));
     return {
-      props: {},
+      props: {
+        landings: landingsParse,
+      },
     };
   } catch (err) {
     return {
@@ -30,105 +36,37 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
   }
 });
 
-export default function Landings() {
-  const algo = [
-    {
-      path: '/mi-landing-1',
-      title: 'mi primera pagina',
-      blocks: [
-        { id: 'Title', values: { title: 'Mi título', subtitle: 'Mi subtitulo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-      ],
-      author: 'mtorre4580@outlook.com',
-      created_at: '2021-02-22T01:40:49.111Z',
-      updated_at: null,
-    },
-    {
-      path: '/mi-landing-1',
-      title: 'mi primera pagina',
-      blocks: [
-        { id: 'Title', values: { title: 'Mi título', subtitle: 'Mi subtitulo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-      ],
-      author: 'mtorre4580@outlook.com',
-      created_at: '2021-02-22T01:40:49.111Z',
-      updated_at: null,
-    },
-    {
-      path: '/mi-landing-1',
-      title: 'mi primera pagina',
-      blocks: [
-        { id: 'Title', values: { title: 'Mi título', subtitle: 'Mi subtitulo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-      ],
-      author: 'mtorre4580@outlook.com',
-      created_at: '2021-02-22T01:40:49.111Z',
-      updated_at: null,
-    },
-    {
-      path: '/mi-landing-1',
-      title: 'mi primera pagina',
-      blocks: [
-        { id: 'Title', values: { title: 'Mi título', subtitle: 'Mi subtitulo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-      ],
-      author: 'mtorre4580@outlook.com',
-      created_at: '2021-02-22T01:40:49.111Z',
-      updated_at: null,
-    },
-    {
-      path: '/mi-landing-1',
-      title: 'mi primera pagina',
-      blocks: [
-        { id: 'Title', values: { title: 'Mi título', subtitle: 'Mi subtitulo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-      ],
-      author: 'mtorre4580@outlook.com',
-      created_at: '2021-02-22T01:40:49.111Z',
-      updated_at: null,
-    },
-    {
-      path: '/mi-landing-1',
-      title: 'mi primera pagina',
-      blocks: [
-        { id: 'Title', values: { title: 'Mi título', subtitle: 'Mi subtitulo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-      ],
-      author: 'mtorre4580@outlook.com',
-      created_at: '2021-02-22T01:40:49.111Z',
-      updated_at: null,
-    },
-    {
-      path: '/mi-landing-1',
-      title: 'mi primera pagina',
-      blocks: [
-        { id: 'Title', values: { title: 'Mi título', subtitle: 'Mi subtitulo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-      ],
-      author: 'mtorre4580@outlook.com',
-      created_at: '2021-02-22T01:40:49.111Z',
-      updated_at: null,
-    },
-    {
-      path: '/mi-landing-1',
-      title: 'mi primera pagina',
-      blocks: [
-        { id: 'Title', values: { title: 'Mi título', subtitle: 'Mi subtitulo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-        { id: 'Paragraph', values: { text: 'Mi parráfo...' } },
-      ],
-      author: 'mtorre4580@outlook.com',
-      created_at: '2021-02-22T01:40:49.111Z',
-      updated_at: null,
-    },
-  ];
+const formatDate = (date: Date) => new Date(date).toLocaleDateString();
+
+export default function Landings({ landings }: any) {
+  /**
+   * Handler to download the web in .html with the current title
+   * @param path string
+   * @param title string
+   */
+  const handleOnDownload = async (path: string, title: string) => {
+    try {
+      const { data } = await axios.get(path, {
+        responseType: 'blob',
+      });
+      fileDownload(data, `${title}.html`);
+    } catch (err) {
+      console.log('err', err);
+    }
+  };
+
+  /**
+   * Handler to delete the current web selected
+   * @param path string
+   */
+  const handleOnDelete = async (path: string) => {
+    try {
+      const { data } = await axios.delete(`/api/landings${path}`);
+      console.log('se elimino', data);
+    } catch (err) {
+      console.log('err', err);
+    }
+  };
 
   return (
     <section className={styles.landings}>
@@ -143,13 +81,12 @@ export default function Landings() {
             <p>En esta sección podras encontrar todas tus landings, para que puedas visualizarlas y editarlas</p>
           </Container>
         </Jumbotron>
-
-        {algo.length > 0 && (
-          <div>
+        {landings.length > 0 && (
+          <div className={styles.table}>
             <Table>
               <thead>
                 <tr>
-                  <th>Url</th>
+                  <th>URL</th>
                   <th>Título</th>
                   <th>Fecha de creación</th>
                   <th>Ultima modificación</th>
@@ -157,15 +94,39 @@ export default function Landings() {
                 </tr>
               </thead>
               <tbody>
-                {algo.map((landing, index) => {
+                {landings.map((landing: ILanding, index: number) => {
                   return (
                     <tr key={index}>
                       <td>{landing.path}</td>
                       <td>{landing.title}</td>
-                      <td>{landing.created_at}</td>
-                      <td>{landing.updated_at}</td>
-                      <td>
-                        
+                      <td>{formatDate(landing.created_at)}</td>
+                      <td>{landing.updated_at ? formatDate(landing.updated_at) : 'Sin modificaciones'}</td>
+                      <td className={styles.actions}>
+                        <Button className={styles.actionButton} variant="outline-success">
+                          Editar
+                        </Button>
+                        <Button
+                          className={styles.actionButton}
+                          variant="outline-success"
+                          onClick={() => handleOnDelete(landing.path)}
+                        >
+                          Eliminar
+                        </Button>
+                        <Button
+                          className={styles.actionButton}
+                          variant="outline-success"
+                          onClick={() => handleOnDownload(landing.path, landing.title)}
+                        >
+                          Descargar
+                        </Button>
+                        <Button
+                          href={landing.path}
+                          target="_blank"
+                          className={styles.actionButton}
+                          variant="outline-success"
+                        >
+                          Visualizar
+                        </Button>
                       </td>
                     </tr>
                   );
