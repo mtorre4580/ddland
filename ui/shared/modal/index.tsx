@@ -1,10 +1,15 @@
 import Button from 'react-bootstrap/Button';
 import styles from './modal.module.scss';
 
-export default function Modal({ title, children, active, onClose }: any) {
-  const handleOnClose = () => {
-    onClose();
-  };
+interface ModalProps {
+  title: string;
+  children: Function;
+  active: boolean;
+  onClose: Function;
+}
+
+export default function Modal({ title, children, active, onClose }: ModalProps) {
+  const handleOnClose = () => onClose();
 
   return (
     <div className={styles.modal} style={{ visibility: active ? 'visible' : 'hidden' }}>

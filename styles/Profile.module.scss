@@ -1,6 +1,8 @@
+@import './colors';
+
 .profile {
   .user {
-    color: #212121;
+    color: $color-dark;
     display: flex;
     flex-direction: row;
 

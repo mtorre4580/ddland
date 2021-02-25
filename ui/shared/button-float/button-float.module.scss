@@ -1,9 +1,11 @@
+@import '../../../styles/colors';
+
 .buttonFloat {
   position: fixed;
   width: 60px;
   height: 60px;
-  background-color: #dc3545;
-  color: #fff;
+  background-color: $color-principal;
+  color: $color-white;
   border-radius: 50px;
   text-align: center;
   border: 0;

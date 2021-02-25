@@ -1,0 +1,21 @@
+.video {
+  margin: 0 auto;
+  max-width: 1184px;
+  padding: 10px;
+
+  .wrapper {
+    padding-top: 56.25%;
+    position: relative;
+
+    .iframe {
+      display: block;
+      height: 100%;
+      left: 0;
+      margin: 0 auto;
+      max-width: 100%;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+}

@@ -3,7 +3,11 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Link from 'next/link';
 
-export default React.memo(function Navigation({ active = '/' }: any) {
+interface NavigationProps {
+  active: string;
+}
+
+export default React.memo(function Navigation({ active = '/' }: NavigationProps) {
   return (
     <Navbar fixed="top" bg="danger" variant="dark">
       <Link href="/" passHref>

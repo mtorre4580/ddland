@@ -1,11 +1,13 @@
+@import '../../../styles/colors';
+
 .modal {
   position: absolute;
   right: 0;
   bottom: 0;
   left: 0;
   top: 0;
-  background-color: #212121;
-  color: #fff;
+  background-color: $color-dark;
+  color: $color-white;
   height: 100%;
   margin: 20px;
   z-index: 4000;

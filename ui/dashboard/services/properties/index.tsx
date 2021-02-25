@@ -3,5 +3,7 @@ import Paragraph from './paragraph';
 import Header from './header';
 import Image from './image';
 import Link from './link';
+import Video from './video';
+import Footer from './footer';
 
-export { Title, Paragraph, Header, Image, Link };
+export { Title, Paragraph, Header, Image, Link, Video, Footer };
