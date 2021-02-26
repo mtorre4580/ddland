@@ -30,10 +30,10 @@ class UserService extends ModelMongo {
    * @param email string
    * @return Promise
    */
-  public async get(email: string, password: string) {
-    const user = (await this.findOne({ email, password })) || null;
+  public async get(email: string) {
+    const user = (await this.findOne({ email })) || null;
     if (user) {
-      const { _id, password, ...infoUser } = user;
+      const { _id, ...infoUser } = user;
       return infoUser;
     }
     return user;

@@ -4,7 +4,7 @@ import Navigation from '../ui/shared/navigation';
 import Footer from '../ui/shared/footer';
 import styles from '../styles/Home.module.scss';
 
-export const getServerSideProps = withSession(async ({ req, res }) => {
+export const getServerSideProps = withSession(({ req, res }) => {
   const user = req.session.get('user');
 
   if (user === undefined) {
@@ -12,6 +12,7 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
     res.statusCode = 302;
     res.end();
   }
+
   return {
     props: {
       user,

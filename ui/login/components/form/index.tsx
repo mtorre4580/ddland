@@ -36,9 +36,10 @@ export default React.memo(function FormLogin() {
         router.push('/dashboard');
       }
     } catch (err) {
-      const { status } = err.response;
-      const message = status === 400 ? 'Los datos ingresados no son válidos' : 'Error inesperado';
-      dispatch(Actions.autenticateError(message));
+      const {
+        data: { msg },
+      } = err.response;
+      dispatch(Actions.autenticateError(msg));
     }
   };
 

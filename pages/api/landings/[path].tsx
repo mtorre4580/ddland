@@ -12,24 +12,32 @@ export default withAuth(async (req, res: NextApiResponse) => {
   const { email } = session.get('user');
 
   if (method === 'DELETE') {
-    const response = await landingRepository.delete(path, email);
-    if (response) {
-      return res.json(response);
+    try {
+      const response = await landingRepository.delete(path, email);
+      if (response) {
+        return res.json(response);
+      }
+      return res.status(400).json({ msg: 'Invalid' });
+    } catch (err) {
+      return res.status(500).json({ msg: 'Se produjo un error al eliminar la landing' });
     }
-    return res.status(400).json({ msg: 'Invalid' });
   }
 
   if (method === 'PUT') {
-    const errors = landingRepository.validate(body);
-    if (errors) {
-      return res.status(400).json(errors);
+    try {
+      const errors = landingRepository.validate(body);
+      if (errors) {
+        return res.status(400).json(errors);
+      }
+      const response = await landingRepository.update(path, email, body);
+      if (response) {
+        return res.json(response);
+      }
+      return res.status(400).json({ msg: 'Invalid' });
+    } catch (err) {
+      return res.status(500).json({ msg: 'Se produjo un error al actualizar la landing' });
     }
-    const response = await landingRepository.update(path, email, body);
-    if (response) {
-      return res.json(response);
-    }
-    return res.status(400).json({ msg: 'Invalid' });
   }
 
-  return res.status(400).json({ msg: 'Invalid method' });
+  return res.status(400).json({ msg: 'Método inválido para este recurso' });
 });
