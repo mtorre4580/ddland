@@ -2,7 +2,7 @@ import { NextApiResponse } from 'next';
 import withSession from '../../../middlewares/session';
 import userRepository from '../../../repository/user';
 
-export default withSession(async (req: any, res: NextApiResponse) => {
+export default withSession(async (req, res: NextApiResponse) => {
   try {
     const { email, password } = req.body;
     const user = await userRepository.get(email, password);

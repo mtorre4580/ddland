@@ -9,10 +9,10 @@ export default function Login() {
       <Head>
         <title>Acceder</title>
       </Head>
-      <section className={styles.login}>
+      <main className={styles.login}>
         <BackgroundAnimated />
         <Form />
-      </section>
+      </main>
     </>
   );
 }

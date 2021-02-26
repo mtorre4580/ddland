@@ -15,7 +15,7 @@ export default React.memo(function Modal({ title, children, active, onClose }: M
   return (
     <div className={styles.modal} style={{ visibility: active ? 'visible' : 'hidden' }}>
       <h2>{title}</h2>
-      <Button className={styles.close} variant="danger" onClick={handleOnClose}>
+      <Button className={styles.close} variant="outline-light" onClick={handleOnClose}>
         X
       </Button>
       {children}

@@ -12,6 +12,6 @@ export default {
     return { type: EDIT_BLOCK, payload: { index, block } };
   },
   sortBlock: (dragIndex: number, hoverIndex: number) => {
-    return { type: SORT_BLOCK, payload: { dragIndex, hoverIndex }};
-  }
+    return { type: SORT_BLOCK, payload: { dragIndex, hoverIndex } };
+  },
 };

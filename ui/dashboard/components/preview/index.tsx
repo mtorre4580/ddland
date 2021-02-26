@@ -8,11 +8,14 @@ interface PreviewProps {
 
 export default React.memo(function Preview({ blocks }: PreviewProps) {
   return (
-    <section className={styles.preview}>
+    <>
       <h2 className={styles.title}>Visualiza tu web</h2>
-      <div className={styles.myWeb}>
-        <Reader blocks={blocks} />
-      </div>
-    </section>
+      <p className="text-muted text-center">Mira en tiempo real tus cambios</p>
+      <section className={styles.preview}>
+        <div className={styles.myWeb}>
+          <Reader blocks={blocks} />
+        </div>
+      </section>
+    </>
   );
 });

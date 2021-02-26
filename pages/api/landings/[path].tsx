@@ -2,7 +2,7 @@ import { NextApiResponse } from 'next';
 import landingRepository from '../../../repository/landing';
 import withAuth from '../../../middlewares/auth';
 
-export default withAuth(async (req: any, res: NextApiResponse) => {
+export default withAuth(async (req, res: NextApiResponse) => {
   const {
     method,
     body = {},

@@ -72,6 +72,8 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit,
 
   return (
     <>
+      <h2 className={styles.title}>Mis Bloques</h2>
+      <p className="text-muted text-center">Puedes ordenar los bloques arrastrándolos</p>
       <section ref={dropRef} className={styles.canva}>
         {blocks.length === 0 && (
           <div className={styles.letStart}>
@@ -81,10 +83,15 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit,
         )}
         {blocks.length > 0 && (
           <>
-            <h2 className={styles.title}>Mi landing</h2>
-            <p className="text-muted text-center">Puedes ordenar los bloques arrastrándolos</p>
             {blocks.map((block, index) => (
-              <EditBlock key={index} index={index} block={block} onRemove={onRemove} onEdit={handleOnEdit} onSort={onSort} />
+              <EditBlock
+                key={index}
+                index={index}
+                block={block}
+                onRemove={onRemove}
+                onEdit={handleOnEdit}
+                onSort={onSort}
+              />
             ))}
           </>
         )}

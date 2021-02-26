@@ -9,5 +9,5 @@ interface ImageProps {
 }
 
 export default React.memo(function ImageWrapper(props: ImageProps) {
-  return <Image {...props} />;
+  return <Image fluid thumbnail {...props} />;
 });

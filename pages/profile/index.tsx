@@ -37,7 +37,7 @@ export default function Profile({ user }: ProfilePageProps) {
         <title>Perfil</title>
       </Head>
       <Navigation active="/profile" />
-      <div style={{ minHeight: '100vh', paddingTop: '56px' }}>
+      <main style={{ minHeight: '100vh', paddingTop: '56px' }}>
         <Container fluid className="my-4">
           <Row>
             <Col>
@@ -57,7 +57,7 @@ export default function Profile({ user }: ProfilePageProps) {
             </Col>
           </Row>
         </Container>
-      </div>
+      </main>
       <Footer />
     </section>
   );

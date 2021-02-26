@@ -26,9 +26,9 @@ export default function Home() {
         <title>Inicio</title>
       </Head>
       <Navigation active="/" />
-      <div style={{ minHeight: '100vh', paddingTop: '56px' }}>
+      <main style={{ minHeight: '100vh', paddingTop: '56px' }}>
         <p>home</p>
-      </div>
+      </main>
       <Footer />
     </div>
   );

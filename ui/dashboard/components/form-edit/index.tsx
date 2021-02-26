@@ -38,8 +38,8 @@ export default React.memo(function FormEdit({ block, onEditApply }: any) {
           </Form.Group>
         );
       })}
-      <Button variant="danger" type="submit">
-        Actualizar
+      <Button variant="outline-light" type="submit">
+        Aceptar
       </Button>
     </Form>
   );

@@ -1,11 +1,11 @@
-.landings {
-  .table {
-    padding: 20px;
-  }
+@import './colors';
+@import './variables';
 
-  .actions {
-    .actionButton {
-      margin: 0 4px;
-    }
+.landings {
+  background-color: $color-grey;
+
+  .container {
+    min-height: 100vh;
+    padding-top: $paddingForNav;
   }
 }

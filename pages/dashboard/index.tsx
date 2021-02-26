@@ -53,9 +53,9 @@ export default function Dashboard({ landing, isEdit }: DashboardPageProps) {
         <title>Dashboard</title>
       </Head>
       <Navigation active="/dashboard" />
-      <div style={{ paddingTop: '56px' }}>
+      <main className={styles.container}>
         <Editor landing={landing} isEdit={isEdit} />
-      </div>
+      </main>
       <Footer />
     </section>
   );

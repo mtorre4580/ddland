@@ -14,7 +14,7 @@ export default function Register() {
       <Head>
         <title>Registrarse</title>
       </Head>
-      <section className={styles.register}>
+      <main className={styles.register}>
         <BackgroundAnimated />
         <Container>
           <Row>
@@ -33,14 +33,14 @@ export default function Register() {
                   <Form.Label>Contraseña</Form.Label>
                   <Form.Control type="password" name="password" placeholder="Ingresá tu contraseña" />
                 </Form.Group>
-                <Button variant="danger" type="submit">
+                <Button variant="outline-light" type="submit">
                   <span>Registrarse</span>
                 </Button>
               </Form>
             </Col>
           </Row>
         </Container>
-      </section>
+      </main>
     </>
   );
 }

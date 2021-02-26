@@ -2,10 +2,6 @@
 
 .modal {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  top: 0;
   background-color: $color-principal;
   color: $color-white;
   height: 100%;
@@ -17,6 +13,10 @@
   width: 600px;
   max-height: 400px;
   box-shadow: 3px 4px 3px $color-dark;
+  transform: translateX(-50%);
+  right: 50%;
+  left: 50%;
+  top: 50px;
 
   .close {
     position: absolute;

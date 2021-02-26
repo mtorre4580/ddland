@@ -64,7 +64,7 @@ export default React.memo(function Editor({ landing = {}, isEdit = false }: Edit
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <Container fluid className={styles.container}>
+      <Container fluid className={styles.container} as="section">
         <Row>
           <Col lg={3}>
             <BlocksAvalaibles />

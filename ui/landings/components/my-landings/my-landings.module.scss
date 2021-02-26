@@ -1,0 +1,40 @@
+@import '../../../../styles/colors';
+
+.presentation {
+  background-color: $color-principal;
+  color: $color-white;
+  opacity: 0.8;
+}
+
+.modalActions {
+  display: flex;
+  justify-content: center;
+
+  .btn {
+    margin: 0 10px;
+  }
+}
+
+.errorText {
+  margin: 20px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 500px;
+  margin: auto;
+
+  .startImage {
+    height: 128px;
+    width: 128px;
+    margin: auto;
+    padding: 10px;
+  }
+
+  .emptyLandings {
+    text-align: center;
+    padding: 10px;
+  }
+}

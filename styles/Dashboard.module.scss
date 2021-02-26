@@ -1,5 +1,10 @@
 @import './colors';
+@import './variables';
 
 .dashboard {
   background-color: $color-grey;
+
+  .container {
+    padding-top: $paddingForNav;
+  }
 }
