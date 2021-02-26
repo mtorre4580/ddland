@@ -1,0 +1,33 @@
+@import '../../../../styles/colors';
+
+.title {
+  color: $color-white;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.subtitle {
+  color: $color-grey;
+  text-align: center;
+  margin: auto;
+}
+
+.logo {
+  height: 128px;
+  width: 128px;
+  margin: auto;
+  display: block;
+}
+
+.form {
+  height: 100%;
+  margin-top: 10%;
+  width: 400px;
+
+  label {
+    color: $color-white;
+  }
+  .errorText {
+    margin: 10px 0;
+  }
+}

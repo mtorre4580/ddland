@@ -16,7 +16,7 @@ class UserService extends ModelMongo {
     const { error } = Joi.object({
       email: Joi.string().required(),
       password: Joi.string().required(),
-      name: Joi.string().required(),
+      name: Joi.string(),
       avatar: Joi.string(),
     }).validate(user);
     if (error) {

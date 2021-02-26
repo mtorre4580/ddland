@@ -12,7 +12,7 @@ export interface StateForm {
   error: string;
 }
 
-export interface RequestLogin {
+export interface RequestUser {
   email: string;
   password: string;
 }
