@@ -26,6 +26,7 @@
     "mongodb": "^3.6.4",
     "next": "10.0.7",
     "next-iron-session": "^4.1.11",
+    "node-gyp": "^7.1.2",
     "react": "17.0.1",
     "react-bootstrap": "^1.5.0",
     "react-dnd": "^11.1.3",
