@@ -82,12 +82,16 @@ export default React.memo(function Editor({ landing = {}, isEdit = false }: Edit
             <Preview blocks={blocks} />
           </Col>
         </Row>
-        <ButtonFloat style={{ bottom: '40px', right: '120px' }} onClick={handleSaveOrUpdate}>
-          <img className={styles.icons} src="/save.svg" alt="save-action" />
-        </ButtonFloat>
-        <ButtonFloat style={{ bottom: '40px', right: '40px' }}>
-          <img className={styles.icons} src="/preview.svg" alt="preview-action" />
-        </ButtonFloat>
+        {blocks.length > 0 && (
+          <>
+            <ButtonFloat style={{ bottom: '40px', right: '120px' }} onClick={handleSaveOrUpdate}>
+              <img className={styles.icons} src="/save.svg" alt="save-action" />
+            </ButtonFloat>
+            <ButtonFloat style={{ bottom: '40px', right: '40px' }}>
+              <img className={styles.icons} src="/preview.svg" alt="preview-action" />
+            </ButtonFloat>
+          </>
+        )}
       </Container>
     </DndProvider>
   );
