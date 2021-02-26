@@ -9,7 +9,7 @@ export default React.memo(function BlocksAvalaibles() {
   return (
     <aside className={styles.aside}>
       <h2 className={styles.title}> Bloques</h2>
-      <p className="text-muted text-center">Crea tu web arrastrando bloques</p>
+      <p className={styles.subtitle}>Crea tu web arrastrando bloques</p>
       {blocks.map((block, index) => (
         <Block key={index} {...block} />
       ))}

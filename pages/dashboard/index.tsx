@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import withSession from '../../middlewares/session';
 import Navigation from '../../ui/shared/navigation';
+import BackgroundAnimated from '../../ui/shared/background-animated';
 import Footer from '../../ui/shared/footer';
 import Editor from '../../ui/dashboard/components/editor';
 import landingRepository from '../../repository/landing';
@@ -54,6 +55,7 @@ export default function Dashboard({ landing, isEdit }: DashboardPageProps) {
       </Head>
       <Navigation active="/dashboard" />
       <main className={styles.container}>
+        <BackgroundAnimated />
         <Editor landing={landing} isEdit={isEdit} />
       </main>
       <Footer />

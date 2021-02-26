@@ -73,7 +73,7 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit,
   return (
     <>
       <h2 className={styles.title}>Mis Bloques</h2>
-      <p className="text-muted text-center">Puedes ordenar los bloques arrastrándolos</p>
+      <p className={styles.subtitle}>Puedes ordenar los bloques arrastrándolos</p>
       <section ref={dropRef} className={styles.canva}>
         {blocks.length === 0 && (
           <div className={styles.letStart}>

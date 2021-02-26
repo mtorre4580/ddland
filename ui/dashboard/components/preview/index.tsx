@@ -10,7 +10,7 @@ export default React.memo(function Preview({ blocks }: PreviewProps) {
   return (
     <>
       <h2 className={styles.title}>Visualiza tu web</h2>
-      <p className="text-muted text-center">Mira en tiempo real tus cambios</p>
+      <p className={styles.subtitle}>Mira en tiempo real tus cambios</p>
       <section className={styles.preview}>
         <div className={styles.myWeb}>
           <Reader blocks={blocks} />

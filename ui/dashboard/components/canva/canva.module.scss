@@ -2,10 +2,15 @@
 @import '../../../../styles/variables';
 
 .title {
-  color: $color-dark;
+  color: $color-white;
   padding: 12px;
   text-align: center;
   font-size: 1.5rem;
+}
+
+.subtitle {
+  color: $color-white;
+  text-align: center;
 }
 
 .canva {
