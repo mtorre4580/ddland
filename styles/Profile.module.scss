@@ -1,13 +1,8 @@
 @import './colors';
+@import './variables';
 
 .profile {
-  .user {
-    color: $color-dark;
-    display: flex;
-    flex-direction: row;
-
-    .info {
-      padding: 0 20px;
-    }
-  }
+  padding-top: $paddingForNav;
+  background-color: $color-grey;
+  min-height: 100vh;
 }

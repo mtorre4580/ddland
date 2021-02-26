@@ -6,9 +6,10 @@ import styles from './navigation.module.scss';
 
 interface NavigationProps {
   active: string;
+  fullNav: boolean;
 }
 
-export default React.memo(function Navigation({ active = '/' }: NavigationProps) {
+export default React.memo(function Navigation({ active = '/', fullNav }: NavigationProps) {
   return (
     <Navbar fixed="top" className={styles.nav} variant="dark">
       <Link href="/" passHref>
@@ -17,26 +18,44 @@ export default React.memo(function Navigation({ active = '/' }: NavigationProps)
         </Navbar.Brand>
       </Link>
       <Nav defaultActiveKey={active} className="ml-auto" as="ul">
-        <Nav.Item as="li">
-          <Link href="/" passHref>
-            <Nav.Link>Inicio</Nav.Link>
-          </Link>
-        </Nav.Item>
-        <Nav.Item as="li">
-          <Link href="/dashboard" passHref>
-            <Nav.Link>Dashboard</Nav.Link>
-          </Link>
-        </Nav.Item>
-        <Nav.Item as="li">
-          <Link href="/landings" passHref>
-            <Nav.Link>Landings</Nav.Link>
-          </Link>
-        </Nav.Item>
-        <Nav.Item as="li">
-          <Link href="/profile" passHref>
-            <Nav.Link>Perfil</Nav.Link>
-          </Link>
-        </Nav.Item>
+        {!fullNav && (
+          <>
+            <Nav.Item as="li">
+              <Link href="/register" passHref>
+                <Nav.Link>Registrarse</Nav.Link>
+              </Link>
+            </Nav.Item>
+            <Nav.Item as="li">
+              <Link href="/login" passHref>
+                <Nav.Link>Acceder</Nav.Link>
+              </Link>
+            </Nav.Item>
+          </>
+        )}
+        {fullNav && (
+          <>
+            <Nav.Item as="li">
+              <Link href="/" passHref>
+                <Nav.Link>Inicio</Nav.Link>
+              </Link>
+            </Nav.Item>
+            <Nav.Item as="li">
+              <Link href="/dashboard" passHref>
+                <Nav.Link>Dashboard</Nav.Link>
+              </Link>
+            </Nav.Item>
+            <Nav.Item as="li">
+              <Link href="/landings" passHref>
+                <Nav.Link>Landings</Nav.Link>
+              </Link>
+            </Nav.Item>
+            <Nav.Item as="li">
+              <Link href="/profile" passHref>
+                <Nav.Link>Perfil</Nav.Link>
+              </Link>
+            </Nav.Item>
+          </>
+        )}
       </Nav>
     </Navbar>
   );

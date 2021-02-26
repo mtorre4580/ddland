@@ -53,7 +53,7 @@ export default function Dashboard({ landing, isEdit }: DashboardPageProps) {
       <Head>
         <title>Dashboard</title>
       </Head>
-      <Navigation active="/dashboard" />
+      <Navigation fullNav active="/dashboard" />
       <main className={styles.container}>
         <BackgroundAnimated />
         <Editor landing={landing} isEdit={isEdit} />

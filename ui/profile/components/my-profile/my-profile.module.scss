@@ -1,0 +1,34 @@
+@import '../../../../styles/colors';
+
+.profileUser {
+  background-color: $color-principal;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .title {
+    color: $color-white;
+    padding: 4px;
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .list {
+    list-style: none;
+    width: 100%;
+    text-align: center;
+    color: $color-white;
+    margin: 0;
+    padding: 0;
+    .li {
+      padding: 10px;
+    }
+  }
+
+  .logout {
+    margin: 10px;
+  }
+}

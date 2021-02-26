@@ -1,8 +1,8 @@
 export default interface IUser {
-  email: string;
+  email?: string;
   password: string;
-  name: string;
-  avatar: string;
-  created_at: Date;
-  updated_at: Date;
+  name?: string;
+  avatar?: string;
+  created_at?: Date;
+  updated_at?: Date;
 }

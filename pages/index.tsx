@@ -4,29 +4,27 @@ import Navigation from '../ui/shared/navigation';
 import Footer from '../ui/shared/footer';
 import styles from '../styles/Home.module.scss';
 
-export const getServerSideProps = withSession(({ req, res }) => {
-  const user = req.session.get('user');
-
-  if (user === undefined) {
-    res.setHeader('location', '/login');
-    res.statusCode = 302;
-    res.end();
-  }
+export const getServerSideProps = withSession(({ req }) => {
+  const user = req.session.get('user') || null;
 
   return {
     props: {
-      user,
+      fullNav: user != null,
     },
   };
 });
 
-export default function Home() {
+interface HomePageProps {
+  fullNav: boolean;
+}
+
+export default function Home({ fullNav }: HomePageProps) {
   return (
     <div className={styles.container}>
       <Head>
         <title>Inicio</title>
       </Head>
-      <Navigation active="/" />
+      <Navigation fullNav={fullNav} active="/" />
       <main style={{ minHeight: '100vh', paddingTop: '56px' }}>
         <p>home</p>
       </main>

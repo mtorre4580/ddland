@@ -43,7 +43,7 @@ export default function Landings({ landings }: LandingsPageProps) {
       <Head>
         <title>Landings</title>
       </Head>
-      <Navigation active="/landings" />
+      <Navigation fullNav active="/landings" />
       <main className={styles.container}>
         <MyLandings items={landings} />
       </main>
