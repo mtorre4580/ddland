@@ -24,8 +24,6 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Inicio</title>
-        <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Navigation active="/" />
       <div style={{ minHeight: '100vh', paddingTop: '56px' }}>

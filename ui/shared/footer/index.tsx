@@ -5,7 +5,7 @@ export default React.memo(function Footer() {
   return (
     <footer className={styles.footer}>
       <p>DDLAND &copy; 2021</p>
-      <p className="text-muted">Diseña tus landings de manera sencilla y rápida</p>
+      <p>Diseña tus landings de manera sencilla y rápida</p>
     </footer>
   );
 });

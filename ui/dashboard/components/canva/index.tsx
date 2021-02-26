@@ -89,7 +89,7 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit 
       </section>
       <Modal title="Editar" active={isEdit} onClose={handleOnCloseModal}>
         <>
-          <p className="text-muted">En esta sección puedes modificar los datos de los bloques</p>
+          <p>En esta sección puedes modificar los datos de los bloques</p>
           {currentEdition.component && <FormEdit block={currentEdition.component} onEditApply={handleOnEditApply} />}
         </>
       </Modal>

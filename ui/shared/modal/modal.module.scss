@@ -6,7 +6,7 @@
   bottom: 0;
   left: 0;
   top: 0;
-  background-color: $color-dark;
+  background-color: $color-principal;
   color: $color-white;
   height: 100%;
   margin: 20px;
@@ -16,6 +16,7 @@
   overflow: hidden;
   width: 600px;
   max-height: 400px;
+  box-shadow: 3px 4px 3px $color-dark;
 
   .close {
     position: absolute;

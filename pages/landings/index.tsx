@@ -109,20 +109,20 @@ export default function Landings({ landings }: LandingsPageProps) {
                         <Button
                           href={`/dashboard?path=${landing.path}`}
                           className={styles.actionButton}
-                          variant="outline-success"
+                          variant="danger"
                         >
                           Editar
                         </Button>
                         <Button
                           className={styles.actionButton}
-                          variant="outline-success"
+                          variant="danger"
                           onClick={() => handleOnDelete(landing.path)}
                         >
                           Eliminar
                         </Button>
                         <Button
                           className={styles.actionButton}
-                          variant="outline-success"
+                          variant="danger"
                           onClick={() => handleOnDownload(landing.path, landing.title)}
                         >
                           Descargar
@@ -131,7 +131,7 @@ export default function Landings({ landings }: LandingsPageProps) {
                           href={landing.path}
                           target="_blank"
                           className={styles.actionButton}
-                          variant="outline-success"
+                          variant="danger"
                         >
                           Visualizar
                         </Button>

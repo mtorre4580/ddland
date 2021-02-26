@@ -3,6 +3,24 @@
 .form {
   color: $color-white;
   width: 400px;
+  z-index: 1;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  .logo {
+    height: 128px;
+    width: 128px;
+    margin: auto;
+    display: block;
+  }
+
+  .title {
+    color: $color-white;
+    text-align: center;
+    margin: 30px 0;
+  }
 
   .loadingText {
     margin-left: 4px;

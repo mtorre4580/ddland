@@ -3,11 +3,15 @@
 .preview {
   background-color: $color-white;
   height: 100%;
+  .title {
+    color: $color-dark;
+    padding: 12px;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  .myWeb {
+    padding: 15px;
+  }
 }
 
-.title {
-  color: $color-dark;
-  padding: 12px;
-  text-align: center;
-  font-size: 1.5rem;
-}
+

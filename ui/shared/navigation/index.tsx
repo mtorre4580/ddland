@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Link from 'next/link';
+import styles from './navigation.module.scss';
 
 interface NavigationProps {
   active: string;
@@ -9,10 +10,10 @@ interface NavigationProps {
 
 export default React.memo(function Navigation({ active = '/' }: NavigationProps) {
   return (
-    <Navbar fixed="top" bg="danger" variant="dark">
+    <Navbar fixed="top" className={styles.nav} variant="dark">
       <Link href="/" passHref>
         <Navbar.Brand>
-          <img alt="logo-app" src="/wblocks.svg" width="30" height="30" className="d-inline-block align-top" /> DDLand
+          <img alt="logo-app" src="/page.svg" width="30" height="30" className="d-inline-block align-top" /> DDLand
         </Navbar.Brand>
       </Link>
       <Nav defaultActiveKey={active} className="ml-auto" as="ul">
