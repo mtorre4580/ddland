@@ -1,5 +1,8 @@
+@import '../../../../styles/mixins';
+
 .editBlock {
   margin: 4px;
+  @include draggeable(false);
 
   .actions {
     display: flex;

@@ -10,10 +10,11 @@ interface CanvaProps {
   onAdd: Function;
   onRemove: Function;
   onEdit: Function;
+  onSort: Function;
   blocks: any[];
 }
 
-export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit }: CanvaProps) {
+export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit, onSort }: CanvaProps) {
   const [isEdit, setIsEdit] = useState(false);
   const [currentEdition, setCurrentEdition] = useState({ component: null, index: 0 });
 
@@ -81,8 +82,9 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit 
         {blocks.length > 0 && (
           <>
             <h2 className={styles.title}>Mi landing</h2>
+            <p className="text-muted text-center">Puedes ordenar los bloques arrastrándolos</p>
             {blocks.map((block, index) => (
-              <EditBlock key={index} index={index} block={block} onRemove={onRemove} onEdit={handleOnEdit} />
+              <EditBlock key={index} index={index} block={block} onRemove={onRemove} onEdit={handleOnEdit} onSort={onSort} />
             ))}
           </>
         )}

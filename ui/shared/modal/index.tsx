@@ -1,3 +1,4 @@
+import React from 'react';
 import Button from 'react-bootstrap/Button';
 import styles from './modal.module.scss';
 
@@ -8,7 +9,7 @@ interface ModalProps {
   onClose: Function;
 }
 
-export default function Modal({ title, children, active, onClose }: ModalProps) {
+export default React.memo(function Modal({ title, children, active, onClose }: ModalProps) {
   const handleOnClose = () => onClose();
 
   return (
@@ -20,4 +21,4 @@ export default function Modal({ title, children, active, onClose }: ModalProps) 
       {children}
     </div>
   );
-}
+});

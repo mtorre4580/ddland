@@ -1,4 +1,4 @@
-import { ADD_BLOCK, REMOVE_BLOCK, EDIT_BLOCK } from './constants';
+import { ADD_BLOCK, REMOVE_BLOCK, EDIT_BLOCK, SORT_BLOCK } from './constants';
 import { Action } from './models';
 
 export default function reducer(prevState: any, action: Action) {
@@ -27,6 +27,18 @@ export default function reducer(prevState: any, action: Action) {
       return {
         ...prevState,
         blocks: blocksModified,
+      };
+    }
+    case SORT_BLOCK: {
+      const { dragIndex, hoverIndex } = payload;
+      const sortBlocks = [...prevState.blocks];
+      const newBlock = sortBlocks[dragIndex];
+      const oldBlock = sortBlocks[hoverIndex];
+      sortBlocks[dragIndex] = oldBlock;
+      sortBlocks[hoverIndex] = newBlock;
+      return {
+        ...prevState,
+        blocks: sortBlocks,
       };
     }
     default:

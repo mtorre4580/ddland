@@ -10,8 +10,8 @@ import Preview from '../preview';
 import ButtonFloat from '../../../shared/button-float';
 import { saveLanding, updateLanding } from '../../services';
 import { Reducer, InitialState, Actions, Models } from '../../effects';
-import styles from './editor.module.scss';
 import ILanding from '../../../../repository/models/web/landing';
+import styles from './editor.module.scss';
 
 interface EditorProps {
   landing: ILanding | object;
@@ -41,6 +41,13 @@ export default React.memo(function Editor({ landing = {}, isEdit = false }: Edit
   const handleOnEdit = (index: number, block: Models.Block) => dispatch(Actions.editBlock(index, block));
 
   /**
+   * Handler when user sort the block (up, down)
+   * @param dragIndex number
+   * @param hoverIndex number
+   */
+  const handleOnSort = (dragIndex: number, hoverIndex: number) => dispatch(Actions.sortBlock(dragIndex, hoverIndex));
+
+  /**
    * Handler the current landing save or update
    */
   const handleSaveOrUpdate = async () => {
@@ -63,7 +70,13 @@ export default React.memo(function Editor({ landing = {}, isEdit = false }: Edit
             <BlocksAvalaibles />
           </Col>
           <Col lg={4}>
-            <Canva onAdd={handleOnAdd} onRemove={handleOnRemove} onEdit={handleOnEdit} blocks={blocks} />
+            <Canva
+              onAdd={handleOnAdd}
+              onRemove={handleOnRemove}
+              onEdit={handleOnEdit}
+              onSort={handleOnSort}
+              blocks={blocks}
+            />
           </Col>
           <Col lg={5}>
             <Preview blocks={blocks} />

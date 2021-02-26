@@ -1,4 +1,4 @@
-import { ADD_BLOCK, REMOVE_BLOCK, EDIT_BLOCK } from './constants';
+import { ADD_BLOCK, REMOVE_BLOCK, EDIT_BLOCK, SORT_BLOCK } from './constants';
 import { Block } from './models';
 
 export default {
@@ -11,4 +11,7 @@ export default {
   editBlock: (index: number, block: Block) => {
     return { type: EDIT_BLOCK, payload: { index, block } };
   },
+  sortBlock: (dragIndex: number, hoverIndex: number) => {
+    return { type: SORT_BLOCK, payload: { dragIndex, hoverIndex }};
+  }
 };

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { useDrop, useDrag } from 'react-dnd';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import styles from './edit-block.module.scss';
@@ -11,9 +12,56 @@ interface EditBlockProps {
   index: number;
   onRemove: Function;
   onEdit: Function;
+  onSort: Function;
 }
 
-export default React.memo(function EditBlock({ block, index, onRemove, onEdit }: EditBlockProps) {
+export default React.memo(function EditBlock({ block, index, onRemove, onEdit, onSort }: EditBlockProps) {
+  const ref: any = useRef(null);
+
+  // Hook to drop and retrieve the current block
+  const [, drop] = useDrop({
+    accept: 'block-edit',
+    hover(item: any, monitor) {
+      if (!ref.current) {
+        return;
+      }
+
+      const dragIndex = item.index;
+      const hoverIndex = index;
+
+      if (dragIndex === hoverIndex) {
+        return;
+      }
+
+      const hoverBoundingRect = ref.current.getBoundingClientRect();
+      const hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
+      const clientOffset: any = monitor.getClientOffset();
+      const hoverClientY = clientOffset.y - hoverBoundingRect.top;
+
+      if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
+        return;
+      }
+
+      if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
+        return;
+      }
+
+      onSort(dragIndex, hoverIndex);
+
+      item.index = hoverIndex;
+    },
+  });
+
+  // Hook to set the component draggeable
+  const [, drag] = useDrag({
+    item: { type: 'block-edit', id: block.id, index },
+    collect: (monitor) => ({
+      isDragging: monitor.isDragging(),
+    }),
+  });
+
+  drag(drop(ref));
+
   /**
    * Handler when the user has intented to remove the block
    */
@@ -25,7 +73,7 @@ export default React.memo(function EditBlock({ block, index, onRemove, onEdit }:
   const handleEdit = () => onEdit(index, block);
 
   return (
-    <Card className={styles.editBlock}>
+    <Card ref={ref} className={styles.editBlock}>
       <Card.Body>
         <Card.Title>{block.id}</Card.Title>
         <div className={styles.actions}>
