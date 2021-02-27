@@ -1,4 +1,5 @@
 @import '../../../../styles/colors';
+@import '../../../../styles/variables';
 
 .title {
   color: $color-white;
@@ -22,7 +23,10 @@
 .form {
   height: 100%;
   margin-top: 10%;
-  width: 400px;
+
+  @media only screen and (min-width: $desktop) {
+    width: 400px;
+  }
 
   label {
     color: $color-white;

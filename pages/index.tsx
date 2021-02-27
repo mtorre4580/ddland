@@ -54,7 +54,7 @@ export default function Home({ fullNav }: HomePageProps) {
   const texts = i18n[locale];
 
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>{texts.title}</title>
       </Head>
@@ -83,6 +83,6 @@ export default function Home({ fullNav }: HomePageProps) {
         </section>
       </main>
       <Footer />
-    </div>
+    </>
   );
 }

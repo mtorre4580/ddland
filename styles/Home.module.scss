@@ -20,12 +20,21 @@ $default-height-images: 400px;
 
   .benefits {
     display: flex;
-    margin: auto;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
+    margin: auto;
+
+    @media only screen and (min-width: $desktop) {
+      flex-direction: row;
+    }
 
     .image {
-      height: $default-height-images;
+      max-width: 100%;
+      padding: 20px;
+      @media only screen and (min-width: $desktop) {
+        padding: 0;
+      }
     }
 
     .list {
@@ -44,14 +53,26 @@ $default-height-images: 400px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-direction: column;
     padding: 20px;
 
+    @media only screen and (min-width: $desktop) {
+      flex-direction: row;
+    }
+
     .imageDashboard {
-      height: $default-height-images;
       padding: 10px;
       background-color: $color-white;
       border-radius: 0.25rem;
       margin: 10px;
+      max-width: 100%;
+    }
+  }
+
+  @media only screen and (min-width: $desktop) {
+    .imageDashboard,
+    .image {
+      height: $default-height-images;
     }
   }
 }
