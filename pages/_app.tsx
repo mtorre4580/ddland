@@ -2,6 +2,8 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { I18nProvider } from '../ui/shared/i18n-provider';
+import { StateInspector } from "reinspect";
+
 import '../styles/globals.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -16,7 +18,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet" />
       </Head>
       <I18nProvider locale={currentLocal}>
-        <Component {...pageProps} />
+        <StateInspector name="DDland">
+          <Component {...pageProps} />
+        </StateInspector>
       </I18nProvider>
     </>
   );

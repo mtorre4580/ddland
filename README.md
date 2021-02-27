@@ -43,6 +43,8 @@ This applications has built with Next.js 10
 - Drag and Drop features with [react-dnd](https://react-dnd.github.io/react-dnd/)
 - Internationalized Routing with [Next.js](https://nextjs.org/docs/advanced-features/i18n-routing)
 - Avoid collision css with CSS in modules
+- Built with hooks (useReducer, userMemo, useRef)
+- Apply [reinspect](https://github.com/troch/reinspect#readme) to show reducers, debug mode with Redux DevTools
 - Integration Next.js with [TypeScript](https://www.typescriptlang.org/)
 - Tooling: [Eslint](https://eslint.org/), [Prettier](https://prettier.io/), [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), [Husky](https://www.npmjs.com/package/husky)
 

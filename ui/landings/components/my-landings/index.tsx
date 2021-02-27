@@ -1,4 +1,5 @@
-import React, { useReducer, useContext } from 'react';
+import React, { useContext } from 'react';
+import { useReducer } from 'reinspect';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
@@ -19,10 +20,15 @@ interface MyLandingsProps {
 }
 
 export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
-  const [{ landings, error, loading, showModal, landingSelected }, dispatch] = useReducer(Reducer, {
-    ...InitialState,
-    landings: items,
-  });
+  const [{ landings, error, loading, showModal, landingSelected }, dispatch] = useReducer(
+    Reducer,
+    {
+      ...InitialState,
+      landings: items,
+    },
+    (basic) => basic,
+    'LANDINGS_PAGE',
+  );
   const locale = useContext(I18nContext);
   // @ts-ignore
   const texts = i18n[locale];

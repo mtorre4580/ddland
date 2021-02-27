@@ -1,4 +1,4 @@
-export const CHANGE_INPUT = 'LOGIN_PAGE/CHANGE_INPUT';
-export const AUTH = 'LOGIN_PAGE/AUTH';
-export const AUTH_SUCCESS = 'LOGIN_PAGE/AUTH_SUCCESS';
-export const AUTH_ERROR = 'LOGIN_PAGE/AUTH_ERROR';
+export const CHANGE_INPUT = 'CHANGE_INPUT';
+export const AUTH = 'AUTH';
+export const AUTH_SUCCESS = 'AUTH_SUCCESS';
+export const AUTH_ERROR = 'AUTH_ERROR';

@@ -1,4 +1,5 @@
-import React, { useReducer, useContext } from 'react';
+import React, { useContext } from 'react';
+import { useReducer } from 'reinspect';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
@@ -14,7 +15,7 @@ interface FormPasswordProps {
 }
 
 export default React.memo(function FormPassword({ email }: FormPasswordProps) {
-  const [{ form, loading, error, updated }, dispatch] = useReducer(Reducer, InitialState);
+  const [{ form, loading, error, updated }, dispatch] = useReducer(Reducer, InitialState, basic => basic, 'PROFILE_PAGE');
   const locale = useContext(I18nContext);
   // @ts-ignore
   const texts = i18n[locale];

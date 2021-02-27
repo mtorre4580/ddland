@@ -1,4 +1,5 @@
-import React, { useReducer, useContext } from 'react';
+import React, { useContext } from 'react';
+import { useReducer } from 'reinspect';
 import { useRouter } from 'next/router';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -23,11 +24,16 @@ interface EditorProps {
 }
 
 export default React.memo(function Editor({ landing = {}, firstEdit }: EditorProps) {
-  const [{ blocks, path, title, error, isEdit }, dispatch] = useReducer(Reducer, {
-    ...InitialState,
-    ...landing,
-    isEdit: firstEdit,
-  });
+  const [{ blocks, path, title, error, isEdit }, dispatch] = useReducer(
+    Reducer,
+    {
+      ...InitialState,
+      ...landing,
+      isEdit: firstEdit,
+    },
+    (basic) => basic,
+    'DASHBOARD_PAGE',
+  );
   const router = useRouter();
   const locale = useContext(I18nContext);
   // @ts-ignore

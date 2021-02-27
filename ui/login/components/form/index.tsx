@@ -1,4 +1,5 @@
-import React, { useReducer, useContext } from 'react';
+import React, { useContext } from 'react';
+import { useReducer } from 'reinspect';
 import { useRouter } from 'next/router';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -15,7 +16,7 @@ export default React.memo(function FormLogin() {
   const locale = useContext(I18nContext);
   // @ts-ignore
   const texts = i18n[locale];
-  const [{ form, loading, error }, dispatch] = useReducer(Reducer, InitialState);
+  const [{ form, loading, error }, dispatch] = useReducer(Reducer, InitialState, basic => basic, 'LOGIN_PAGE');
   const router = useRouter();
 
   /**

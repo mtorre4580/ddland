@@ -1,4 +1,5 @@
-import React, { useReducer, useContext } from 'react';
+import React, { useContext } from 'react';
+import { useReducer } from 'reinspect';
 import { useRouter } from 'next/router';
 import Container from 'react-bootstrap/Container';
 import Image from 'react-bootstrap/Image';
@@ -18,7 +19,7 @@ export default React.memo(function FormRegister() {
   const locale = useContext(I18nContext);
   // @ts-ignore
   const texts = i18n[locale];
-  const [{ form, loading, error }, dispatch] = useReducer(Reducer, InitialState);
+  const [{ form, loading, error }, dispatch] = useReducer(Reducer, InitialState, (basic) => basic, 'REGISTER_PAGE');
   const router = useRouter();
 
   /**
