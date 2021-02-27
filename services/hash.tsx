@@ -15,8 +15,7 @@ async function encrypt(text: string) {
     return hash;
   } catch (err) {
     console.log('err', err);
-    throw new Error("Error al generar el hash");
-    
+    throw new Error('Error al generar el hash');
   }
 }
 
@@ -32,7 +31,7 @@ async function compare(text: string, text2: string) {
     return status;
   } catch (err) {
     console.log('err', err);
-    throw new Error("Error al comparar textos");
+    throw new Error('Error al comparar textos');
   }
 }
 

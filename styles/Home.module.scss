@@ -1,0 +1,57 @@
+@import './variables';
+@import './colors';
+
+$default-height-images: 400px;
+
+.home {
+  padding-top: $paddingForNav;
+  min-height: 100vh;
+  background-color: $color-principal;
+  color: $color-white;
+
+  .welcome {
+    padding: 30px;
+    text-align: center;
+
+    .subtitle {
+      margin-top: 20px;
+    }
+  }
+
+  .benefits {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+
+    .image {
+      height: $default-height-images;
+    }
+
+    .list {
+      list-style: none;
+      .item {
+        padding: 10px;
+        background: url('/check.svg') no-repeat bottom left;
+        background-size: 20px;
+        padding: 0 30px;
+        margin: 10px 0;
+      }
+    }
+  }
+
+  .presentation {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+
+    .imageDashboard {
+      height: $default-height-images;
+      padding: 10px;
+      background-color: $color-white;
+      border-radius: 0.25rem;
+      margin: 10px;
+    }
+  }
+}
