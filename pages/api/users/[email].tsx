@@ -16,15 +16,6 @@ export default withAuth(async (req, res: NextApiResponse) => {
     res.status(400).json({ msg: 'Email inválido, sos el usuario?' });
   }
 
-  // if (method === 'DELETE') {
-  //   try {
-  //     const response = await userRepository.delete(email);
-  //     return res.json(response);
-  //   } catch (err) {
-  //     return res.status(500).json({ msg: 'Se produjo un error al eliminar el usuario' });
-  //   }
-  // }
-
   if (method === 'PUT') {
     try {
       const { oldPassword = null, newPassword = null } = body;

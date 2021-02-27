@@ -7,20 +7,35 @@ interface LandingRequest {
   blocks: object[];
 }
 
-/**
- * Retrieve the current elements to generate the web
- * @return object[]
- */
-function getBlocks() {
-  return [
+const blocks = {
+  es: [
     { id: 'Footer', description: 'Contenido que va en la parte inferior de tu página' },
     { id: 'Header', description: 'Contenido que va en la parte superior de tu página' },
     { id: 'Image', description: 'Agrega cualquier imagen ya sea por url o subiendola' },
     { id: 'Link', description: 'Agrega un hipervinculo a tu página' },
     { id: 'Paragraph', description: 'Agrega un parráfo con texto básico' },
-    { id: 'Title', description: 'Agregá un título a tu página' },
-    { id: 'Video', description: 'Agregá un video de diferentes sitios' },
-  ];
+    { id: 'Title', description: 'Agrega un título a tu página' },
+    { id: 'Video', description: 'Agrega un video de diferentes sitios' },
+  ],
+  en: [
+    { id: 'Footer', description: 'Content that goes at the bottom of your page' },
+    { id: 'Header', description: 'Content that goes to the top of your page' },
+    { id: 'Image', description: 'Add any image either by url or by uploading it' },
+    { id: 'Link', description: 'Add a link to your page' },
+    { id: 'Paragraph', description: 'Add a paragraph with basic text' },
+    { id: 'Title', description: 'Add a title to your page' },
+    { id: 'Video', description: 'Add a video from different sites' },
+  ],
+};
+
+/**
+ * Retrieve the current elements to generate the web
+ * @param locale string
+ * @return object[]
+ */
+function getBlocks(locale: string = 'es') {
+  // @ts-ignore
+  return blocks[locale];
 }
 
 /**

@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { I18nContext } from '../../../shared/i18n-provider';
+import i18n from './i18n';
 import styles from './form-edit.module.scss';
 
 export default React.memo(function FormEdit({ block, onEditApply }: any) {
   const { id, values } = block;
   const [formProperties, setFormProperties] = useState(values);
+  const locale = useContext(I18nContext);
+  // @ts-ignore
+  const texts = i18n[locale];
 
   /**
    * Handler to change the current state of the inputs when user change...
@@ -39,7 +44,7 @@ export default React.memo(function FormEdit({ block, onEditApply }: any) {
         );
       })}
       <Button variant="outline-light" type="submit">
-        Aceptar
+        {texts.accept}
       </Button>
     </Form>
   );

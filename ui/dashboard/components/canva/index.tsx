@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useDrop } from 'react-dnd';
 import { getDefaultValues } from '../../services';
 import EditBlock from '../edit-block';
 import Modal from '../../../shared/modal';
+import { I18nContext } from '../../../shared/i18n-provider';
+import i18n from './i18n';
 import FormEdit from '../form-edit';
 import styles from './canva.module.scss';
 
@@ -17,6 +19,9 @@ interface CanvaProps {
 export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit, onSort }: CanvaProps) {
   const [isEdit, setIsEdit] = useState(false);
   const [currentEdition, setCurrentEdition] = useState({ component: null, index: 0 });
+  const locale = useContext(I18nContext);
+  // @ts-ignore
+  const texts = i18n[locale];
 
   // Hook to handle the drop event for the blocks
   const [, dropRef] = useDrop({
@@ -72,13 +77,13 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit,
 
   return (
     <>
-      <h2 className={styles.title}>Mis Bloques</h2>
-      <p className={styles.subtitle}>Puedes ordenar los bloques arrastrándolos</p>
+      <h2 className={styles.title}>{texts.title}</h2>
+      <p className={styles.subtitle}>{texts.subtitle}</p>
       <section ref={dropRef} className={styles.canva}>
         {blocks.length === 0 && (
           <div className={styles.letStart}>
-            <img className={styles.image} src="/start.svg" alt="let start to edit" />
-            <p>Arrastra un bloque para empezar</p>
+            <img className={styles.image} src="/start.svg" alt="Let start to edit" />
+            <p>{texts.hint}</p>
           </div>
         )}
         {blocks.length > 0 && (
@@ -96,9 +101,9 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit,
           </>
         )}
       </section>
-      <Modal title="Editar" active={isEdit} onClose={handleOnCloseModal}>
+      <Modal title={texts.edit} active={isEdit} onClose={handleOnCloseModal}>
         <>
-          <p>En esta sección puedes modificar los datos de los bloques</p>
+          <p>{texts.modifyBlock}</p>
           {currentEdition.component && <FormEdit block={currentEdition.component} onEditApply={handleOnEditApply} />}
         </>
       </Modal>

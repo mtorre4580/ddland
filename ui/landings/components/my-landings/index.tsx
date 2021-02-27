@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useContext } from 'react';
 import Image from 'react-bootstrap/Image';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
@@ -7,6 +7,8 @@ import Container from 'react-bootstrap/Container';
 import Table from '../table';
 import Modal from '../../../shared/modal';
 import Progress from '../../../shared/progress';
+import { I18nContext } from '../../../shared/i18n-provider';
+import i18n from './i18n';
 import ILanding from '../../../../repository/models/web/landing';
 import { removeLanding } from '../../services';
 import { InitialState, Reducer, Actions } from '../../effects';
@@ -21,6 +23,9 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
     ...InitialState,
     landings: items,
   });
+  const locale = useContext(I18nContext);
+  // @ts-ignore
+  const texts = i18n[locale];
 
   /**
    * Handler to show the user confirmation to proceed to delete the current landing
@@ -46,7 +51,7 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
       dispatch(Actions.deleteSuccess(index));
       dispatch(Actions.deleteIntentionConfirm());
     } catch (err) {
-      dispatch(Actions.deleteError('Se produjo un error al eliminar la landing elegida'));
+      dispatch(Actions.deleteError(texts.errorGeneric));
     }
   };
 
@@ -54,8 +59,8 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
     <>
       <Jumbotron fluid className={styles.presentation}>
         <Container>
-          <h1>Mis landings</h1>
-          <p>En esta sección podras encontrar todas tus landings, para que puedas visualizarlas y editarlas</p>
+          <h1>{texts.title}</h1>
+          <p>{texts.subtitle}</p>
         </Container>
       </Jumbotron>
       <Alert className={styles.errorText} show={error !== null} variant="danger">
@@ -65,29 +70,29 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
       {landings.length === 0 && (
         <div className={styles.container}>
           <Image className={styles.startImage} src="/start.svg" alt="Let's start to create landings" />
-          <p className={styles.emptyLandings}>Todavía no creaste ninguna landing ¿Qué esperas?</p>
+          <p className={styles.emptyLandings}>{texts.emptyLandings}</p>
           <Button variant="link" href="/dashboard">
-            Ir al dashboard
+            {texts.goDashboard}
           </Button>
         </div>
       )}
-      <Modal title="Eliminar" active={showModal} onClose={handleOnCloseModal}>
+      <Modal title={texts.delete} active={showModal} onClose={handleOnCloseModal}>
         <>
           {!loading && (
             <>
-              <p>Una vez eliminada no podrás acceder a la landing, como tampoco a su edición</p>
-              <p className="text-center">¿Estas seguro de eliminar la landing seleccionada?</p>
+              <p>{texts.removeLanding}</p>
+              <p className="text-center">{texts.confirmRemove}</p>
               <div className={styles.modalActions}>
                 <Button className={styles.btn} variant="outline-light" onClick={handleOnCloseModal}>
-                  Cancelar
+                  {texts.cancel}
                 </Button>
                 <Button className={styles.btn} variant="outline-light" onClick={handleOnConfirmRemove}>
-                  Aceptar
+                  {texts.accept}
                 </Button>
               </div>
             </>
           )}
-          {loading && <Progress text="Eliminando la landing, espere unos segundos" />}
+          {loading && <Progress text={texts.deletingLanding} />}
         </>
       </Modal>
     </>

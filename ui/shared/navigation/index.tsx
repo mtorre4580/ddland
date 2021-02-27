@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Link from 'next/link';
 import styles from './navigation.module.scss';
+import i18n from './i18n';
+import { I18nContext } from '../i18n-provider';
 
 interface NavigationProps {
   active: string;
@@ -10,6 +12,10 @@ interface NavigationProps {
 }
 
 export default React.memo(function Navigation({ active = '/', fullNav }: NavigationProps) {
+  const locale = useContext(I18nContext);
+  // @ts-ignore
+  const texts = i18n[locale];
+
   return (
     <Navbar fixed="top" className={styles.nav} variant="dark">
       <Link href="/" passHref>
@@ -22,12 +28,12 @@ export default React.memo(function Navigation({ active = '/', fullNav }: Navigat
           <>
             <Nav.Item as="li">
               <Link href="/register" passHref>
-                <Nav.Link>Registrarse</Nav.Link>
+                <Nav.Link>{texts.register}</Nav.Link>
               </Link>
             </Nav.Item>
             <Nav.Item as="li">
               <Link href="/login" passHref>
-                <Nav.Link>Acceder</Nav.Link>
+                <Nav.Link>{texts.login}</Nav.Link>
               </Link>
             </Nav.Item>
           </>
@@ -36,7 +42,7 @@ export default React.memo(function Navigation({ active = '/', fullNav }: Navigat
           <>
             <Nav.Item as="li">
               <Link href="/" passHref>
-                <Nav.Link>Inicio</Nav.Link>
+                <Nav.Link>{texts.home}</Nav.Link>
               </Link>
             </Nav.Item>
             <Nav.Item as="li">
@@ -51,7 +57,7 @@ export default React.memo(function Navigation({ active = '/', fullNav }: Navigat
             </Nav.Item>
             <Nav.Item as="li">
               <Link href="/profile" passHref>
-                <Nav.Link>Perfil</Nav.Link>
+                <Nav.Link>{texts.profile}</Nav.Link>
               </Link>
             </Nav.Item>
           </>

@@ -1,15 +1,20 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useContext } from 'react';
 import { useRouter } from 'next/router';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
 import Image from 'react-bootstrap/Image';
 import Alert from 'react-bootstrap/Alert';
+import { I18nContext } from '../../../shared/i18n-provider';
+import i18n from './i18n';
 import { loginUser } from '../../services';
 import { InitialState, Reducer, Actions } from '../../effects';
 import styles from './form.module.scss';
 
 export default React.memo(function FormLogin() {
+  const locale = useContext(I18nContext);
+  // @ts-ignore
+  const texts = i18n[locale];
   const [{ form, loading, error }, dispatch] = useReducer(Reducer, InitialState);
   const router = useRouter();
 
@@ -48,31 +53,31 @@ export default React.memo(function FormLogin() {
       <Image className={styles.logo} src="/page.svg" alt="logo-app" />
       <h1 className={styles.title}>DDland</h1>
       <Form.Group controlId="formEmail">
-        <Form.Label>Email</Form.Label>
+        <Form.Label>{texts.email}</Form.Label>
         <Form.Control
           type="email"
           name="email"
-          placeholder="Ingresá tu email"
+          placeholder={texts.placeHolderEmail}
           onChange={handleOnChange}
           value={form.email}
         />
       </Form.Group>
       <Form.Group controlId="formPassword">
-        <Form.Label>Contraseña</Form.Label>
+        <Form.Label>{texts.password}</Form.Label>
         <Form.Control
           type="password"
           name="password"
-          placeholder="Ingresá tu contraseña"
+          placeholder={texts.placeHolderPassword}
           onChange={handleOnChange}
           value={form.password}
         />
       </Form.Group>
       <Button variant="outline-light" type="submit">
-        {!loading && <span>Acceder</span>}
+        {!loading && <span>{texts.login}</span>}
         {loading && (
           <>
             <Spinner as="span" animation="border" size="sm" role="status" aria-hidden="true" />
-            <span className={styles.loadingText}>Accediendo...</span>
+            <span className={styles.loadingText}>{texts.loading}</span>
           </>
         )}
       </Button>

@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Block from '../block';
 import { getBlocks } from '../../services';
+import i18n from './i18n';
+import { I18nContext } from '../../../shared/i18n-provider';
 import styles from './blocks-avalaibles.module.scss';
 
-const blocks = getBlocks();
-
 export default React.memo(function BlocksAvalaibles() {
+  const locale = useContext(I18nContext);
+  // @ts-ignore
+  const texts = i18n[locale];
+  const blocks = getBlocks(locale);
+
   return (
     <aside className={styles.aside}>
-      <h2 className={styles.title}> Bloques</h2>
-      <p className={styles.subtitle}>Crea tu web arrastrando bloques</p>
-      {blocks.map((block, index) => (
+      <h2 className={styles.title}>{texts.blocks}</h2>
+      <p className={styles.subtitle}>{texts.hint}</p>
+      {blocks.map((block: any, index: number) => (
         <Block key={index} {...block} />
       ))}
     </aside>

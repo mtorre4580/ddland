@@ -3,8 +3,19 @@ import withSession from '../../middlewares/session';
 import styles from '../../styles/Profile.module.scss';
 import Navigation from '../../ui/shared/navigation';
 import Footer from '../../ui/shared/footer';
+import { I18nContext } from '../../ui/shared/i18n-provider';
 import IUser from '../../repository/models/user';
 import MyProfile from '../../ui/profile/components/my-profile';
+import { useContext } from 'react';
+
+const i18n = {
+  es: {
+    profile: 'Perfil',
+  },
+  en: {
+    profile: 'Profile',
+  },
+};
 
 interface ProfilePageProps {
   user: IUser;
@@ -27,10 +38,14 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
 });
 
 export default function Profile({ user }: ProfilePageProps) {
+  const locale = useContext(I18nContext);
+  // @ts-ignore
+  const texts = i18n[locale];
+
   return (
     <>
       <Head>
-        <title>Perfil</title>
+        <title>{texts.profile}</title>
       </Head>
       <Navigation fullNav active="/profile" />
       <main className={styles.profile}>

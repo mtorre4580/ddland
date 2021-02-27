@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import ILanding from '../../../../repository/models/web/landing';
+import { I18nContext } from '../../../shared/i18n-provider';
+import i18n from './i18n';
 import styles from './table.module.scss';
 
 interface LandingsTableProps {
@@ -10,6 +12,10 @@ interface LandingsTableProps {
 }
 
 export default React.memo(function LandingsTable({ landings, onRemove }: LandingsTableProps) {
+  const locale = useContext(I18nContext);
+  // @ts-ignore
+  const texts = i18n[locale];
+
   /**
    * Format the current Dates to show the user
    * @param date Date
@@ -20,11 +26,11 @@ export default React.memo(function LandingsTable({ landings, onRemove }: Landing
     <Table responsive hover>
       <thead>
         <tr>
-          <th>URL</th>
-          <th>Título</th>
-          <th>Fecha de creación</th>
-          <th>Última modificación</th>
-          <th>Acciones</th>
+          <th>{texts.url}</th>
+          <th>{texts.title}</th>
+          <th>{texts.created}</th>
+          <th>{texts.lastModify}</th>
+          <th>{texts.actions}</th>
         </tr>
       </thead>
       <tbody>
@@ -34,16 +40,16 @@ export default React.memo(function LandingsTable({ landings, onRemove }: Landing
               <td>{landing.path}</td>
               <td>{landing.title}</td>
               <td>{formatDate(landing.created_at)}</td>
-              <td>{landing.updated_at ? formatDate(landing.updated_at) : 'Sin modificaciones'}</td>
+              <td>{landing.updated_at ? formatDate(landing.updated_at) : texts.noModifications}</td>
               <td className={styles.actions}>
                 <Button href={`/dashboard?path=${landing.path}`} className={styles.actionButton} variant="link">
-                  Editar
+                  {texts.edit}
                 </Button>
                 <Button className={styles.actionButton} variant="link" onClick={() => onRemove(landing.path, index)}>
-                  Eliminar
+                  {texts.delete}
                 </Button>
                 <Button href={landing.path} target="_blank" className={styles.actionButton} variant="link">
-                  Visualizar
+                  {texts.preview}
                 </Button>
               </td>
             </tr>

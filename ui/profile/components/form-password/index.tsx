@@ -1,10 +1,12 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useContext } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import { changePasswordUser } from '../../services';
 import { InitialState, Reducer, Actions } from '../../effects';
 import Progress from '../../../shared/progress';
+import i18n from './i18n';
+import { I18nContext } from '../../../shared/i18n-provider';
 import styles from './form-password.module.scss';
 
 interface FormPasswordProps {
@@ -13,6 +15,9 @@ interface FormPasswordProps {
 
 export default React.memo(function FormPassword({ email }: FormPasswordProps) {
   const [{ form, loading, error, updated }, dispatch] = useReducer(Reducer, InitialState);
+  const locale = useContext(I18nContext);
+  // @ts-ignore
+  const texts = i18n[locale];
 
   /**
    * Handler the onChange event for the Inputs
@@ -44,32 +49,32 @@ export default React.memo(function FormPassword({ email }: FormPasswordProps) {
   return (
     <Form className={styles.formPassword} onSubmit={handleOnSubmit}>
       <Form.Group controlId="formOldPassword">
-        <Form.Label>Contraseña Actual</Form.Label>
+        <Form.Label>{texts.currentPassword}</Form.Label>
         <Form.Control
           type="password"
           name="oldPassword"
-          placeholder="Ingresá tu contraseña actual"
+          placeholder={texts.placeholderCurrentPassword}
           value={form.oldPassword}
           onChange={handleOnChange}
         />
       </Form.Group>
       <Form.Group controlId="formNewPassword">
-        <Form.Label>Nueva Contraseña</Form.Label>
+        <Form.Label>{texts.newPassword}</Form.Label>
         <Form.Control
           type="password"
           name="newPassword"
-          placeholder="Ingresá tu nueva contraseña"
+          placeholder={texts.placeholderNewPassword}
           value={form.newPassword}
           onChange={handleOnChange}
         />
       </Form.Group>
-      {updated && <p>Contraseña actualizada!</p>}
+      {updated && <p>{texts.updatedPassword}</p>}
       {!loading && (
         <Button variant="link" type="submit">
-          <span>Modificar</span>
+          <span>{texts.modify}</span>
         </Button>
       )}
-      {loading && <Progress text="Actualizando contraseña" />}
+      {loading && <Progress text={texts.updatingPassword} />}
       <Alert className={styles.errorText} show={error !== null} variant="danger">
         {error}
       </Alert>

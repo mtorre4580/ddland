@@ -1,7 +1,9 @@
-import React, { useRef } from 'react';
+import React, { useRef, useContext } from 'react';
 import { useDrop, useDrag } from 'react-dnd';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import i18n from './i18n';
+import { I18nContext } from '../../../shared/i18n-provider';
 import styles from './edit-block.module.scss';
 
 interface EditBlockProps {
@@ -17,6 +19,9 @@ interface EditBlockProps {
 
 export default React.memo(function EditBlock({ block, index, onRemove, onEdit, onSort }: EditBlockProps) {
   const ref: any = useRef(null);
+  const locale = useContext(I18nContext);
+  // @ts-ignore
+  const texts = i18n[locale];
 
   // Hook to drop and retrieve the current block
   const [, drop] = useDrop({
@@ -78,10 +83,10 @@ export default React.memo(function EditBlock({ block, index, onRemove, onEdit, o
         <Card.Title>{block.id}</Card.Title>
         <div className={styles.actions}>
           <Button variant="link" onClick={handleRemove}>
-            Eliminar
+            {texts.remove}
           </Button>
           <Button variant="link" onClick={handleEdit}>
-            Editar
+            {texts.edit}
           </Button>
         </div>
       </Card.Body>
