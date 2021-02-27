@@ -1,5 +1,8 @@
 # DDLand
 
+[![version](https://img.shields.io/badge/version-0.12-brightgreen)](https://github.com/mtorre4580/ddland/blob/main/CHANGELOG.md)
+[![conventional commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+
 Create landings pages quickly and easily
 
 [Website](https://ddland.vercel.app/)
@@ -9,7 +12,9 @@ Create landings pages quickly and easily
 - Share your creations
 
 <div style="display: flex; justify-content:center">
+    <a href="https://ddland.vercel.app">
     <img style="max-width:100%; border-radius: 10px" src="https://raw.githubusercontent.com/mtorre4580/ddland/main/docs/images/basic.png" alt="DDLand">
+    </a>
 </div>
 
 ## Getting Started
@@ -36,10 +41,10 @@ This applications has built with Next.js 10
 - Store users and landings with [mongodb](https://www.npmjs.com/package/mongodb) and [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 - Handle user session with [next-iron-session](https://github.com/vvo/next-iron-session)
 - Drag and Drop features with [react-dnd](https://react-dnd.github.io/react-dnd/)
-- Internationalized Routing with Next.js
+- Internationalized Routing with [Next.js](https://nextjs.org/docs/advanced-features/i18n-routing)
 - Avoid collision css with CSS in modules
 - Integration Next.js with [TypeScript](https://www.typescriptlang.org/)
-- Tooling: Eslint, [Prettier](https://prettier.io/), [Conventionoal Commits](https://www.conventionalcommits.org/en/v1.0.0/), [Husky](https://www.npmjs.com/package/husky)
+- Tooling: [Eslint](https://eslint.org/), [Prettier](https://prettier.io/), [Conventionoal Commits](https://www.conventionalcommits.org/en/v1.0.0/), [Husky](https://www.npmjs.com/package/husky)
 
 ## Changelog
 
