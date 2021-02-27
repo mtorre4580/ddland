@@ -44,7 +44,7 @@ This applications has built with Next.js 10
 - Internationalized Routing with [Next.js](https://nextjs.org/docs/advanced-features/i18n-routing)
 - Avoid collision css with CSS in modules
 - Integration Next.js with [TypeScript](https://www.typescriptlang.org/)
-- Tooling: [Eslint](https://eslint.org/), [Prettier](https://prettier.io/), [Conventionoal Commits](https://www.conventionalcommits.org/en/v1.0.0/), [Husky](https://www.npmjs.com/package/husky)
+- Tooling: [Eslint](https://eslint.org/), [Prettier](https://prettier.io/), [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), [Husky](https://www.npmjs.com/package/husky)
 
 ## Changelog
 
