@@ -1,4 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DDLand
+
+Create landings pages quickly and easily
+
+- Create your landings by dragging blocks
+- See your changes in real time
+- Share your creations
 
 ## Getting Started
 
@@ -6,29 +12,33 @@ First, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Development
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+You can use the `.env.local.example` to replace with your connection to use this App
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Stack
 
-## Learn More
+This applications has built with Next.js 10
 
-To learn more about Next.js, take a look at the following resources:
+- Handle users passwords via [bcryptjs](https://www.npmjs.com/package/bcryptjs) to generate hash
+- UI Components by [react-bootstrap](https://react-bootstrap.github.io/)
+- Validate schema via [joi](https://joi.dev/api/)
+- Store users and landings with [mongodb](https://www.npmjs.com/package/mongodb) and [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- Handle user session with [next-iron-session](https://github.com/vvo/next-iron-session)
+- Drag and Drop features with [react-dnd](https://react-dnd.github.io/react-dnd/)
+- Internationalized Routing with Next.js
+- Avoid colition css with CSS in modules
+- Validation checker TypeScript
+- Tooling: Eslint, Prettier.js, Semantic Commits, Husky
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Changelog
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Last features https://github.com/mtorre4580/ddland/blob/main/CHANGELOG.md
 
-## Deploy on Vercel
+## Author
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[Matias Daniel Torre](https://www.linkedin.com/in/mtorre4580)
