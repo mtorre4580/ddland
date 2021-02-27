@@ -2,9 +2,15 @@
 
 Create landings pages quickly and easily
 
+[Website](https://ddland.vercel.app/)
+
 - Create your landings by dragging blocks
 - See your changes in real time
 - Share your creations
+
+<div style="display: flex; justify-content:center">
+    <img style="max-width:100%; border-radius: 10px" src="https://raw.githubusercontent.com/mtorre4580/ddland/main/docs/images/basic.png?token=ABP3FVJJXB6IJYVJANQKF6DAHKNRS" alt="DDLand">
+</div>
 
 ## Getting Started
 
@@ -31,9 +37,9 @@ This applications has built with Next.js 10
 - Handle user session with [next-iron-session](https://github.com/vvo/next-iron-session)
 - Drag and Drop features with [react-dnd](https://react-dnd.github.io/react-dnd/)
 - Internationalized Routing with Next.js
-- Avoid colition css with CSS in modules
-- Validation checker TypeScript
-- Tooling: Eslint, Prettier.js, Semantic Commits, Husky
+- Avoid collision css with CSS in modules
+- Integration Next.js with [TypeScript](https://www.typescriptlang.org/)
+- Tooling: Eslint, [Prettier](https://prettier.io/), [Conventionoal Commits](https://www.conventionalcommits.org/en/v1.0.0/), [Husky](https://www.npmjs.com/package/husky)
 
 ## Changelog
 
