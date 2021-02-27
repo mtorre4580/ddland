@@ -1,4 +1,5 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useContext } from 'react';
+import { useRouter } from 'next/router';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Container from 'react-bootstrap/Container';
@@ -9,6 +10,8 @@ import BlocksAvalaibles from '../blocks-avalaibles';
 import Canva from '../canva';
 import Preview from '../preview';
 import ButtonFloat from '../../../shared/button-float';
+import i18n from './i18n';
+import { I18nContext } from '../../../shared/i18n-provider';
 import { saveLanding, updateLanding } from '../../services';
 import { Reducer, InitialState, Actions, Models } from '../../effects';
 import ILanding from '../../../../repository/models/web/landing';
@@ -25,6 +28,10 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
     ...landing,
     isEdit: firstEdit,
   });
+  const router = useRouter();
+  const locale = useContext(I18nContext);
+  // @ts-ignore
+  const texts = i18n[locale];
 
   /**
    * Handler when user add block to the Dashboard
@@ -75,6 +82,13 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
     }
   };
 
+  /**
+   * Handler the user preview, redirect to show the landing created
+   */
+  const handlePreview = () => {
+    router.push(path);
+  };
+
   return (
     <DndProvider backend={HTML5Backend}>
       <Container fluid className={styles.container} as="section">
@@ -100,12 +114,14 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
         </Row>
         {blocks.length > 0 && (
           <>
-            <ButtonFloat style={{ bottom: '40px', right: '120px' }} onClick={handleSaveOrUpdate}>
+            <ButtonFloat style={{ bottom: '40px', right: '120px' }} onClick={handleSaveOrUpdate} tooltip={texts.save}>
               <img className={styles.icons} src="/save.svg" alt="save-action" />
             </ButtonFloat>
-            <ButtonFloat style={{ bottom: '40px', right: '40px' }}>
-              <img className={styles.icons} src="/preview.svg" alt="preview-action" />
-            </ButtonFloat>
+            {isEdit && (
+              <ButtonFloat style={{ bottom: '40px', right: '40px' }} tooltip={texts.preview} onClick={handlePreview}>
+                <img className={styles.icons} src="/preview.svg" alt="preview-action" />
+              </ButtonFloat>
+            )}
           </>
         )}
       </Container>
