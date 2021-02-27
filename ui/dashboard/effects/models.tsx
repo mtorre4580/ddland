@@ -3,6 +3,9 @@ export interface StateEditor {
   [key: string]: any;
   path: string;
   title: string;
+  loading: boolean;
+  error: string | null;
+  isEdit: boolean;
 }
 
 export interface Action {

@@ -1,4 +1,4 @@
-import { ADD_BLOCK, REMOVE_BLOCK, EDIT_BLOCK, SORT_BLOCK } from './constants';
+import { ADD_BLOCK, REMOVE_BLOCK, EDIT_BLOCK, SORT_BLOCK, HAS_ERROR, LOADING, SAVE_LANDING_SUCCESS } from './constants';
 import { Action } from './models';
 
 export default function reducer(prevState: any, action: Action) {
@@ -39,6 +39,30 @@ export default function reducer(prevState: any, action: Action) {
       return {
         ...prevState,
         blocks: sortBlocks,
+      };
+    }
+    case SAVE_LANDING_SUCCESS: {
+      const { title, path } = payload;
+      return {
+        ...prevState,
+        isEdit: true,
+        title,
+        path,
+      };
+    }
+    case LOADING: {
+      return {
+        ...prevState,
+        loading: true,
+        error: null,
+      };
+    }
+    case HAS_ERROR: {
+      const { error } = payload;
+      return {
+        ...prevState,
+        loading: false,
+        error,
       };
     }
     default:

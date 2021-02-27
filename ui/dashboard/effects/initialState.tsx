@@ -5,4 +5,7 @@ export default {
   created_at: null,
   updated_at: null,
   blocks: [],
+  loading: false,
+  error: null,
+  isEdit: false,
 };

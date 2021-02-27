@@ -4,6 +4,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Alert from 'react-bootstrap/Alert';
 import BlocksAvalaibles from '../blocks-avalaibles';
 import Canva from '../canva';
 import Preview from '../preview';
@@ -15,11 +16,15 @@ import styles from './editor.module.scss';
 
 interface EditorProps {
   landing: ILanding | object;
-  isEdit: boolean;
+  firstEdit: boolean;
 }
 
-export default React.memo(function Editor({ landing = {}, isEdit = false }: EditorProps) {
-  const [{ blocks, path, title }, dispatch] = useReducer(Reducer, { ...InitialState, ...landing });
+export default React.memo(function Editor({ landing = {}, firstEdit }: EditorProps) {
+  const [{ blocks, path, title, error, isEdit }, dispatch] = useReducer(Reducer, {
+    ...InitialState,
+    ...landing,
+    isEdit: firstEdit,
+  });
 
   /**
    * Handler when user add block to the Dashboard
@@ -52,19 +57,30 @@ export default React.memo(function Editor({ landing = {}, isEdit = false }: Edit
    */
   const handleSaveOrUpdate = async () => {
     try {
+      dispatch(Actions.loading());
       if (isEdit) {
         await updateLanding(path, { title, blocks });
       } else {
-        await saveLanding({ path: 'landing-2', title: 'testing-2', blocks });
+        // TODO
+        const title = 'landing-test-2';
+        const path = 'testing-3';
+        await saveLanding({ path, title, blocks });
+        dispatch(Actions.saveLandingSuccess(title, path));
       }
     } catch (err) {
-      console.log('err', err);
+      const {
+        data: { msg },
+      } = err.response;
+      dispatch(Actions.errorUpdatingOrSaving(msg));
     }
   };
 
   return (
     <DndProvider backend={HTML5Backend}>
       <Container fluid className={styles.container} as="section">
+        <Alert className={styles.errorText} show={error !== null} variant="danger">
+          {error}
+        </Alert>
         <Row>
           <Col lg={3}>
             <BlocksAvalaibles />
