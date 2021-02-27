@@ -1,9 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import userRepository from '../../../repository/user';
-import bcrypt from 'bcrypt';
-
-// Cost to generate the hash
-const BCRYPT_SALT_ROUNDS = 12;
+import { encrypt } from '../../../services/hash';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { method, body = {} } = req;
@@ -13,7 +10,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       if (errors) {
         return res.status(400).json({ msg: 'Datos erróneos' });
       }
-      const hash = await bcrypt.hash(body.password, BCRYPT_SALT_ROUNDS);
+      const hash = await encrypt(body.password);
       const response = await userRepository.save({ ...body, password: hash });
       return res.status(201).json(response);
     } catch (err) {

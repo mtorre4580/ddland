@@ -1,10 +1,7 @@
 import { NextApiResponse } from 'next';
 import userRepository from '../../../repository/user';
 import withAuth from '../../../middlewares/auth';
-import bcrypt from 'bcrypt';
-
-// Cost to generate the hash
-const BCRYPT_SALT_ROUNDS = 12;
+import { compare, encrypt } from '../../../services/hash';
 
 export default withAuth(async (req, res: NextApiResponse) => {
   const {
@@ -42,10 +39,10 @@ export default withAuth(async (req, res: NextApiResponse) => {
         return res.status(400).json({ msg: 'El email no existe' });
       }
 
-      const isValidHash = await bcrypt.compare(oldPassword, user.password);
+      const isValidHash = await compare(oldPassword, user.password);
 
       if (isValidHash) {
-        const newHash = await bcrypt.hash(newPassword, BCRYPT_SALT_ROUNDS);
+        const newHash = await encrypt(newPassword);
         await userRepository.update(email, { password: newHash });
         return res.json({ msg: 'Actualización exitosa' });
       }
