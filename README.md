@@ -9,7 +9,7 @@ Create landings pages quickly and easily
 - Share your creations
 
 <div style="display: flex; justify-content:center">
-    <img style="max-width:100%; border-radius: 10px" src="https://raw.githubusercontent.com/mtorre4580/ddland/main/docs/images/basic.png?token=ABP3FVJJXB6IJYVJANQKF6DAHKNRS" alt="DDLand">
+    <img style="max-width:100%; border-radius: 10px" src="https://raw.githubusercontent.com/mtorre4580/ddland/main/docs/images/basic.png" alt="DDLand">
 </div>
 
 ## Getting Started
