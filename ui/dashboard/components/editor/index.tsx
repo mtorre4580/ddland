@@ -82,10 +82,10 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
           {error}
         </Alert>
         <Row>
-          <Col lg={3}>
+          <Col xs={12} md={12} lg={3}>
             <BlocksAvalaibles />
           </Col>
-          <Col lg={4}>
+          <Col xs={12} md={12} lg={4}>
             <Canva
               onAdd={handleOnAdd}
               onRemove={handleOnRemove}
@@ -94,7 +94,7 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
               blocks={blocks}
             />
           </Col>
-          <Col lg={5}>
+          <Col xs={12} md={12} lg={5}>
             <Preview blocks={blocks} />
           </Col>
         </Row>
