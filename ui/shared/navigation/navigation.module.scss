@@ -1,5 +1,22 @@
 @import '../../../styles/colors';
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
 
 .nav {
   background-color: $color-principal;
+
+  .itemLang {
+    margin: auto;
+    display: none;
+    @media only screen and (min-width: $desktop) {
+      display: block;
+    }
+    .btnLangEn {
+      @include iconLanguage('/en.svg');
+    }
+
+    .btnLangEs {
+      @include iconLanguage('/es.svg');
+    }
+  }
 }

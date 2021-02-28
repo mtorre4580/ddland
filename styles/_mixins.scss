@@ -17,3 +17,11 @@
     cursor: -webkit-grabbing;
   }
 }
+
+@mixin iconLanguage($icon) {
+  margin: 0 8px;
+  color: transparent !important;
+  font-size: 0.5rem;
+  background-image: url($icon);
+  background-repeat: no-repeat;
+}

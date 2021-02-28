@@ -64,6 +64,20 @@ export default React.memo(function Navigation({ active = '/', fullNav }: Navigat
               </Nav.Item>
             </>
           )}
+          {active === '/' && (
+            <>
+            <Nav.Item as="li" className={styles.itemLang}>
+              <Link href="/es" passHref>
+                <Nav.Link className={styles.btnLangEs}>ES</Nav.Link>
+              </Link>
+            </Nav.Item>
+            <Nav.Item as="li" className={styles.itemLang}>
+              <Link href="/en" passHref>
+                <Nav.Link className={styles.btnLangEn}>EN</Nav.Link>
+              </Link>
+            </Nav.Item>
+            </>
+          )}
         </Nav>
       </Navbar.Collapse>
     </Navbar>
