@@ -1,6 +1,7 @@
 # DDLand
 
-[![version](https://img.shields.io/badge/version-0.12-brightgreen)](https://github.com/mtorre4580/ddland/blob/main/CHANGELOG.md)
+[![Build Status](https://travis-ci.com/mtorre4580/ddland.svg?branch=main)](https://travis-ci.com/mtorre4580/ddland)
+[![version](https://img.shields.io/badge/version-0.13-brightgreen)](https://github.com/mtorre4580/ddland/blob/main/CHANGELOG.md)
 [![conventional commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 Create landings pages quickly and easily
