@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.3](https://github.com/mtorre4580/ddland/compare/v0.1.2...v0.1.3) (2021-02-28)
+
+
+### Features
+
+* add language selection ([7fed650](https://github.com/mtorre4580/ddland/commit/7fed6505faaf78f5c72580c714e52d011a54bd42))
+* add reinspect to show reducers with reduxDevTools ([8140186](https://github.com/mtorre4580/ddland/commit/8140186a8cc5377f35ecc603316f104faccc799e))
+* modal confirm save landing ([8ca6a95](https://github.com/mtorre4580/ddland/commit/8ca6a95de1df83893a617efebb8c5e71ab39888c))
+
 ### [0.1.2](https://github.com/mtorre4580/ddland/compare/v0.1.1...v0.1.2) (2021-02-27)
 
 
