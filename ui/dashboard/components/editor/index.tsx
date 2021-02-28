@@ -108,7 +108,7 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
     try {
       dispatch(Actions.loading());
       await saveLanding({ path: pathSelected, title: titleSelected, blocks });
-      dispatch(Actions.saveLandingSuccess(pathSelected, titleSelected));
+      dispatch(Actions.saveLandingSuccess(titleSelected, pathSelected));
     } catch (err) {
       const {
         data: { msg },

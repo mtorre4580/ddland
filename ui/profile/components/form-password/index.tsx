@@ -59,6 +59,7 @@ export default React.memo(function FormPassword({ email }: FormPasswordProps) {
         <Form.Control
           type="password"
           name="oldPassword"
+          required
           placeholder={texts.placeholderCurrentPassword}
           value={form.oldPassword}
           onChange={handleOnChange}
@@ -69,6 +70,7 @@ export default React.memo(function FormPassword({ email }: FormPasswordProps) {
         <Form.Control
           type="password"
           name="newPassword"
+          required
           placeholder={texts.placeholderNewPassword}
           value={form.newPassword}
           onChange={handleOnChange}
