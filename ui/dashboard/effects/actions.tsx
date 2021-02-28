@@ -1,4 +1,15 @@
-import { ADD_BLOCK, REMOVE_BLOCK, EDIT_BLOCK, SORT_BLOCK, LOADING, SAVE_LANDING_SUCCESS, HAS_ERROR } from './constants';
+import {
+  ADD_BLOCK,
+  REMOVE_BLOCK,
+  EDIT_BLOCK,
+  SORT_BLOCK,
+  LOADING,
+  SAVE_LANDING_SUCCESS,
+  HAS_ERROR,
+  UPDATE_LANDING_SUCCESS,
+  OPEN_MODAL_SAVE,
+  CLOSE_MODAL_SAVE,
+} from './constants';
 import { Block } from './models';
 
 export default {
@@ -20,7 +31,16 @@ export default {
   saveLandingSuccess: (title: string, path: string) => {
     return { type: SAVE_LANDING_SUCCESS, payload: { title, path: `/${path}` } };
   },
+  updateLandingSuccess: () => {
+    return { type: UPDATE_LANDING_SUCCESS, payload: {} };
+  },
   errorUpdatingOrSaving: (error: string) => {
     return { type: HAS_ERROR, payload: { error } };
+  },
+  openModalSave: () => {
+    return { type: OPEN_MODAL_SAVE, payload: {} };
+  },
+  closeModalSave: () => {
+    return { type: CLOSE_MODAL_SAVE, payload: {} };
   },
 };

@@ -66,4 +66,12 @@ function updateLanding(path: string, request: LandingRequest) {
   return axios.put(`/api/landings${path}`, request);
 }
 
-export { getBlocks, getDefaultValues, saveLanding, updateLanding };
+/**
+ * Retrieve if exits any landing with the current path
+ * @param path string
+ */
+function getLandingWithPath(path: string) {
+  return axios.get('/api/landings', { params: { path } });
+}
+
+export { getBlocks, getDefaultValues, saveLanding, updateLanding, getLandingWithPath };

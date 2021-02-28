@@ -8,4 +8,5 @@ export default {
   loading: false,
   error: null,
   isEdit: false,
+  isModalOpen: false,
 };

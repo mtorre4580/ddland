@@ -11,12 +11,17 @@ import BlocksAvalaibles from '../blocks-avalaibles';
 import Canva from '../canva';
 import Preview from '../preview';
 import ButtonFloat from '../../../shared/button-float';
+import Progress from '../../../shared/progress';
+import Image from 'react-bootstrap/Image';
+import Spinner from 'react-bootstrap/Spinner';
+import Modal from '../../../shared/modal';
 import i18n from './i18n';
 import { I18nContext } from '../../../shared/i18n-provider';
 import { saveLanding, updateLanding } from '../../services';
 import { Reducer, InitialState, Actions, Models } from '../../effects';
 import ILanding from '../../../../repository/models/web/landing';
 import styles from './editor.module.scss';
+import FormSave from '../form-save';
 
 interface EditorProps {
   landing: ILanding | object;
@@ -24,7 +29,7 @@ interface EditorProps {
 }
 
 export default React.memo(function Editor({ landing = {}, firstEdit }: EditorProps) {
-  const [{ blocks, path, title, error, isEdit }, dispatch] = useReducer(
+  const [{ blocks, path, title, error, isEdit, loading, isModalOpen }, dispatch] = useReducer(
     Reducer,
     {
       ...InitialState,
@@ -66,20 +71,44 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
   const handleOnSort = (dragIndex: number, hoverIndex: number) => dispatch(Actions.sortBlock(dragIndex, hoverIndex));
 
   /**
-   * Handler the current landing save or update
+   * Handler the current landing save or update,
+   * If the first save, modal to confirm the current action
    */
   const handleSaveOrUpdate = async () => {
+    if (isEdit) {
+      try {
+        dispatch(Actions.loading());
+        await updateLanding(path, { title, blocks });
+        dispatch(Actions.updateLandingSuccess());
+      } catch (err) {
+        const {
+          data: { msg },
+        } = err.response;
+        dispatch(Actions.errorUpdatingOrSaving(msg));
+      }
+    } else {
+      dispatch(Actions.openModalSave());
+    }
+  };
+
+  /**
+   * Handler the user preview, redirect to show the landing created
+   */
+  const handlePreview = () => router.push(path);
+
+  /**
+   * Handler the modal to cancel
+   */
+  const handleOnCloseModal = () => dispatch(Actions.closeModalSave());
+
+  /**
+   * Handler the modal to confirm the save
+   */
+  const handleOnSave = async (pathSelected: string, titleSelected: string) => {
     try {
       dispatch(Actions.loading());
-      if (isEdit) {
-        await updateLanding(path, { title, blocks });
-      } else {
-        // TODO
-        const title = 'landing-test-2';
-        const path = 'testing-3';
-        await saveLanding({ path, title, blocks });
-        dispatch(Actions.saveLandingSuccess(title, path));
-      }
+      await saveLanding({ path: pathSelected, title: titleSelected, blocks });
+      dispatch(Actions.saveLandingSuccess(pathSelected, titleSelected));
     } catch (err) {
       const {
         data: { msg },
@@ -88,49 +117,55 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
     }
   };
 
-  /**
-   * Handler the user preview, redirect to show the landing created
-   */
-  const handlePreview = () => {
-    router.push(path);
-  };
-
   return (
-    <DndProvider backend={HTML5Backend}>
-      <Container fluid className={styles.container} as="section">
-        <Alert className={styles.errorText} show={error !== null} variant="danger">
-          {error}
-        </Alert>
-        <Row>
-          <Col xs={12} md={12} lg={3}>
-            <BlocksAvalaibles />
-          </Col>
-          <Col xs={12} md={12} lg={4}>
-            <Canva
-              onAdd={handleOnAdd}
-              onRemove={handleOnRemove}
-              onEdit={handleOnEdit}
-              onSort={handleOnSort}
-              blocks={blocks}
-            />
-          </Col>
-          <Col xs={12} md={12} lg={5}>
-            <Preview blocks={blocks} />
-          </Col>
-        </Row>
-        {blocks.length > 0 && (
-          <>
-            <ButtonFloat style={{ bottom: '40px', right: '120px' }} onClick={handleSaveOrUpdate} tooltip={texts.save}>
-              <img className={styles.icons} src="/save.svg" alt="save-action" />
-            </ButtonFloat>
-            {isEdit && (
-              <ButtonFloat style={{ bottom: '40px', right: '40px' }} tooltip={texts.preview} onClick={handlePreview}>
-                <img className={styles.icons} src="/preview.svg" alt="preview-action" />
+    <>
+      <DndProvider backend={HTML5Backend}>
+        <Container fluid className={styles.container} as="section">
+          <Alert className={styles.errorText} show={error !== null} variant="danger">
+            {error}
+          </Alert>
+          <Row>
+            <Col xs={12} md={12} lg={3}>
+              <BlocksAvalaibles />
+            </Col>
+            <Col xs={12} md={12} lg={4}>
+              <Canva
+                onAdd={handleOnAdd}
+                onRemove={handleOnRemove}
+                onEdit={handleOnEdit}
+                onSort={handleOnSort}
+                blocks={blocks}
+              />
+            </Col>
+            <Col xs={12} md={12} lg={5}>
+              <Preview blocks={blocks} />
+            </Col>
+          </Row>
+          {blocks.length > 0 && (
+            <>
+              <ButtonFloat style={{ bottom: '40px', right: '120px' }} onClick={handleSaveOrUpdate} tooltip={texts.save}>
+                {!loading && <Image className={styles.icons} src="/save.svg" alt="save-action" />}
+                {loading && (
+                  <Spinner animation="grow" role="status">
+                    <span className="sr-only">Loading...</span>
+                  </Spinner>
+                )}
               </ButtonFloat>
-            )}
-          </>
-        )}
-      </Container>
-    </DndProvider>
+              {isEdit && (
+                <ButtonFloat style={{ bottom: '40px', right: '40px' }} tooltip={texts.preview} onClick={handlePreview}>
+                  <Image className={styles.icons} src="/preview.svg" alt="preview-action" />
+                </ButtonFloat>
+              )}
+            </>
+          )}
+        </Container>
+      </DndProvider>
+      <Modal title={texts.save} active={isModalOpen} onClose={handleOnCloseModal}>
+        <>
+          {!loading && <FormSave onSave={handleOnSave} />}
+          {loading && <Progress text={texts.savingLanding} />}
+        </>
+      </Modal>
+    </>
   );
 });

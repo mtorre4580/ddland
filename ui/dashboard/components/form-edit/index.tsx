@@ -35,7 +35,7 @@ export default React.memo(function FormEdit({ block, onEditApply }: any) {
 
   return (
     <Form onSubmit={handleOnSubmit}>
-      {Object.keys(values).map((key, index) => {
+      {Object.keys(values).map((key: string, index: number) => {
         return (
           <Form.Group key={index} controlId={key}>
             <Form.Label className={styles.label}>{key}</Form.Label>

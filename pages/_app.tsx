@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { I18nProvider } from '../ui/shared/i18n-provider';
-import { StateInspector } from "reinspect";
+import { StateInspector } from 'reinspect';
 
 import '../styles/globals.scss';
 

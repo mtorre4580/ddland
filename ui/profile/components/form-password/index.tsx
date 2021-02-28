@@ -15,7 +15,12 @@ interface FormPasswordProps {
 }
 
 export default React.memo(function FormPassword({ email }: FormPasswordProps) {
-  const [{ form, loading, error, updated }, dispatch] = useReducer(Reducer, InitialState, basic => basic, 'PROFILE_PAGE');
+  const [{ form, loading, error, updated }, dispatch] = useReducer(
+    Reducer,
+    InitialState,
+    (basic) => basic,
+    'PROFILE_PAGE',
+  );
   const locale = useContext(I18nContext);
   // @ts-ignore
   const texts = i18n[locale];

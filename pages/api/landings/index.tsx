@@ -15,6 +15,9 @@ export default withAuth(async (req, res: NextApiResponse) => {
       } else {
         response = await landingRepository.getAll(email);
       }
+      if (response === null) {
+        return res.status(404).json({ msg: 'Not exists' });
+      }
       return res.json(response);
     } catch (err) {
       return res.status(500).json({ msg: 'Se produjo un error al obtener la landing' });

@@ -6,6 +6,7 @@ export interface StateEditor {
   loading: boolean;
   error: string | null;
   isEdit: boolean;
+  isModalOpen: boolean;
 }
 
 export interface Action {

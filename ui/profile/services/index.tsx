@@ -14,7 +14,7 @@ function logoutUser() {
  * @param newPassword string
  * @return Promise
  */
-function changePasswordUser(request: any, email: string) {
+function changePasswordUser(request: { oldPassword: string; newPassword: string }, email: string) {
   return axios.put(`/api/users/${email}`, request);
 }
 
