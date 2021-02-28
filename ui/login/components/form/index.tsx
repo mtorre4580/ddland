@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import { useReducer } from 'reinspect';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
-import Image from 'react-bootstrap/Image';
 import Alert from 'react-bootstrap/Alert';
 import { I18nContext } from '../../../shared/i18n-provider';
 import i18n from './i18n';
@@ -51,13 +51,16 @@ export default React.memo(function FormLogin() {
 
   return (
     <Form className={styles.form} onSubmit={handleOnSubmit}>
-      <Image className={styles.logo} src="/page.svg" alt="logo-app" />
+      <figure className={styles.figure}>
+        <Image width={128} height={128} className={styles.logo} src="/page.svg" alt="logo-app" />
+      </figure>
       <h1 className={styles.title}>DDland</h1>
       <Form.Group controlId="formEmail">
         <Form.Label>{texts.email}</Form.Label>
         <Form.Control
           type="email"
           name="email"
+          required
           placeholder={texts.placeHolderEmail}
           onChange={handleOnChange}
           value={form.email}
@@ -68,6 +71,7 @@ export default React.memo(function FormLogin() {
         <Form.Control
           type="password"
           name="password"
+          required
           placeholder={texts.placeHolderPassword}
           onChange={handleOnChange}
           value={form.password}

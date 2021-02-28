@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { useReducer } from 'reinspect';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import Container from 'react-bootstrap/Container';
-import Image from 'react-bootstrap/Image';
 import Alert from 'react-bootstrap/Alert';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -56,7 +56,9 @@ export default React.memo(function FormRegister() {
     <Container>
       <Row>
         <Col xs={12} lg={5}>
-          <Image className={styles.logo} src="/page.svg" alt="Logo-App" />
+          <figure className={styles.figure}>
+            <Image width={128} height={128} className={styles.logo} src="/page.svg" alt="Logo-App" />
+          </figure>
           <h1 className={styles.title}>DDland</h1>
           <p className={styles.subtitle}>{texts.hint}</p>
         </Col>
@@ -67,6 +69,7 @@ export default React.memo(function FormRegister() {
               <Form.Control
                 type="email"
                 name="email"
+                required
                 placeholder={texts.placeHolderEmail}
                 onChange={handleOnChange}
                 value={form.email}
@@ -77,6 +80,7 @@ export default React.memo(function FormRegister() {
               <Form.Control
                 type="password"
                 name="password"
+                required
                 placeholder={texts.placeHolderPassword}
                 onChange={handleOnChange}
                 value={form.password}

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { useDrop } from 'react-dnd';
-import Image from 'react-bootstrap/Image';
+import Image from 'next/image';
 import { getDefaultValues } from '../../services';
 import EditBlock from '../edit-block';
 import Modal from '../../../shared/modal';
@@ -83,7 +83,7 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit,
       <section ref={dropRef} className={styles.canva}>
         {blocks.length === 0 && (
           <div className={styles.letStart}>
-            <Image className={styles.image} src="/start.svg" alt="Let start to edit" />
+            <Image height={64} width={64} className={styles.image} src="/start.svg" alt="Let start to edit" />
             <p>{texts.hint}</p>
           </div>
         )}

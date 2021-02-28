@@ -9,11 +9,13 @@
   margin-right: auto;
   margin-left: auto;
 
-  .logo {
-    height: 128px;
-    width: 128px;
+  .figure {
     margin: auto;
-    display: block;
+    text-align: center;
+    .logo {
+      margin: auto;
+      display: block;
+    }
   }
 
   .title {

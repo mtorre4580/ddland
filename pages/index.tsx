@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import Head from 'next/head';
+import Image from 'next/image';
 import withSession from '../middlewares/session';
-import Navigation from '../ui/shared/navigation';
-import Image from 'react-bootstrap/Image';
 import Footer from '../ui/shared/footer';
+import Navigation from '../ui/shared/navigation';
 import BackgroundAnimated from '../ui/shared/background-animated';
 import { I18nContext } from '../ui/shared/i18n-provider';
 import styles from '../styles/Home.module.scss';
@@ -66,7 +66,7 @@ export default function Home({ fullNav }: HomePageProps) {
           <h2 className={styles.subtitle}>{texts.subtitle}</h2>
         </section>
         <section className={styles.benefits}>
-          <Image rounded src="/thanks.jpg" className={styles.image} alt="DDLand, drag and drop" />
+          <Image src="/thanks.jpg" width={600} height={300} className={styles.image} alt="DDLand, drag and drop" />
           <ol className={styles.list}>
             <li className={styles.item}>{texts.bullets.step1}</li>
             <li className={styles.item}>{texts.bullets.step2}</li>
@@ -79,7 +79,13 @@ export default function Home({ fullNav }: HomePageProps) {
             <h2>Dashboard</h2>
             <p>{texts.dashboardHint}</p>
           </div>
-          <Image className={styles.imageDashboard} src="/dashboard.png" alt="DDLand, dashboard" />
+          <Image
+            width={600}
+            height={300}
+            className={styles.imageDashboard}
+            src="/dashboard.png"
+            alt="DDLand, dashboard"
+          />
         </section>
       </main>
       <Footer />

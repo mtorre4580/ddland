@@ -32,6 +32,7 @@ $default-height-images: 400px;
     .image {
       max-width: 100%;
       padding: 20px;
+      border-radius: 0.25rem;
       @media only screen and (min-width: $desktop) {
         padding: 0;
       }

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useReducer } from 'reinspect';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import Container from 'react-bootstrap/Container';
@@ -12,7 +13,6 @@ import Canva from '../canva';
 import Preview from '../preview';
 import ButtonFloat from '../../../shared/button-float';
 import Progress from '../../../shared/progress';
-import Image from 'react-bootstrap/Image';
 import Spinner from 'react-bootstrap/Spinner';
 import Modal from '../../../shared/modal';
 import i18n from './i18n';
@@ -144,7 +144,7 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
           {blocks.length > 0 && (
             <>
               <ButtonFloat style={{ bottom: '40px', right: '120px' }} onClick={handleSaveOrUpdate} tooltip={texts.save}>
-                {!loading && <Image className={styles.icons} src="/save.svg" alt="save-action" />}
+                {!loading && <Image height={24} width={24} className={styles.icons} src="/save.svg" alt="save-action" />}
                 {loading && (
                   <Spinner animation="grow" role="status">
                     <span className="sr-only">Loading...</span>
@@ -153,7 +153,7 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
               </ButtonFloat>
               {isEdit && (
                 <ButtonFloat style={{ bottom: '40px', right: '40px' }} tooltip={texts.preview} onClick={handlePreview}>
-                  <Image className={styles.icons} src="/preview.svg" alt="preview-action" />
+                  <Image height={24} width={24} className={styles.icons} src="/preview.svg" alt="preview-action" />
                 </ButtonFloat>
               )}
             </>
