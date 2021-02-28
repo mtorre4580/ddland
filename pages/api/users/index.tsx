@@ -10,6 +10,11 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       if (errors) {
         return res.status(400).json({ msg: 'Datos erróneos' });
       }
+
+      const user = await userRepository.get(body.email);
+      if (user) {
+        return res.status(400).json({ msg: 'El email ya existe' });
+      }
       const hash = await encrypt(body.password);
       const response = await userRepository.save({ ...body, password: hash });
       return res.status(201).json(response);
