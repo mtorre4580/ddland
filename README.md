@@ -1,6 +1,7 @@
 # DDLand
 
 [![Build Status](https://travis-ci.com/mtorre4580/ddland.svg?branch=main)](https://travis-ci.com/mtorre4580/ddland)
+[![Deployment Status](https://img.shields.io/endpoint?url=https://ddland.vercel.app/api/deployment)](https://ddland.vercel.app)
 [![version](https://img.shields.io/badge/version-0.13-brightgreen)](https://github.com/mtorre4580/ddland/blob/main/CHANGELOG.md)
 [![conventional commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
@@ -20,7 +21,13 @@ Create landings pages quickly and easily
 
 ## Getting Started
 
-First, run the development server:
+Install dependencies
+
+```bash
+npm i
+```
+
+Run the development server:
 
 ```bash
 npm run dev
@@ -47,6 +54,8 @@ This applications has built with Next.js 10
 - Built with hooks (useReducer, userMemo, useRef)
 - Apply [reinspect](https://github.com/troch/reinspect#readme) to show reducers, debug mode with Redux DevTools
 - Integration Next.js with [TypeScript](https://www.typescriptlang.org/)
+- Travis CI configuration
+- Deployment status via [deployment-badge](https://github.com/FelixMohr/deployment-badge) integration with Vercel and Github
 - Tooling: [Eslint](https://eslint.org/), [Prettier](https://prettier.io/), [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/), [Husky](https://www.npmjs.com/package/husky)
 
 ## Changelog

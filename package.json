@@ -21,6 +21,7 @@
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.6.0",
+    "deployment-badge": "^1.1.0",
     "joi": "^17.4.0",
     "mongodb": "^3.6.4",
     "next": "10.0.7",
