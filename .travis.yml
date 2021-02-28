@@ -3,7 +3,9 @@ node_js:
   - 'v14.16.0'
 cache:
   directories:
+    - $HOME/.cache/yarn
     - node_modules
+    - .next/cache
 before_install:
   - npm install -g npm
 script:
