@@ -1,33 +1,43 @@
-let chrome: any = { args: {}};
-let puppeteer: any;
-
-if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
-  chrome = require('chrome-aws-lambda');
-  puppeteer = require('puppeteer-core');
-} else {
-  puppeteer = require('puppeteer');
-}
+import chromium from 'chrome-aws-lambda';
 
 const { URL_LANDINGS } = process.env;
 
 class PuppeteerService {
+  private async getBrowserInstance() {
+    const executablePath = await chromium.executablePath;
+
+    if (!executablePath) {
+      const puppeteer = require('puppeteer');
+      return puppeteer.launch({
+        args: chromium.args,
+        headless: true,
+        defaultViewport: {
+          width: 1280,
+          height: 720,
+        },
+        ignoreHTTPSErrors: true,
+      });
+    }
+
+    return chromium.puppeteer.launch({
+      args: chromium.args,
+      defaultViewport: {
+        width: 1280,
+        height: 720,
+      },
+      executablePath,
+      headless: chromium.headless,
+      ignoreHTTPSErrors: true,
+    });
+  }
+
   /**
    * Scan the landing page with the name and save
    * @param name string
    */
   public async takePicture(name: string, format: string = 'jpg') {
     try {
-      let browser = await puppeteer.launch({
-        args: ['--hide-scrollbars', '--disable-web-security'],
-        defaultViewport: {
-          width: 1280,
-          height: 800,
-        },
-        executablePath: await chrome.executablePath,
-        headless: true,
-        ignoreHTTPSErrors: true,
-      });
-
+      const browser = await this.getBrowserInstance();
       const page = await browser.newPage();
 
       await page.goto(`${URL_LANDINGS}${name}`);
