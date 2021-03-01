@@ -32,9 +32,13 @@ export default React.memo(function FormSave({ onSave }: FormSaveProps) {
    */
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
+    let formatValue = value;
+    if (name === 'path') {
+      formatValue = formatValue.replace(/[\/|#|.|$|@|%|?|¿]/, '').replace(/ /g, '-');
+    }
     setForm({
       ...form,
-      [name]: value,
+      [name]: formatValue,
     });
   };
 
