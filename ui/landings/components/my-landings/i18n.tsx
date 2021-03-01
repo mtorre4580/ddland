@@ -11,6 +11,8 @@ export default {
     delete: 'Eliminar',
     deletingLanding: 'Eliminando la landing, espere unos segundos',
     errorGeneric: 'Se produjo un error al eliminar la landing elegida',
+    share: 'Compartir',
+    scanCode: 'Scanea el código QR con tu celular para visualizar la web en tu celular',
   },
   en: {
     title: 'My Landings',
@@ -24,5 +26,7 @@ export default {
     delete: 'Delete',
     deletingLanding: 'Deleting the landing, wait a few seconds',
     errorGeneric: 'An error occurred while deleting the chosen landing',
+    share: 'Share',
+    scanCode: 'Scan the QR code with your cell phone to view the web on your cell phone'
   },
 };

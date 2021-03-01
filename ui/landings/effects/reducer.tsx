@@ -5,6 +5,8 @@ import {
   DELETE_INTENTION,
   DELETE_INTENTION_CANCEL,
   DELETE_INTENTION_CONFIRM,
+  SHARE_INTENTION,
+  SHARE_INTENTION_CANCEL,
 } from './constants';
 import { StateLandings, Action } from './models';
 
@@ -67,6 +69,21 @@ export default function reducer(prevState: StateLandings, action: Action) {
           index: null,
           path: null,
         },
+      };
+    }
+    case SHARE_INTENTION: {
+      const { path } = payload;
+      return {
+        ...prevState,
+        showModalShare: true,
+        landingToShare: path,
+      };
+    }
+    case SHARE_INTENTION_CANCEL: {
+      return {
+        ...prevState,
+        showModalShare: false,
+        landingToShare: null,
       };
     }
     default:

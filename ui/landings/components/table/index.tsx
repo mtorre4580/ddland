@@ -9,9 +9,10 @@ import styles from './table.module.scss';
 interface LandingsTableProps {
   landings: ILanding[];
   onRemove: Function;
+  onShare: Function;
 }
 
-export default React.memo(function LandingsTable({ landings, onRemove }: LandingsTableProps) {
+export default React.memo(function LandingsTable({ landings, onRemove, onShare }: LandingsTableProps) {
   const locale = useContext(I18nContext);
   // @ts-ignore
   const texts = i18n[locale];
@@ -50,6 +51,9 @@ export default React.memo(function LandingsTable({ landings, onRemove }: Landing
                 </Button>
                 <Button href={landing.path} target="_blank" className={styles.actionButton} variant="link">
                   {texts.preview}
+                </Button>
+                <Button className={styles.actionButton} variant="link" onClick={() => onShare(landing.path)}>
+                  {texts.share}
                 </Button>
               </td>
             </tr>

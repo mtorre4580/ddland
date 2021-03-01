@@ -9,6 +9,7 @@ export default {
     lastModify: 'Última modificación',
     actions: 'Acciones',
     noModifications: 'Sin modificaciones',
+    share: 'Compartir',
   },
   en: {
     edit: 'Edit',
@@ -20,5 +21,6 @@ export default {
     lastModify: 'Last modification',
     actions: 'Actions',
     noModifications: 'No Modifications',
+    share: 'Share',
   },
 };

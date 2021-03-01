@@ -14,4 +14,6 @@ export interface StateLandings {
     path: string | null;
     index: number | null;
   };
+  showModalShare: boolean;
+  landingToShare: string | null;
 }

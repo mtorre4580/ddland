@@ -5,6 +5,8 @@ import {
   DELETE_INTENTION_CANCEL,
   DELETE_INTENTION_CONFIRM,
   DELETE_SUCCESS,
+  SHARE_INTENTION,
+  SHARE_INTENTION_CANCEL,
 } from './constants';
 
 export default {
@@ -26,4 +28,10 @@ export default {
   deleteIntentionConfirm: () => {
     return { type: DELETE_INTENTION_CONFIRM, payload: {} };
   },
+  shareLandingIntention: (path: string) => {
+    return { type: SHARE_INTENTION, payload: { path } };
+  },
+  shareLandingIntentionCanncel: () => {
+    return { type: SHARE_INTENTION_CANCEL, payload: { } };
+  }
 };

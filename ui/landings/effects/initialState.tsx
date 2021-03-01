@@ -7,4 +7,6 @@ export default {
     path: null,
     index: null,
   },
+  showModalShare: false,
+  landingToShare: null,
 };

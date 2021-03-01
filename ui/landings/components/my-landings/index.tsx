@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useReducer } from 'reinspect';
 import Image from 'next/image';
+import QRCode from 'qrcode.react';
 import Button from 'react-bootstrap/Button';
 import Jumbotron from 'react-bootstrap/Jumbotron';
 import Alert from 'react-bootstrap/Alert';
@@ -20,7 +21,10 @@ interface MyLandingsProps {
 }
 
 export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
-  const [{ landings, error, loading, showModal, landingSelected }, dispatch] = useReducer(
+  const [
+    { landings, error, loading, showModal, landingSelected, showModalShare, landingToShare },
+    dispatch,
+  ] = useReducer(
     Reducer,
     {
       ...InitialState,
@@ -43,7 +47,7 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
   /**
    * Handler to close the current modal
    */
-  const handleOnCloseModal = () => dispatch(Actions.deleteIntentionCancel());
+  const handleOnCloseModalDelete = () => dispatch(Actions.deleteIntentionCancel());
 
   /**
    * Handler to delete the current web selected if the user confirm
@@ -61,6 +65,17 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
     }
   };
 
+  /**
+   * Handler to share the landing selected to generate QR
+   * @param name string
+   */
+  const handleOnShare = (name: string) => dispatch(Actions.shareLandingIntention(name));
+
+  /**
+   * Handler the cancel share modal
+   */
+  const handleOnCloseShare = () => dispatch(Actions.shareLandingIntentionCanncel());
+
   return (
     <>
       <Jumbotron fluid className={styles.presentation}>
@@ -72,7 +87,7 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
       <Alert className={styles.errorText} show={error !== null} variant="danger">
         {error}
       </Alert>
-      {landings.length > 0 && <Table landings={landings} onRemove={handleOnRemove} />}
+      {landings.length > 0 && <Table landings={landings} onRemove={handleOnRemove} onShare={handleOnShare} />}
       {landings.length === 0 && (
         <div className={styles.container}>
           <Image
@@ -88,14 +103,20 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
           </Button>
         </div>
       )}
-      <Modal title={texts.delete} active={showModal} onClose={handleOnCloseModal}>
+      <Modal title={texts.share} active={showModalShare} onClose={handleOnCloseShare}>
+        <div className={styles.qrShare}>
+          <p>{texts.scanCode}</p>
+          <QRCode value={`https://ddland.vercel.app/${landingToShare}`} size={200} />
+        </div>
+      </Modal>
+      <Modal title={texts.delete} active={showModal} onClose={handleOnCloseModalDelete}>
         <>
           {!loading && (
             <>
               <p>{texts.removeLanding}</p>
               <p className="text-center">{texts.confirmRemove}</p>
               <div className={styles.modalActions}>
-                <Button className={styles.btn} variant="outline-light" onClick={handleOnCloseModal}>
+                <Button className={styles.btn} variant="outline-light" onClick={handleOnCloseModalDelete}>
                   {texts.cancel}
                 </Button>
                 <Button className={styles.btn} variant="outline-light" onClick={handleOnConfirmRemove}>
