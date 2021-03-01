@@ -12,6 +12,8 @@ env:
     - MONGODB_DB=empty
     - SECRET_COOKIE_PASSWORD=empty
     - COOKIE_NAME=empty
+    - CLOUDINARY_URL=empty
+    - URL_LANDINGS=empty
 before_install:
   - npm install -g npm
 script:

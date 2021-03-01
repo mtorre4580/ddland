@@ -75,7 +75,13 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
       {landings.length > 0 && <Table landings={landings} onRemove={handleOnRemove} />}
       {landings.length === 0 && (
         <div className={styles.container}>
-          <Image height={128} width={128} className={styles.startImage} src="/start.svg" alt="Let's start to create landings" />
+          <Image
+            height={128}
+            width={128}
+            className={styles.startImage}
+            src="/start.svg"
+            alt="Let's start to create landings"
+          />
           <p className={styles.emptyLandings}>{texts.emptyLandings}</p>
           <Button variant="link" href="/dashboard">
             {texts.goDashboard}

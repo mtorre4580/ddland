@@ -144,7 +144,9 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
           {blocks.length > 0 && (
             <>
               <ButtonFloat style={{ bottom: '40px', right: '120px' }} onClick={handleSaveOrUpdate} tooltip={texts.save}>
-                {!loading && <Image height={24} width={24} className={styles.icons} src="/save.svg" alt="save-action" />}
+                {!loading && (
+                  <Image height={24} width={24} className={styles.icons} src="/save.svg" alt="save-action" />
+                )}
                 {loading && (
                   <Spinner animation="grow" role="status">
                     <span className="sr-only">Loading...</span>
