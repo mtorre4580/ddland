@@ -32,6 +32,6 @@ export default {
     return { type: SHARE_INTENTION, payload: { path } };
   },
   shareLandingIntentionCanncel: () => {
-    return { type: SHARE_INTENTION_CANCEL, payload: { } };
-  }
+    return { type: SHARE_INTENTION_CANCEL, payload: {} };
+  },
 };

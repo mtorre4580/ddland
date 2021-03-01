@@ -1,5 +1,6 @@
 import React from 'react';
 import Jumbotron from 'react-bootstrap/Jumbotron';
+import styles from './header.module.scss';
 
 interface HeaderProps {
   title: string;
@@ -8,7 +9,7 @@ interface HeaderProps {
 
 export default React.memo(function HeaderWrapper({ title, subtitle }: HeaderProps) {
   return (
-    <Jumbotron>
+    <Jumbotron fluid className={styles.header}>
       <h2>{title}</h2>
       {subtitle && <p>{subtitle}</p>}
     </Jumbotron>

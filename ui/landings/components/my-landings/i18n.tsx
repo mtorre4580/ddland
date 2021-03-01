@@ -27,6 +27,6 @@ export default {
     deletingLanding: 'Deleting the landing, wait a few seconds',
     errorGeneric: 'An error occurred while deleting the chosen landing',
     share: 'Share',
-    scanCode: 'Scan the QR code with your cell phone to view the web on your cell phone'
+    scanCode: 'Scan the QR code with your cell phone to view the web on your cell phone',
   },
 };

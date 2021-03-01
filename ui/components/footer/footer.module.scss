@@ -3,4 +3,10 @@
 .footer {
   padding: 20px;
   background-color: $color-grey;
+
+  .text {
+    margin-bottom: 0;
+    color: $color-dark-light;
+    text-align: center;
+  }
 }

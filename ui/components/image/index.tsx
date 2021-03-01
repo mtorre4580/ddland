@@ -1,5 +1,6 @@
 import React from 'react';
 import Image from 'react-bootstrap/Image';
+import styles from './image.module.scss';
 
 interface ImageProps {
   src: string;
@@ -9,5 +10,5 @@ interface ImageProps {
 }
 
 export default React.memo(function ImageWrapper(props: ImageProps) {
-  return <Image fluid thumbnail {...props} />;
+  return <Image className={styles.image} fluid thumbnail {...props} />;
 });

@@ -5,5 +5,8 @@ import Image from './image';
 import Link from './link';
 import Video from './video';
 import Footer from './footer';
+import Items from './items';
+import ItemsMansory from './items-mansory';
+import Carousel from './carousel';
 
-export { Title, Paragraph, Header, Link, Image, Video, Footer };
+export { Title, Paragraph, Header, Link, Image, Video, Footer, Items, ItemsMansory, Carousel };

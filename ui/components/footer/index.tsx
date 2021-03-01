@@ -8,7 +8,7 @@ interface FooterProps {
 export default React.memo(function FooterWrapper({ text }: FooterProps) {
   return (
     <footer className={styles.footer}>
-      <p className="text-muted text-center">{text}</p>
+      <p className={styles.text}>{text}</p>
     </footer>
   );
 });
