@@ -1,4 +1,12 @@
-import puppeteer from 'puppeteer';
+let chrome: any = { args: {}};
+let puppeteer: any;
+
+if (process.env.AWS_LAMBDA_FUNCTION_VERSION) {
+  chrome = require('chrome-aws-lambda');
+  puppeteer = require('puppeteer-core');
+} else {
+  puppeteer = require('puppeteer');
+}
 
 const { URL_LANDINGS } = process.env;
 
@@ -9,13 +17,18 @@ class PuppeteerService {
    */
   public async takePicture(name: string, format: string = 'jpg') {
     try {
-      const browser = await puppeteer.launch();
-      const page = await browser.newPage();
-
-      await page.setViewport({
-        width: 1280,
-        height: 800,
+      let browser = await puppeteer.launch({
+        args: ['--hide-scrollbars', '--disable-web-security'],
+        defaultViewport: {
+          width: 1280,
+          height: 800,
+        },
+        executablePath: await chrome.executablePath,
+        headless: true,
+        ignoreHTTPSErrors: true,
       });
+
+      const page = await browser.newPage();
 
       await page.goto(`${URL_LANDINGS}${name}`);
 
