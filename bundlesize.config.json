@@ -1,0 +1,34 @@
+{
+  "files": [
+    {
+      "path": ".next/static/**/main-*.js",
+      "maxSize": "7 kB",
+      "compression": "brotli"
+    },
+    {
+      "path": ".next/static/chunks/pages/dashboard-*.js",
+      "maxSize": "30 kB",
+      "compression": "brotli"
+    },
+    {
+      "path": ".next/static/chunks/pages/landings-*.js",
+      "maxSize": "10 kB",
+      "compression": "brotli"
+    },
+    {
+      "path": ".next/static/chunks/pages/login-*.js",
+      "maxSize": "5 kB",
+      "compression": "brotli"
+    },
+    {
+      "path": ".next/static/chunks/pages/profile-*.js",
+      "maxSize": "5 kB",
+      "compression": "brotli"
+    },
+    {
+      "path": ".next/static/chunks/pages/register-*.js",
+      "maxSize": "5 kB",
+      "compression": "brotli"
+    }
+  ]
+}

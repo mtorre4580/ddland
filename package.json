@@ -11,7 +11,9 @@
     "pretty-quick": "pretty-quick",
     "prettier": "prettier --write '**/*.{tsx,scss}'",
     "release": "standard-version",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "analyzer": "ANALYZE=true npm run build",
+    "bundle-check": "bundlesize"
   },
   "husky": {
     "hooks": {
@@ -19,6 +21,7 @@
     }
   },
   "dependencies": {
+    "@next/bundle-analyzer": "^10.0.7",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.6.0",
@@ -47,6 +50,7 @@
     "@types/react-dom": "^17.0.1",
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
+    "bundlesize": "^0.18.1",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^7.2.0",
     "eslint-plugin-prettier": "^3.3.1",
