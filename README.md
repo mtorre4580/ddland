@@ -4,6 +4,8 @@
 [![Deployment Status](https://img.shields.io/endpoint?url=https://ddland.vercel.app/api/deployment)](https://ddland.vercel.app)
 [![version](https://img.shields.io/badge/version-0.13-brightgreen)](https://github.com/mtorre4580/ddland/blob/main/CHANGELOG.md)
 [![conventional commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
+[![Dependabot status](https://api.dependabot.com/badges/status?host=github&repo=mtorre4580/ddland)](https://dependabot.com/)
+[![Known Vulnerabilities](https://snyk.io/test/github/mtorre4580/ddland/badge.svg)](https://snyk.io/test/github/mtorre4580/ddland)
 
 Create landings pages quickly and easily
 
