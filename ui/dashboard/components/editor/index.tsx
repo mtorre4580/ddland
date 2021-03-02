@@ -162,7 +162,7 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
           )}
         </Container>
       </DndProvider>
-      <Modal title={texts.save} active={isModalOpen} onClose={handleOnCloseModal}>
+      <Modal title={texts.save} open={isModalOpen} onClose={handleOnCloseModal}>
         <>
           {!loading && <FormSave onSave={handleOnSave} />}
           {loading && <Progress text={texts.savingLanding} />}
