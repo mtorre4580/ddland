@@ -105,7 +105,7 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit,
       <Modal title={texts.edit} active={isEdit} onClose={handleOnCloseModal}>
         <>
           <p>{texts.modifyBlock}</p>
-          {currentEdition.component && <FormEdit block={currentEdition.component} onEditApply={handleOnEditApply} />}
+          {currentEdition.component && <FormEdit texts={texts} block={currentEdition.component} onEditApply={handleOnEditApply} />}
         </>
       </Modal>
     </>
