@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/mtorre4580/ddland/compare/v0.1.4...v0.1.5) (2021-03-02)
+
+
+### Features
+
+* api screenshot ([ce2c2b1](https://github.com/mtorre4580/ddland/commit/ce2c2b16ebd58abac12358920c672f3c448b64de))
+* share qr ([31344e1](https://github.com/mtorre4580/ddland/commit/31344e1e38e445c6ec076617daff390fc2e706a2))
+
+
+### Bug Fixes
+
+* better experience url hint ([d56d278](https://github.com/mtorre4580/ddland/commit/d56d27833e1bb51811e3537e6200432ac1e42221))
+* email unique ([3d58863](https://github.com/mtorre4580/ddland/commit/3d58863553f4c1a6d887113e58a91569988a751c))
+* form profile ([0387dc6](https://github.com/mtorre4580/ddland/commit/0387dc66334fd5a934f64437b805880d6c05e38f))
+* puppeteer ([c5d3d86](https://github.com/mtorre4580/ddland/commit/c5d3d865808fd6f84a28b4f74b8394e50d77867b))
+* sanitize url path save form landings ([e172990](https://github.com/mtorre4580/ddland/commit/e172990eec3d18e2c5c5a1f4f987a6d1f0b0414b))
+* title ([54b6a69](https://github.com/mtorre4580/ddland/commit/54b6a69fb5604058c82ee4bbe4a5ced389d9859a))
+* url name ([f3ed46b](https://github.com/mtorre4580/ddland/commit/f3ed46bc3c224e6005f26923375fa0851935bfdf))
+
 ### [0.1.4](https://github.com/mtorre4580/ddland/compare/v0.1.3...v0.1.4) (2021-02-28)
 
 
