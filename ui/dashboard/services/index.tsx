@@ -16,9 +16,8 @@ const blocks = {
     { id: 'Paragraph', description: 'Agrega un parráfo con texto básico' },
     { id: 'Title', description: 'Agrega un título a tu página' },
     { id: 'Video', description: 'Agrega un video de diferentes sitios' },
-    // { id: 'Items', description: 'Agrega 3 items en una fila' },
-    // { id: 'ItemsMansory', description: 'Agrega items con efecto mansonry' },
-    // { id: 'Carousel', description: 'Agrega un carousel de imágenes' },
+    { id: 'Items', description: 'Agrega 3 items en una fila' },
+    { id: 'Carousel', description: 'Agrega un carousel de imágenes' },
   ],
   en: [
     { id: 'Footer', description: 'Content that goes at the bottom of your page' },
@@ -28,9 +27,8 @@ const blocks = {
     { id: 'Paragraph', description: 'Add a paragraph with basic text' },
     { id: 'Title', description: 'Add a title to your page' },
     { id: 'Video', description: 'Add a video from different sites' },
-    // { id: 'Items', description: 'Add 3 items in a row' },
-    // { id: 'ItemsMansory', description: 'Add items with mansonry effect' },
-    // { id: 'Carousel', description: 'Add an image carousel' },
+    { id: 'Items', description: 'Add 3 items in a row' },
+    { id: 'Carousel', description: 'Add an image carousel' },
   ],
 };
 

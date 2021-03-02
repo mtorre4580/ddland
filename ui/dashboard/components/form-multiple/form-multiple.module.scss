@@ -1,0 +1,18 @@
+.form {
+  position: relative;
+  .label {
+    text-transform: capitalize;
+  }
+
+  .stepperWrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 5px;
+    position: absolute;
+    width: 100%;
+    p {
+      margin: 0;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import React from 'react';
+import CardColumns from 'react-bootstrap/CardColumns';
 import Card from 'react-bootstrap/Card';
-import CardGroup from 'react-bootstrap/CardGroup';
 import styles from './items.module.scss';
 
 export interface Item {
@@ -15,16 +15,16 @@ interface ItemsProps {
 
 export default React.memo(function ItemsWrapper({ items }: ItemsProps) {
   return (
-    <CardGroup className={styles.cardGroup}>
+    <CardColumns className={styles.cardColumn}>
       {items.map((item: Item, index: number) => (
         <Card key={index}>
-          <Card.Img variant="top" src={item.image} />
+          {item.image && <Card.Img variant="top" src={item.image} />}
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
-            <Card.Text>{item.subtitle}</Card.Text>
+            {item.subtitle && <Card.Text>{item.subtitle}</Card.Text>}
           </Card.Body>
         </Card>
       ))}
-    </CardGroup>
+    </CardColumns>
   );
 });
