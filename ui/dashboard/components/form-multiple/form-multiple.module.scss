@@ -1,7 +1,10 @@
+@import '../../../../styles/colors';
+
 .form {
   position: relative;
   .label {
     text-transform: capitalize;
+    color: $color-white;
   }
 
   .stepperWrapper {

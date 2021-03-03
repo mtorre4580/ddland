@@ -17,3 +17,8 @@ a {
 * {
   box-sizing: border-box;
 }
+
+// Remove box from buttons (bootstrap)
+.btn:focus {
+  box-shadow: none;
+}

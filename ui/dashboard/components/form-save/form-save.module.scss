@@ -4,3 +4,14 @@
   color: $color-secondary;
   margin: 0;
 }
+
+.hintUrl {
+  margin: 0;
+  max-width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.label {
+  color: $color-white;
+}
