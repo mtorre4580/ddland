@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useCallback } from 'react';
 import Block from '../block';
 import { getBlocks } from '../../services';
 import i18n from './i18n';
@@ -9,7 +9,7 @@ export default React.memo(function BlocksAvalaibles() {
   const locale = useContext(I18nContext);
   // @ts-ignore
   const texts = i18n[locale];
-  const blocks = getBlocks(locale);
+  const blocks = useCallback(getBlocks(locale), [locale]);
 
   return (
     <aside className={styles.aside}>

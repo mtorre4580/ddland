@@ -10,9 +10,9 @@ import {
   OPEN_MODAL_SAVE,
   CLOSE_MODAL_SAVE,
 } from './constants';
-import { Action } from './models';
+import { Action, StateEditor } from './models';
 
-export default function reducer(prevState: any, action: Action) {
+export default function reducer(prevState: StateEditor, action: Action) {
   const { type, payload } = action;
   switch (type) {
     case ADD_BLOCK: {
