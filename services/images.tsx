@@ -1,16 +1,29 @@
 import { v2 } from 'cloudinary';
 
 class ImagesService {
+  private regex = /.(gif|jpe?g|bmp|png|webp)$/;
+
+  /**
+   * Check if the current format is valid
+   * @param name string
+   * @return boolean
+   */
+  public isValid(name: string) {
+    return this.regex.test(name);
+  }
+
   /**
    * Upload the image to cloudinary service
-   * @param file string
+   * @param path string
+   * @param name string
+   * @return Promise
    */
-  public async upload(file: string) {
+  public async upload(path: string, name: string) {
     try {
       const eagerOptions = { width: 300, height: 300, format: 'jpg' };
-      const { url, secure_url } = await v2.uploader.upload(file, {
+      const { url, secure_url } = await v2.uploader.upload(path, {
         eager: eagerOptions,
-        public_id: `home/preview/${file}`,
+        public_id: `home/preview/${this.getName(name)}`,
         overwrite: true,
       });
       return { url, secure_url };
@@ -18,6 +31,16 @@ class ImagesService {
       console.log('Error trying to upload the image to cloudinary', err);
       throw new Error('Error upload image');
     }
+  }
+
+  /**
+   * Retrieve the name of the image without the extension
+   * @param path string
+   * @return string
+   */
+  private getName(path: string) {
+    const [name] = path.split(this.regex);
+    return name;
   }
 }
 

@@ -73,9 +73,25 @@ function updateLanding(path: string, request: LandingRequest) {
 /**
  * Retrieve if exits any landing with the current path
  * @param path string
+ * @return Promise
  */
 function getLandingWithPath(path: string) {
   return axios.get('/api/landings', { params: { path } });
 }
 
-export { getBlocks, getDefaultValues, saveLanding, updateLanding, getLandingWithPath };
+/**
+ * Upload any image to the api pictures
+ * @param file File
+ * @return Promise
+ */
+function uploadImage(file: File) {
+  const request = new FormData();
+  request.append('image', file);
+  return axios.post('/api/pictures', request, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+}
+
+export { getBlocks, getDefaultValues, saveLanding, updateLanding, getLandingWithPath, uploadImage };
