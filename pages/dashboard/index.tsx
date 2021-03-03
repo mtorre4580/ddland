@@ -2,7 +2,6 @@ import Head from 'next/head';
 import withSession from '../../middlewares/session';
 import Navigation from '../../ui/shared/navigation';
 import BackgroundAnimated from '../../ui/shared/background-animated';
-import Footer from '../../ui/shared/footer';
 import Editor from '../../ui/dashboard/components/editor';
 import landingRepository from '../../repository/landing';
 import ILanding from '../../repository/models/web/landing';
@@ -58,7 +57,6 @@ export default function Dashboard({ landing, isEdit }: DashboardPageProps) {
         <BackgroundAnimated />
         <Editor landing={landing} firstEdit={isEdit} />
       </main>
-      <Footer />
     </section>
   );
 }

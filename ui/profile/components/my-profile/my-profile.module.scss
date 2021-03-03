@@ -1,34 +1,18 @@
 @import '../../../../styles/colors';
+@import '../../../../styles/variables';
 
-.profileUser {
+.presentation {
   background-color: $color-principal;
-  display: flex;
-  margin: auto;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  color: $color-white;
 
-  .title {
-    color: $color-white;
-    padding: 4px;
-    font-size: 24px;
-    width: 100%;
-    text-align: center;
-  }
-
-  .list {
-    list-style: none;
-    width: 100%;
-    text-align: center;
-    color: $color-white;
-    margin: 0;
-    padding: 0;
-    .li {
-      padding: 10px;
+  h1 {
+    font-size: 1.3rem;
+    max-width: 400px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @media only screen and (min-width: $desktop) {
+      font-size: 2.5rem;
+      max-width: none;
     }
-  }
-
-  .logout {
-    margin: 10px;
   }
 }

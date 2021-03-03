@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import withSession from '../../middlewares/session';
 import Navigation from '../../ui/shared/navigation';
-import Footer from '../../ui/shared/footer';
 import MyLandings from '../../ui/landings/components/my-landings';
 import ILanding from '../../repository/models/web/landing';
 import landingRepository from '../../repository/landing';
@@ -47,7 +46,6 @@ export default function Landings({ landings }: LandingsPageProps) {
       <main className={styles.container}>
         <MyLandings items={landings} />
       </main>
-      <Footer />
     </section>
   );
 }
