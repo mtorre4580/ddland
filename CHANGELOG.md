@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.6](https://github.com/mtorre4580/ddland/compare/v0.1.5...v0.1.6) (2021-03-04)
+
+
+### Features
+
+* add form multiple to support arrays ([17ebc9b](https://github.com/mtorre4580/ddland/commit/17ebc9bded36787b1d539f5d6a6e3bcbc3efda9a))
+* api pictures ([#13](https://github.com/mtorre4580/ddland/issues/13)) ([a5cd635](https://github.com/mtorre4580/ddland/commit/a5cd6355022640a29d3d67df0029b915ab55f68c))
+* modal portal ssr nextjs ([6728bca](https://github.com/mtorre4580/ddland/commit/6728bca81feeaa0d75b7d1c0f39deb3970990b0c))
+
 ### [0.1.5](https://github.com/mtorre4580/ddland/compare/v0.1.4...v0.1.5) (2021-03-02)
 
 
