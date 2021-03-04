@@ -2,9 +2,9 @@
 
 [![Build Status](https://travis-ci.com/mtorre4580/ddland.svg?branch=main)](https://travis-ci.com/mtorre4580/ddland)
 [![Deployment Status](https://img.shields.io/endpoint?url=https://ddland.vercel.app/api/deployment)](https://ddland.vercel.app)
-[![version](https://img.shields.io/badge/version-0.13-brightgreen)](https://github.com/mtorre4580/ddland/blob/main/CHANGELOG.md)
+[![version](https://img.shields.io/badge/version-0.16-brightgreen)](https://github.com/mtorre4580/ddland/blob/main/CHANGELOG.md)
 [![conventional commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-[![Dependabot status](https://api.dependabot.com/badges/status?host=github&repo=mtorre4580/ddland)](https://dependabot.com/)
+[![Dependabot status](https://img.shields.io/badge/Dependabot-active-brightgreen.svg)](https://dependabot.com/)
 [![Known Vulnerabilities](https://snyk.io/test/github/mtorre4580/ddland/badge.svg)](https://snyk.io/test/github/mtorre4580/ddland)
 
 Create landings pages quickly and easily
@@ -53,7 +53,7 @@ This applications has built with Next.js 10
 - Drag and Drop features with [react-dnd](https://react-dnd.github.io/react-dnd/)
 - Internationalized Routing with [Next.js](https://nextjs.org/docs/advanced-features/i18n-routing)
 - Avoid collision css with CSS in modules
-- Built with hooks (useReducer, userMemo, useRef)
+- Built with hooks (useReducer, useRef, useContext, useCallback)
 - Apply [reinspect](https://github.com/troch/reinspect#readme) to show reducers, debug mode with Redux DevTools
 - Integration Next.js with [TypeScript](https://www.typescriptlang.org/)
 - Travis CI configuration
