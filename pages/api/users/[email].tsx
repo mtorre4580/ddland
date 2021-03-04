@@ -1,7 +1,7 @@
 import { NextApiResponse } from 'next';
 import userRepository from '../../../repository/user';
 import withAuth from '../../../middlewares/auth';
-import { compare, encrypt } from '../../../services/hash';
+import hashService from '../../../services/hash';
 
 export default withAuth(async (req, res: NextApiResponse) => {
   const {
@@ -30,10 +30,10 @@ export default withAuth(async (req, res: NextApiResponse) => {
         return res.status(400).json({ msg: 'El email no existe' });
       }
 
-      const isValidHash = await compare(oldPassword, user.password);
+      const isValidHash = await hashService.compare(oldPassword, user.password);
 
       if (isValidHash) {
-        const newHash = await encrypt(newPassword);
+        const newHash = await hashService.encrypt(newPassword);
         await userRepository.update(email, { password: newHash });
         return res.json({ msg: 'Actualización exitosa' });
       }

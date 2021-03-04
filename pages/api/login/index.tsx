@@ -1,7 +1,7 @@
 import { NextApiResponse } from 'next';
 import withSession from '../../../middlewares/session';
 import userRepository from '../../../repository/user';
-import { compare } from '../../../services/hash';
+import hashService from '../../../services/hash';
 
 export default withSession(async (req, res: NextApiResponse) => {
   try {
@@ -10,7 +10,7 @@ export default withSession(async (req, res: NextApiResponse) => {
     if (!user) {
       return res.status(400).json({ msg: 'El email no existe' });
     }
-    const isValidHash = await compare(currentPassword, user.password);
+    const isValidHash = await hashService.compare(currentPassword, user.password);
     if (isValidHash) {
       const { password, ...userInfo } = user;
       const details = { isLoggedIn: true, ...userInfo };
