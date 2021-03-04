@@ -1,8 +1,14 @@
 import { v2 } from 'cloudinary';
+import LoggerService from './logger';
 
 class ImagesService {
   private regex = /.(gif|jpe?g|bmp|png|webp)$/;
+  private logger: LoggerService;
 
+  constructor() {
+    this.logger = new LoggerService('Services');
+  }
+  
   /**
    * Check if the current format is valid
    * @param name string
@@ -28,7 +34,7 @@ class ImagesService {
       });
       return { url, secure_url };
     } catch (err) {
-      console.log('Error trying to upload the image to cloudinary', err);
+      this.logger.log('Error trying to upload the image to cloudinary', err);
       throw new Error('Error upload image');
     }
   }

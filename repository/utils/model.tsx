@@ -1,11 +1,14 @@
 import { Db } from 'mongodb';
 import { connectToDatabase } from './mongodb';
+import LoggerService from '../../services/logger';
 
 class Model {
   protected collection: string;
+  private logger: LoggerService;
 
   constructor(collection: string) {
     this.collection = collection;
+    this.logger = new LoggerService('Repository');
   }
 
   /**
@@ -112,7 +115,7 @@ class Model {
    * @param friendlyMessage string
    */
   private handleException(exception: Error, friendlyMessage: string) {
-    console.log(exception);
+    this.logger.log(friendlyMessage, exception);
     throw new Error(friendlyMessage);
   }
 }

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import userRepository from '../../../repository/user';
-import { encrypt } from '../../../services/hash';
+import hashService from '../../../services/hash';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { method, body = {} } = req;
@@ -15,7 +15,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       if (user) {
         return res.status(400).json({ msg: 'El email ya existe' });
       }
-      const hash = await encrypt(body.password);
+      const hash = await hashService.encrypt(body.password);
       const response = await userRepository.save({ ...body, password: hash });
       return res.status(201).json(response);
     } catch (err) {
