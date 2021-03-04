@@ -66,7 +66,14 @@ export default function Home({ fullNav }: HomePageProps) {
           <h2 className={styles.subtitle}>{texts.subtitle}</h2>
         </section>
         <section className={styles.benefits}>
-          <Image src="/thanks.jpg" width={600} height={300} className={styles.image} alt="DDLand, drag and drop" />
+          <Image
+            src="/thanks.jpg"
+            width={600}
+            height={300}
+            title="DDLand, drag & drop"
+            className={styles.image}
+            alt="DDLand, drag & drop"
+          />
           <ol className={styles.list}>
             <li className={styles.item}>{texts.bullets.step1}</li>
             <li className={styles.item}>{texts.bullets.step2}</li>
@@ -85,6 +92,7 @@ export default function Home({ fullNav }: HomePageProps) {
             className={styles.imageDashboard}
             src="/dashboard.png"
             alt="DDLand, dashboard"
+            title="DDLand, dashboard"
           />
         </section>
       </main>
