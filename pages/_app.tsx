@@ -6,14 +6,32 @@ import { StateInspector } from 'reinspect';
 
 import '../styles/globals.scss';
 
+const i18n = {
+  es: {
+    description: 'Crea landings pages de manera rápida y sencilla',
+  },
+  en: {
+    description: 'Create landings pages quickly and easily',
+  },
+};
+
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
   const { locale, defaultLocale } = router;
   const currentLocal = locale || defaultLocale;
+  // @ts-ignore
+  const texts = i18n[locale];
 
   return (
     <>
       <Head>
+        <meta property="og:title" content="DDLand" />
+        <meta property="og:description" content={texts.description} />
+        <meta property="og:image" content="https://ddland.vercel.app/_next/image?url=%2Fthanks.jpg&w=1200&q=75" />
+        <meta property="og:url" content="http://ddland.vercel.app" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content={locale} />
+        <meta property="og:site_name" content="DDLand" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet" />
         <link
