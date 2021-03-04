@@ -8,7 +8,7 @@ class ImagesService {
   constructor() {
     this.logger = new LoggerService('Services');
   }
-  
+
   /**
    * Check if the current format is valid
    * @param name string

@@ -28,6 +28,15 @@ export default React.memo(function Modal({ title, children, open, onClose }: Mod
     }
   }, [isBrowser]);
 
+  // Effect to block the scrolling when modal is open
+  useEffect(() => {
+    if (open) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [open]);
+
   /**
    * Handler the event to close when user key the escape key
    * @param event KeyboardEvent
