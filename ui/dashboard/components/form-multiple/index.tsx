@@ -60,7 +60,7 @@ export default React.memo(function FormMultiple({ block, onEditApply, texts }: F
   };
 
   return (
-    <Form onSubmit={handleOnSubmit} className={styles.form}>
+    <Form onSubmit={handleOnSubmit} className={styles.formMultiple}>
       <div className={styles.stepperWrapper}>
         <Button variant="link" onClick={handleBefore}>
           <Image src="/left.svg" height={24} width={24} />

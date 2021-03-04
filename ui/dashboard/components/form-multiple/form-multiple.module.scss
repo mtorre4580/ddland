@@ -1,7 +1,9 @@
 @import '../../../../styles/colors';
 
-.form {
+.formMultiple {
   position: relative;
+  min-width: 500px;
+
   .label {
     text-transform: capitalize;
     color: $color-white;

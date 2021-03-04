@@ -31,12 +31,16 @@ export async function getServerSideProps(context: any) {
 
 export default function Web({ title, blocks = [], notFound }: WebPageProps) {
   return (
-    <section className={styles.web}>
+    <>
       <Head>
         <title>{title}</title>
       </Head>
       {notFound && <p className={styles.notFound}>La página que quiere acceder no esta disponible o no existe</p>}
-      {!notFound && <Reader blocks={blocks} />}
-    </section>
+      {!notFound && (
+        <main className={styles.web}>
+          <Reader blocks={blocks} />
+        </main>
+      )}
+    </>
   );
 }
