@@ -3,12 +3,14 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
 
-// Config to i18n
+// Config
 const config = {
   i18n: {
     locales: ['en', 'es'],
     defaultLocale: 'es',
   },
+  reactStrictMode: true,
+  poweredByHeader: false,
 };
 
 module.exports = withBundleAnalyzer(config);
