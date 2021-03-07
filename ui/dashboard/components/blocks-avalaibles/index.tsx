@@ -7,7 +7,6 @@ import styles from './blocks-avalaibles.module.scss';
 
 export default React.memo(function BlocksAvalaibles() {
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
   const blocks = useCallback(getBlocks(locale), [locale]);
 

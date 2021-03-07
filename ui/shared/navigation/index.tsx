@@ -13,7 +13,6 @@ interface NavigationProps {
 
 export default React.memo(function Navigation({ active = '/', fullNav }: NavigationProps) {
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
 
   return (

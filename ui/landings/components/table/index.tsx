@@ -14,7 +14,6 @@ interface LandingsTableProps {
 
 export default React.memo(function LandingsTable({ landings, onRemove, onShare }: LandingsTableProps) {
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
 
   /**

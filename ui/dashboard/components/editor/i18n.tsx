@@ -1,4 +1,6 @@
-export default {
+import { Translations } from '../../../shared/i18n-provider';
+
+const translations: Translations = {
   es: {
     save: 'Guardar',
     preview: 'Visualizar',
@@ -10,3 +12,5 @@ export default {
     savingLanding: 'Saving data, wait a few seconds',
   },
 };
+
+export default translations;

@@ -1,6 +1,14 @@
 export default {
-  id: 'Image',
-  values: {
-    src: 'https://via.placeholder.com/400x200',
+  en: {
+    id: 'Image',
+    values: {
+      src: 'https://ddland.vercel.app/thanks.jpg',
+    },
+  },
+  es: {
+    id: 'Image',
+    values: {
+      src: 'https://ddland.vercel.app/thanks.jpg',
+    },
   },
 };

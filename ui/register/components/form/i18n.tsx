@@ -1,4 +1,6 @@
-export default {
+import { Translations } from '../../../shared/i18n-provider';
+
+const translations: Translations = {
   es: {
     hint: 'Crea landings de manera rápida y sencilla',
     placeHolderEmail: 'Ingresa tu email',
@@ -18,3 +20,5 @@ export default {
     loading: 'Loading...',
   },
 };
+
+export default translations;

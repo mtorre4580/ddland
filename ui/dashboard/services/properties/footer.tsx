@@ -1,6 +1,16 @@
 export default {
-  id: 'Footer',
-  values: {
-    text: 'Mi pie de página',
+  en: {
+    id: 'Footer',
+    values: {
+      text: 'Footer example',
+      color: '#424242',
+    },
+  },
+  es: {
+    id: 'Footer',
+    values: {
+      text: 'Footer ejemplo',
+      color: '#424242',
+    },
   },
 };

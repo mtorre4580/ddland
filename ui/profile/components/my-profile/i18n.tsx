@@ -1,4 +1,6 @@
-export default {
+import { Translations } from '../../../shared/i18n-provider';
+
+const translations: Translations = {
   es: {
     userSince: 'Usuario desde',
     logout: 'Cerrar sesión',
@@ -8,3 +10,5 @@ export default {
     logout: 'Sign Off',
   },
 };
+
+export default translations;

@@ -1,4 +1,6 @@
-export default {
+import { Translations } from '../i18n-provider';
+
+const translations: Translations = {
   es: {
     register: 'Registrarse',
     login: 'Acceder',
@@ -12,3 +14,5 @@ export default {
     profile: 'Profile',
   },
 };
+
+export default translations;

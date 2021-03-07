@@ -5,7 +5,6 @@ import styles from './footer.module.scss';
 
 export default React.memo(function Footer() {
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
 
   return (

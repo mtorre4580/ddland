@@ -2,12 +2,12 @@ import Head from 'next/head';
 import withSession from '../../middlewares/session';
 import styles from '../../styles/Profile.module.scss';
 import Navigation from '../../ui/shared/navigation';
-import { I18nContext } from '../../ui/shared/i18n-provider';
+import { I18nContext, Translations } from '../../ui/shared/i18n-provider';
 import IUser from '../../repository/models/user';
 import MyProfile from '../../ui/profile/components/my-profile';
 import { useContext } from 'react';
 
-const i18n = {
+const i18n: Translations = {
   es: {
     profile: 'Perfil',
   },
@@ -38,7 +38,6 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
 
 export default function Profile({ user }: ProfilePageProps) {
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
 
   return (

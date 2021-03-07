@@ -1,4 +1,6 @@
-export default {
+import { Translations } from '../../../shared/i18n-provider';
+
+const translations: Translations = {
   es: {
     url: 'Path',
     title: 'Título',
@@ -16,3 +18,5 @@ export default {
     save: 'Save',
   },
 };
+
+export default translations;

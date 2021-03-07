@@ -1,4 +1,6 @@
-export default {
+import { Translations } from '../../../shared/i18n-provider';
+
+const translations: Translations = {
   es: {
     currentPassword: 'Contraseña Actual',
     placeholderCurrentPassword: 'Ingresá tu contraseña actual',
@@ -18,3 +20,5 @@ export default {
     updatingPassword: 'Updating password',
   },
 };
+
+export default translations;

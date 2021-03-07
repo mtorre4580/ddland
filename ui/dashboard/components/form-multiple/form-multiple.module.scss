@@ -8,11 +8,15 @@
     color: $color-white;
   }
 
+  .titleBlock {
+    margin: 0;
+    text-align: center;
+  }
+
   .stepperWrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 5px;
     position: absolute;
     width: 100%;
     p {
