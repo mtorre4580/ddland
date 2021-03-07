@@ -3,10 +3,10 @@ import Head from 'next/head';
 import withSession from '../../middlewares/session';
 import Form from '../../ui/login/components/form';
 import BackgroundAnimated from '../../ui/shared/background-animated';
-import { I18nContext } from '../../ui/shared/i18n-provider';
+import { I18nContext, Translations } from '../../ui/shared/i18n-provider';
 import styles from '../../styles/Login.module.scss';
 
-const i18n = {
+const i18n: Translations = {
   es: {
     title: 'Acceder',
   },
@@ -29,7 +29,6 @@ export const getServerSideProps = withSession(({ req, res }) => {
 
 export default function Login() {
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
 
   return (

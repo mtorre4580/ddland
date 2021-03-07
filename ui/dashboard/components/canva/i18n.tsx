@@ -1,4 +1,6 @@
-export default {
+import { Translations } from '../../../shared/i18n-provider';
+
+const translations: Translations = {
   es: {
     title: 'Mis Bloques',
     subtitle: 'Puedes ordenar los bloques arrastrándolos',
@@ -12,3 +14,5 @@ export default {
     edit: 'Edit',
   },
 };
+
+export default translations;

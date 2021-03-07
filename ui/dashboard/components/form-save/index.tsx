@@ -14,7 +14,6 @@ export default React.memo(function FormSave({ onSave }: FormSaveProps) {
   const [isExistsURL, setIsExistsURL] = useState(false);
   const [form, setForm] = useState({ path: '', title: '' });
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
 
   /**

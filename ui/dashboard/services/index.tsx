@@ -47,8 +47,8 @@ function getBlocks(locale: string = 'es') {
  * @param type string
  * @return object
  */
-function getDefaultValues(id: string) {
-  return (DefaultValues as any)[id];
+function getDefaultValues(id: string, locale: string) {
+  return (DefaultValues as any)[id][locale];
 }
 
 /**

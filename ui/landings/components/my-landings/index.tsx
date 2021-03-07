@@ -34,7 +34,6 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
     'LANDINGS_PAGE',
   );
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
 
   /**

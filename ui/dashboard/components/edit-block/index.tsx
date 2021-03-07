@@ -20,7 +20,6 @@ interface EditBlockProps {
 export default React.memo(function EditBlock({ block, index, onRemove, onEdit, onSort }: EditBlockProps) {
   const ref: any = useRef(null);
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
 
   // Hook to drop and retrieve the current block

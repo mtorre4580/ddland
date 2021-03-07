@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import InputText from '../input-text';
 import { FormEditionProps } from '../form-edit';
 import ColorPicker from '../color-picker';
-import Button from 'react-bootstrap/Button';
 import styles from './form-single.module.scss';
 
 export default React.memo(function FormSingle({ block, onEditApply, texts }: FormEditionProps) {
@@ -45,15 +46,10 @@ export default React.memo(function FormSingle({ block, onEditApply, texts }: For
     <Form className={styles.formSingle} onSubmit={handleOnSubmit}>
       {id !== 'Image' && <ColorPicker value={values.color} onChangeColor={handleOnChangeColor} />}
       {Object.keys(values)
-        .filter((key) => key !== 'color')
-        .map((key: string, index: number) => {
-          return (
-            <Form.Group className={styles.formGroup} key={index} controlId={key}>
-              <Form.Label className={styles.label}>{key}</Form.Label>
-              <Form.Control type="text" name={key} value={formProperties[key]} onChange={handleOnChange} />
-            </Form.Group>
-          );
-        })}
+        .filter((key: string) => key !== 'color')
+        .map((key: string, index: number) => (
+          <InputText key={index} name={key} value={formProperties[key]} onChange={handleOnChange} />
+        ))}
       <Button variant="outline-light" type="submit">
         {texts.accept}
       </Button>

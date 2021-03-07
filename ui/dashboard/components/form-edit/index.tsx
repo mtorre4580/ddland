@@ -13,7 +13,6 @@ export interface FormEditionProps {
 export default React.memo(function FormEdit({ block, onEditApply }: FormEditionProps) {
   const isSingle = !block.values.items;
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
 
   if (isSingle) {

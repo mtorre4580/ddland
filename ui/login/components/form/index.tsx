@@ -14,7 +14,6 @@ import styles from './form.module.scss';
 
 export default React.memo(function FormLogin() {
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
   const [{ form, loading, error }, dispatch] = useReducer(Reducer, InitialState, (basic) => basic, 'LOGIN_PAGE');
   const router = useRouter();

@@ -1,4 +1,6 @@
-export default {
+import { Translations } from '../../../shared/i18n-provider';
+
+const translations: Translations = {
   es: {
     title: 'Mis landings',
     subtitle: 'En esta sección podras encontrar todas tus landings, para que puedas visualizarlas y editarlas',
@@ -30,3 +32,5 @@ export default {
     scanCode: 'Scan the QR code with your cell phone to view the web on your cell phone',
   },
 };
+
+export default translations;

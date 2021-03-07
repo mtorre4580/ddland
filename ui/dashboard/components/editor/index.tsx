@@ -41,7 +41,6 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
   );
   const router = useRouter();
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
 
   /**

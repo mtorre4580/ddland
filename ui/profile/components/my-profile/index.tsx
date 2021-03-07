@@ -15,7 +15,6 @@ interface MyProfileProps {
 
 export default React.memo(function MyProfile({ user }: MyProfileProps) {
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
   const router = useRouter();
 

@@ -20,16 +20,9 @@ export default React.memo(function ColorPicker({ value, onChangeColor }: ColorPi
   };
 
   return (
-    <div className={styles.colorPicker}>
+    <Form.Group controlId="color-picker" className={styles.colorPicker}>
       <Form.Label className={styles.label}>Color</Form.Label>
-      <Form.Control
-        className={styles.inputColor}
-        id="color-picker"
-        type="color"
-        name="color"
-        value={color}
-        onChange={handleOnChange}
-      />
-    </div>
+      <Form.Control className={styles.inputColor} type="color" name="color" value={color} onChange={handleOnChange} />
+    </Form.Group>
   );
 });

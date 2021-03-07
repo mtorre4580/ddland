@@ -1,22 +1,46 @@
 export default {
-  id: 'Items',
-  values: {
-    items: [
-      {
-        title: 'Título 1',
-        subtitle: 'Mi subtitulo1',
-        image: 'https://via.placeholder.com/400x200',
-      },
-      {
-        title: 'Título 2',
-        subtitle: 'Mi subtitulo2',
-        image: 'https://via.placeholder.com/400x200',
-      },
-      {
-        title: 'Título 3',
-        subtitle: 'Mi subtitulo3',
-        image: 'https://via.placeholder.com/400x200',
-      },
-    ],
+  en: {
+    id: 'Items',
+    values: {
+      items: [
+        {
+          title: 'Title example',
+          subtitle: 'Subtitle example',
+          image: 'https://ddland.vercel.app/thanks.jpg',
+        },
+        {
+          title: 'Title example',
+          subtitle: 'Subtitle example',
+          image: 'https://ddland.vercel.app/thanks.jpg',
+        },
+        {
+          title: 'Title example',
+          subtitle: 'Subtitle example',
+          image: 'https://ddland.vercel.app/thanks.jpg',
+        },
+      ],
+    },
+  },
+  es: {
+    id: 'Items',
+    values: {
+      items: [
+        {
+          title: 'Título ejemplo',
+          subtitle: 'Subtítulo ejemplo',
+          image: 'https://ddland.vercel.app/thanks.jpg',
+        },
+        {
+          title: 'Título ejemplo',
+          subtitle: 'Subtítulo ejemplo',
+          image: 'https://ddland.vercel.app/thanks.jpg',
+        },
+        {
+          title: 'Título ejemplo',
+          subtitle: 'Subtítulo ejemplo',
+          image: 'https://ddland.vercel.app/thanks.jpg',
+        },
+      ],
+    },
   },
 };

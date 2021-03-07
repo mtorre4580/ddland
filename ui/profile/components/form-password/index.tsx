@@ -22,7 +22,6 @@ export default React.memo(function FormPassword({ email }: FormPasswordProps) {
     'PROFILE_PAGE',
   );
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
 
   /**

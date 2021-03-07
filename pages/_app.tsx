@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import { I18nProvider } from '../ui/shared/i18n-provider';
+import { I18nProvider, Translations } from '../ui/shared/i18n-provider';
 import { StateInspector } from 'reinspect';
 
 import '../styles/globals.scss';
 
-const i18n = {
+const i18n: Translations = {
   es: {
     description: 'Crea landings pages de manera rápida y sencilla',
   },
@@ -17,10 +17,8 @@ const i18n = {
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
-  const { locale, defaultLocale } = router;
-  const currentLocal = locale || defaultLocale;
-  // @ts-ignore
-  const texts = i18n[locale];
+  const { locale } = router;
+  const texts = i18n[locale || 'es'];
 
   return (
     <>
@@ -54,7 +52,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* Canonical */}
         <link rel="canonical" href="https://ddland.vercel.app/" />
       </Head>
-      <I18nProvider locale={currentLocal}>
+      <I18nProvider locale={locale}>
         <StateInspector name="DDland">
           <Component {...pageProps} />
         </StateInspector>

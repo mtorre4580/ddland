@@ -21,14 +21,13 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit,
   const [isEdit, setIsEdit] = useState(false);
   const [currentEdition, setCurrentEdition] = useState({ component: null, index: 0 });
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
 
   // Hook to handle the drop event for the blocks
   const [, dropRef] = useDrop({
     accept: 'block',
     drop: (item: any) => {
-      onAdd(getDefaultValues(item.id));
+      onAdd(getDefaultValues(item.id, locale));
     },
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),

@@ -1,4 +1,6 @@
-export default {
+import { Translations } from '../../../shared/i18n-provider';
+
+const translations: Translations = {
   es: {
     accept: 'Aceptar',
     block: 'Bloque',
@@ -10,3 +12,5 @@ export default {
     hintStepForm: 'Use the arrows to edit the blocks',
   },
 };
+
+export default translations;

@@ -10,7 +10,6 @@ interface PreviewProps {
 
 export default React.memo(function Preview({ blocks }: PreviewProps) {
   const locale = useContext(I18nContext);
-  // @ts-ignore
   const texts = i18n[locale];
   return (
     <>
