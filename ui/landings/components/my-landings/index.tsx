@@ -105,7 +105,7 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
       <Modal title={texts.share} open={showModalShare} onClose={handleOnCloseShare}>
         <div className={styles.qrShare}>
           <p>{texts.scanCode}</p>
-          <QRCode value={`https://ddland.vercel.app/${landingToShare}`} size={200} />
+          <QRCode value={`https://ddland.app/${landingToShare}`} size={200} />
         </div>
       </Modal>
       <Modal title={texts.delete} open={showModal} onClose={handleOnCloseModalDelete}>

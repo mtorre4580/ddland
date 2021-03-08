@@ -26,8 +26,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* Open Graph */}
         <meta property="og:title" content="DDLand" />
         <meta property="og:description" content={texts.description} />
-        <meta property="og:image" content="https://ddland.vercel.app/_next/image?url=%2Fthanks.jpg&w=1200&q=75" />
-        <meta property="og:url" content="http://ddland.vercel.app" />
+        <meta property="og:image" content="https://ddland.app/_next/image?url=%2Fthanks.jpg&w=1200&q=75" />
+        <meta property="og:url" content="https://ddland.app" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={locale} />
         <meta property="og:site_name" content="DDLand" />
@@ -50,7 +50,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           crossOrigin="anonymous"
         />
         {/* Canonical */}
-        <link rel="canonical" href="https://ddland.vercel.app/" />
+        <link rel="canonical" href="https://ddland.app" />
       </Head>
       <I18nProvider locale={locale}>
         <StateInspector name="DDland">
