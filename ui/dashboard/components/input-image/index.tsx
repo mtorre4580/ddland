@@ -16,16 +16,10 @@ export default React.memo(function InputImage({ name, value, onChange, texts }: 
   const [url, setUrl] = useState(value);
   const [error, setError] = useState('');
 
-  // Effect to change the current url when the upload is finished
+  // Effect to update the current url when the value change
   useEffect(() => {
-    const currentValue = {
-      target: {
-        name,
-        value: url,
-      },
-    };
-    onChange(currentValue);
-  }, [url]);
+    setUrl(value);
+  }, [value]);
 
   /**
    * Handler to upload the image when the file is change
@@ -42,6 +36,13 @@ export default React.memo(function InputImage({ name, value, onChange, texts }: 
         } = await uploadImage(fileSelected);
         setLoading(false);
         setUrl(secure_url);
+        const currentValue = {
+          target: {
+            name,
+            value: secure_url,
+          },
+        };
+        onChange(currentValue);
       } else {
         setError(texts.invalidFormat);
       }
