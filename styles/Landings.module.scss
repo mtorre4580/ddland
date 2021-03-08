@@ -2,10 +2,7 @@
 @import './variables';
 
 .landings {
+  min-height: 100vh;
   background-color: $color-grey;
-
-  .container {
-    min-height: 100vh;
-    padding-top: $paddingForNav;
-  }
+  padding-top: $paddingForNav;
 }

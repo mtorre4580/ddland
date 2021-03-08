@@ -3,4 +3,8 @@
 .block {
   margin-bottom: 0.5rem;
   @include draggeable(true);
+
+  .title {
+    font-size: 1.2rem;
+  }
 }

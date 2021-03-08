@@ -1,14 +1,9 @@
 @import '../../../../styles/colors';
 
-.container {
-  background-color: $color-principal;
-  padding: 20px;
+.icons {
+  color: $color-white;
+}
 
-  .icons {
-    color: $color-white;
-  }
-
-  .errorText  {
-    margin: 20px;
-  }
+.errorText  {
+  margin: 20px;
 }

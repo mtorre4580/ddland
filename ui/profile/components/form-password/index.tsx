@@ -62,6 +62,7 @@ export default React.memo(function FormPassword({ email }: FormPasswordProps) {
           placeholder={texts.placeholderCurrentPassword}
           value={form.oldPassword}
           onChange={handleOnChange}
+          autoComplete="old password"
         />
       </Form.Group>
       <Form.Group controlId="formNewPassword">
@@ -73,6 +74,7 @@ export default React.memo(function FormPassword({ email }: FormPasswordProps) {
           placeholder={texts.placeholderNewPassword}
           value={form.newPassword}
           onChange={handleOnChange}
+          autoComplete="new password"
         />
       </Form.Group>
       {updated && <p>{texts.updatedPassword}</p>}

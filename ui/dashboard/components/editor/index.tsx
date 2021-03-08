@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Alert from 'react-bootstrap/Alert';
@@ -119,47 +118,43 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
   return (
     <>
       <DndProvider backend={HTML5Backend}>
-        <Container fluid className={styles.container} as="section">
-          <Alert className={styles.errorText} show={error !== null} variant="danger">
-            {error}
-          </Alert>
-          <Row>
-            <Col xs={12} md={12} lg={3}>
-              <BlocksAvalaibles />
-            </Col>
-            <Col xs={12} md={12} lg={4}>
-              <Canva
-                onAdd={handleOnAdd}
-                onRemove={handleOnRemove}
-                onEdit={handleOnEdit}
-                onSort={handleOnSort}
-                blocks={blocks}
-              />
-            </Col>
-            <Col xs={12} md={12} lg={5}>
-              <Preview blocks={blocks} />
-            </Col>
-          </Row>
-          {blocks.length > 0 && (
-            <>
-              <ButtonFloat style={{ bottom: '40px', right: '120px' }} onClick={handleSaveOrUpdate} tooltip={texts.save}>
-                {!loading && (
-                  <Image height={24} width={24} className={styles.icons} src="/save.svg" alt="save-action" />
-                )}
-                {loading && (
-                  <Spinner animation="grow" role="status">
-                    <span className="sr-only">Loading...</span>
-                  </Spinner>
-                )}
-              </ButtonFloat>
-              {isEdit && (
-                <ButtonFloat style={{ bottom: '40px', right: '40px' }} tooltip={texts.preview} onClick={handlePreview}>
-                  <Image height={24} width={24} className={styles.icons} src="/preview.svg" alt="preview-action" />
-                </ButtonFloat>
+        <Alert className={styles.errorText} show={error !== null} variant="danger">
+          {error}
+        </Alert>
+        <Row>
+          <Col xs={12} md={12} lg={3}>
+            <BlocksAvalaibles />
+          </Col>
+          <Col xs={12} md={12} lg={4}>
+            <Canva
+              onAdd={handleOnAdd}
+              onRemove={handleOnRemove}
+              onEdit={handleOnEdit}
+              onSort={handleOnSort}
+              blocks={blocks}
+            />
+          </Col>
+          <Col xs={12} md={12} lg={5}>
+            <Preview blocks={blocks} />
+          </Col>
+        </Row>
+        {blocks.length > 0 && (
+          <>
+            <ButtonFloat style={{ bottom: '40px', right: '120px' }} onClick={handleSaveOrUpdate} tooltip={texts.save}>
+              {!loading && <Image height={24} width={24} className={styles.icons} src="/save.svg" alt="save-action" />}
+              {loading && (
+                <Spinner animation="grow" role="status">
+                  <span className="sr-only">Loading...</span>
+                </Spinner>
               )}
-            </>
-          )}
-        </Container>
+            </ButtonFloat>
+            {isEdit && (
+              <ButtonFloat style={{ bottom: '40px', right: '40px' }} tooltip={texts.preview} onClick={handlePreview}>
+                <Image height={24} width={24} className={styles.icons} src="/preview.svg" alt="preview-action" />
+              </ButtonFloat>
+            )}
+          </>
+        )}
       </DndProvider>
       <Modal title={texts.save} open={isModalOpen} onClose={handleOnCloseModal}>
         <>
