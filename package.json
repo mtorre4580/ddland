@@ -21,7 +21,7 @@
     }
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^10.0.7",
+    "@next/bundle-analyzer": "^10.0.8",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.6.0",
