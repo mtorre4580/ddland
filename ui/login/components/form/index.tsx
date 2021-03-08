@@ -76,7 +76,7 @@ export default React.memo(function FormLogin() {
           value={form.password}
         />
       </Form.Group>
-      <Button variant="outline-light" type="submit">
+      <Button className={styles.btnLogin} variant="outline-light" type="submit">
         {!loading && <span>{texts.login}</span>}
         {loading && (
           <>

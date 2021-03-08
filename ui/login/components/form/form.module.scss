@@ -24,11 +24,15 @@
     margin: 30px 0;
   }
 
-  .loadingText {
-    margin-left: 4px;
-  }
-
   .errorText {
     margin: 10px 0;
+  }
+
+  .btnLogin {
+    display: flex;
+    align-items: center;
+    .loadingText {
+      margin-left: 4px;
+    }
   }
 }

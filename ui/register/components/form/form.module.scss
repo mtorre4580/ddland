@@ -36,4 +36,12 @@
   .errorText {
     margin: 10px 0;
   }
+
+  .btnRegister {
+    display: flex;
+    align-items: center;
+    .loadingText {
+      margin-left: 4px;
+    }
+  }
 }

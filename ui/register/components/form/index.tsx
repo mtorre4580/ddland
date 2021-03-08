@@ -85,7 +85,7 @@ export default React.memo(function FormRegister() {
                 value={form.password}
               />
             </Form.Group>
-            <Button variant="outline-light" type="submit">
+            <Button className={styles.btnRegister} variant="outline-light" type="submit">
               {!loading && <span>{texts.register}</span>}
               {loading && (
                 <>
