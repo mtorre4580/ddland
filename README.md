@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.com/mtorre4580/ddland.svg?branch=main)](https://travis-ci.com/mtorre4580/ddland)
 [![Deployment Status](https://img.shields.io/endpoint?url=https://ddland.app/api/deployment)](https://ddland.app)
-[![version](https://img.shields.io/badge/version-0.17-brightgreen)](https://github.com/mtorre4580/ddland/blob/main/CHANGELOG.md)
+[![version](https://img.shields.io/badge/version-0.18-brightgreen)](https://github.com/mtorre4580/ddland/blob/main/CHANGELOG.md)
 [![conventional commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 [![Dependabot status](https://img.shields.io/badge/Dependabot-active-brightgreen.svg)](https://dependabot.com/)
 [![Known Vulnerabilities](https://snyk.io/test/github/mtorre4580/ddland/badge.svg)](https://snyk.io/test/github/mtorre4580/ddland)
