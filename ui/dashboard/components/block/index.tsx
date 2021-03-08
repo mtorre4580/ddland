@@ -13,7 +13,9 @@ export default React.memo(function Block({ id, description }: BlockProps) {
 
   return (
     <Card bg="success" className={styles.block} text="light" ref={drag}>
-      <Card.Header>{id}</Card.Header>
+      <Card.Header className={styles.title} as="h2">
+        {id}
+      </Card.Header>
       <Card.Body>
         <Card.Text>{description}</Card.Text>
       </Card.Body>

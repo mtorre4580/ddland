@@ -38,14 +38,14 @@ export const getServerSideProps = withSession(async ({ req, res }) => {
 
 export default function Landings({ landings }: LandingsPageProps) {
   return (
-    <section className={styles.landings}>
+    <>
       <Head>
         <title>Landings</title>
       </Head>
       <Navigation fullNav active="/landings" />
-      <main className={styles.container}>
+      <main className={styles.landings}>
         <MyLandings items={landings} />
       </main>
-    </section>
+    </>
   );
 }

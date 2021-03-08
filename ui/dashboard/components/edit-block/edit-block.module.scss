@@ -4,6 +4,10 @@
   margin: 4px;
   @include draggeable(false);
 
+  .titleBlock {
+    font-size: 1.2rem;
+  }
+
   .actions {
     display: flex;
     justify-content: flex-end;

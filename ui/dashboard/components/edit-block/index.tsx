@@ -79,7 +79,9 @@ export default React.memo(function EditBlock({ block, index, onRemove, onEdit, o
   return (
     <Card ref={ref} className={styles.editBlock}>
       <Card.Body>
-        <Card.Title>{block.id}</Card.Title>
+        <Card.Title className={styles.titleBlock} as="h2">
+          {block.id}
+        </Card.Title>
         <div className={styles.actions}>
           <Button variant="link" onClick={handleRemove}>
             {texts.remove}

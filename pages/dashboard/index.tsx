@@ -47,14 +47,14 @@ export const getServerSideProps = withSession(async ({ req, res, query }) => {
 
 export default function Dashboard({ landing, isEdit }: DashboardPageProps) {
   return (
-    <section className={styles.dashboard}>
+    <>
       <Head>
         <title>Dashboard</title>
       </Head>
       <Navigation fullNav active="/dashboard" />
-      <main className={styles.container}>
+      <main className={styles.dashboard}>
         <Editor landing={landing} firstEdit={isEdit} />
       </main>
-    </section>
+    </>
   );
 }
