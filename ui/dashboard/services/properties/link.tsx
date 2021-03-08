@@ -2,7 +2,7 @@ export default {
   en: {
     id: 'Link',
     values: {
-      href: 'https://ddland.vercel.app/',
+      href: 'https://ddland.app/',
       text: 'DDLand, drag & drop',
       color: '#007bff',
     },
@@ -10,7 +10,7 @@ export default {
   es: {
     id: 'Link',
     values: {
-      href: 'https://ddland.vercel.app/',
+      href: 'https://ddland.app/',
       text: 'DDLand, crea tu página arrastrando bloques',
       color: '#007bff',
     },

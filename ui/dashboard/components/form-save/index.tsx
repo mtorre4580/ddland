@@ -70,7 +70,7 @@ export default React.memo(function FormSave({ onSave }: FormSaveProps) {
         {isExistsURL && <p className={styles.errorURLExists}>{texts.urlExits}</p>}
         {!isExistsURL && (
           <p className={styles.hintUrl}>
-            {texts.hintURL} https://ddland.vercel.app/{form.path}
+            {texts.hintURL} https://ddland.app/{form.path}
           </p>
         )}
       </Form.Group>
