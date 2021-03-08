@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.7](https://github.com/mtorre4580/ddland/compare/v0.1.6...v0.1.7) (2021-03-08)
+
+
+### Features
+
+* color-texts selection ([4496aa7](https://github.com/mtorre4580/ddland/commit/4496aa7b51a4469139c61dbbf2a87f6ece37dfe2))
+* logger ([c37cb9a](https://github.com/mtorre4580/ddland/commit/c37cb9adc7f53de8207b278fdb8d162fc0975b44))
+* open-graph ([6c28f0b](https://github.com/mtorre4580/ddland/commit/6c28f0b80b6ac587f8de1b9aecc1d5d45a9fe8cd))
+* upload images in form ([57c5666](https://github.com/mtorre4580/ddland/commit/57c566608f4cc6f6bdb06ae66ce1a7d9d551dcee))
+
 ### [0.1.6](https://github.com/mtorre4580/ddland/compare/v0.1.5...v0.1.6) (2021-03-04)
 
 
