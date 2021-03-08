@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import InputText from '../input-text';
+import Input from '../input';
 import { FormEditionProps } from '../form-edit';
 import ColorPicker from '../color-picker';
 import styles from './form-single.module.scss';
@@ -48,7 +48,7 @@ export default React.memo(function FormSingle({ block, onEditApply, texts }: For
       {Object.keys(values)
         .filter((key: string) => key !== 'color')
         .map((key: string, index: number) => (
-          <InputText key={index} name={key} value={formProperties[key]} onChange={handleOnChange} />
+          <Input key={index} name={key} texts={texts} value={formProperties[key]} onChange={handleOnChange} />
         ))}
       <Button variant="outline-light" type="submit">
         {texts.accept}
