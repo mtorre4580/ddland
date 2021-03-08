@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import { FormEditionProps } from '../form-edit';
-import InputText from '../input-text';
+import Input from '../input';
 import styles from './form-multiple.module.scss';
 
 export default React.memo(function FormMultiple({ block, onEditApply, texts }: FormEditionProps) {
@@ -76,8 +76,9 @@ export default React.memo(function FormMultiple({ block, onEditApply, texts }: F
           </p>
           <p className={styles.titleBlock}>{texts.hintStepForm}</p>
           {Object.keys(item).map((key: string, position: number) => (
-            <InputText
+            <Input
               name={key}
+              texts={texts}
               key={position}
               value={formProperties[index][key]}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleOnChange(e, index)}

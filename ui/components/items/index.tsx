@@ -6,7 +6,7 @@ import styles from './items.module.scss';
 export interface Item {
   title: string;
   subtitle: string;
-  image: string;
+  src: string;
 }
 
 interface ItemsProps {
@@ -18,7 +18,7 @@ export default React.memo(function ItemsWrapper({ items }: ItemsProps) {
     <CardColumns className={styles.cardColumn}>
       {items.map((item: Item, index: number) => (
         <Card key={index}>
-          {item.image && <Card.Img variant="top" src={item.image} />}
+          {item.src && <Card.Img variant="top" src={item.src} />}
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>
             {item.subtitle && <Card.Text>{item.subtitle}</Card.Text>}

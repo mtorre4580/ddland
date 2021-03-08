@@ -6,17 +6,17 @@ export default {
         {
           title: 'Title example',
           subtitle: 'Subtitle example',
-          image: 'https://ddland.vercel.app/thanks.jpg',
+          src: 'https://ddland.vercel.app/thanks.jpg',
         },
         {
           title: 'Title example',
           subtitle: 'Subtitle example',
-          image: 'https://ddland.vercel.app/thanks.jpg',
+          src: 'https://ddland.vercel.app/thanks.jpg',
         },
         {
           title: 'Title example',
           subtitle: 'Subtitle example',
-          image: 'https://ddland.vercel.app/thanks.jpg',
+          src: 'https://ddland.vercel.app/thanks.jpg',
         },
       ],
     },
@@ -28,17 +28,17 @@ export default {
         {
           title: 'Título ejemplo',
           subtitle: 'Subtítulo ejemplo',
-          image: 'https://ddland.vercel.app/thanks.jpg',
+          src: 'https://ddland.vercel.app/thanks.jpg',
         },
         {
           title: 'Título ejemplo',
           subtitle: 'Subtítulo ejemplo',
-          image: 'https://ddland.vercel.app/thanks.jpg',
+          src: 'https://ddland.vercel.app/thanks.jpg',
         },
         {
           title: 'Título ejemplo',
           subtitle: 'Subtítulo ejemplo',
-          image: 'https://ddland.vercel.app/thanks.jpg',
+          src: 'https://ddland.vercel.app/thanks.jpg',
         },
       ],
     },
