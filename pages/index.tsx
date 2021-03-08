@@ -56,15 +56,15 @@ export default function Home({ fullNav }: HomePageProps) {
       <Navigation fullNav={fullNav} active="/" />
       <BackgroundAnimated />
       <main className={styles.home}>
-        <section className={styles.welcome}>
+        <div className={styles.welcome}>
           <h1>DDLand</h1>
           <h2 className={styles.subtitle}>{texts.subtitle}</h2>
-        </section>
-        <section className={styles.benefits}>
+        </div>
+        <div className={styles.benefits}>
           <Image
             src="/thanks.jpg"
             width={600}
-            height={300}
+            height={320}
             title="DDLand, drag & drop"
             className={styles.image}
             alt="DDLand, drag & drop"
@@ -75,21 +75,7 @@ export default function Home({ fullNav }: HomePageProps) {
             <li className={styles.item}>{texts.step3}</li>
             <li className={styles.item}>{texts.step4}</li>
           </ol>
-        </section>
-        <section className={styles.presentation}>
-          <div>
-            <h2>Dashboard</h2>
-            <p>{texts.dashboardHint}</p>
-          </div>
-          <Image
-            width={600}
-            height={300}
-            className={styles.imageDashboard}
-            src="/dashboard.png"
-            alt="DDLand, dashboard"
-            title="DDLand, dashboard"
-          />
-        </section>
+        </div>
       </main>
       <Footer />
     </>

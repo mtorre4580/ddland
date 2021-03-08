@@ -5,9 +5,13 @@ $default-height-images: 400px;
 
 .home {
   padding-top: $paddingForNav;
-  min-height: 100vh;
+  height: 100vh;
   background-color: $color-principal;
   color: $color-white;
+
+  @media only screen and (min-width: $desktop) {
+    height: calc(100vh - 68px);
+  }
 
   .welcome {
     padding: 30px;
@@ -50,28 +54,7 @@ $default-height-images: 400px;
     }
   }
 
-  .presentation {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    padding: 20px;
-
-    @media only screen and (min-width: $desktop) {
-      flex-direction: row;
-    }
-
-    .imageDashboard {
-      padding: 10px;
-      background-color: $color-white;
-      border-radius: 0.25rem;
-      margin: 10px;
-      max-width: 100%;
-    }
-  }
-
   @media only screen and (min-width: $desktop) {
-    .imageDashboard,
     .image {
       height: $default-height-images;
     }

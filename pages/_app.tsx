@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* Open Graph */}
         <meta property="og:title" content="DDLand" />
         <meta property="og:description" content={texts.description} />
-        <meta property="og:image" content="https://ddland.app/_next/image?url=%2Fthanks.jpg&w=1200&q=75" />
+        <meta property="og:image" content="https://ddland.app/thanks.jpg" />
         <meta property="og:url" content="https://ddland.app" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content={locale} />
@@ -51,6 +51,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
         {/* Canonical */}
         <link rel="canonical" href="https://ddland.app" />
+        {/* Description */}
+        <meta name="description" content="DDLand, create landings pages quickly and easily. Create your website by dragging blocks"/>
       </Head>
       <I18nProvider locale={locale}>
         <StateInspector name="DDland">
