@@ -17,6 +17,9 @@ interface EditBlockProps {
   onSort: Function;
 }
 
+// The type to support dragging
+export const TYPE_DRAG_EDIT_BLOCK = 'block-edit';
+
 export default React.memo(function EditBlock({ block, index, onRemove, onEdit, onSort }: EditBlockProps) {
   const ref: any = useRef(null);
   const locale = useContext(I18nContext);
@@ -24,7 +27,7 @@ export default React.memo(function EditBlock({ block, index, onRemove, onEdit, o
 
   // Hook to drop and retrieve the current block
   const [, drop] = useDrop({
-    accept: 'block-edit',
+    accept: TYPE_DRAG_EDIT_BLOCK,
     hover(item: any, monitor) {
       if (!ref.current) {
         return;
@@ -58,7 +61,8 @@ export default React.memo(function EditBlock({ block, index, onRemove, onEdit, o
 
   // Hook to set the component draggeable
   const [, drag] = useDrag({
-    item: { type: 'block-edit', id: block.id, index },
+    type: TYPE_DRAG_EDIT_BLOCK,
+    item: () => ({ id: block.id, index }),
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),

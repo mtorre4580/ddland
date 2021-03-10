@@ -8,9 +8,11 @@ interface BlockProps {
   description: string;
 }
 
-export default React.memo(function Block({ id, description }: BlockProps) {
-  const [, drag] = useDrag({ item: { type: 'block', id } });
+// The type to support dragging
+export const TYPE_DRAG_BLOCK = 'block';
 
+export default React.memo(function Block({ id, description }: BlockProps) {
+  const [, drag] = useDrag({ type: TYPE_DRAG_BLOCK, item: () => ({ id }) });
   return (
     <Card bg="success" className={styles.block} text="light" ref={drag}>
       <Card.Header className={styles.title} as="h2">
