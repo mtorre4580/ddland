@@ -8,6 +8,7 @@ import { I18nContext } from '../../../shared/i18n-provider';
 import i18n from './i18n';
 import FormEdit from '../form-edit';
 import styles from './canva.module.scss';
+import { TYPE_DRAG_BLOCK } from '../block';
 
 interface CanvaProps {
   onAdd: Function;
@@ -25,7 +26,7 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit,
 
   // Hook to handle the drop event for the blocks
   const [, dropRef] = useDrop({
-    accept: 'block',
+    accept: TYPE_DRAG_BLOCK,
     drop: (item: any) => {
       onAdd(getDefaultValues(item.id, locale));
     },
