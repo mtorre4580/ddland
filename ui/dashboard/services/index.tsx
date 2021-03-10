@@ -18,6 +18,7 @@ const blocks = {
     { id: 'Video', description: 'Agrega un video de diferentes sitios' },
     { id: 'Items', description: 'Agrega 3 items en una fila' },
     { id: 'Carousel', description: 'Agrega un carousel de imágenes' },
+    { id: 'Whatsapp', description: 'Agrega un botón de whatsapp para que puedan contactarte' },
   ],
   en: [
     { id: 'Footer', description: 'Content that goes at the bottom of your page' },
@@ -29,6 +30,7 @@ const blocks = {
     { id: 'Video', description: 'Add a video from different sites' },
     { id: 'Items', description: 'Add 3 items in a row' },
     { id: 'Carousel', description: 'Add an image carousel' },
+    { id: 'Whatsapp', description: 'Add a whatsapp button so they can contact you' },
   ],
 };
 

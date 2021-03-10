@@ -12,7 +12,7 @@
     },
     {
       "path": ".next/static/chunks/pages/landings-*.js",
-      "maxSize": "10 kB",
+      "maxSize": "13 kB",
       "compression": "brotli"
     },
     {
