@@ -1,0 +1,16 @@
+@import '../../../styles/colors';
+
+.whatsapp {
+  position: fixed;
+  width: 52px;
+  height: 52px;
+  bottom: 40px;
+  right: 40px;
+  background-color: $color-green;
+  color: $color-white;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px $color-grey-dark;
+  z-index: 100;
+}

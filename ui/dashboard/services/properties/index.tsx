@@ -7,5 +7,6 @@ import Video from './video';
 import Footer from './footer';
 import Items from './items';
 import Carousel from './carousel';
+import Whatsapp from './whatsapp';
 
-export { Title, Paragraph, Header, Image, Link, Video, Footer, Items, Carousel };
+export { Title, Paragraph, Header, Image, Link, Video, Footer, Items, Carousel, Whatsapp };
