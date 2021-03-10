@@ -2,13 +2,13 @@ export default {
   en: {
     id: 'Whatsapp',
     values: {
-      phone: '00-00-00',
+      phone: '54-11-XXXX-XXXX',
     },
   },
   es: {
     id: 'Whatsapp',
     values: {
-      phone: '00-00-00',
+      phone: '54-11-XXXX-XXXX',
     },
   },
 };
