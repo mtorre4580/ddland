@@ -52,7 +52,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         {/* Canonical */}
         <link rel="canonical" href="https://ddland.app" />
         {/* Description */}
-        <meta name="description" content="DDLand, create landings pages quickly and easily. Create your website by dragging blocks"/>
+        <meta
+          name="description"
+          content="DDLand, create landings pages quickly and easily. Create your website by dragging blocks"
+        />
       </Head>
       <I18nProvider locale={locale}>
         <StateInspector name="DDland">
