@@ -17,7 +17,7 @@ interface WebPageProps {
  * @return Promise<object>
  */
 const getLanding = async (url: string) => {
-  const landingFromCache: { path: string, title: string, blocks: IBlock[] } = cacheService.get(url);
+  const landingFromCache: { path: string; title: string; blocks: IBlock[] } = cacheService.get(url);
   if (landingFromCache) {
     return landingFromCache;
   }

@@ -12,7 +12,7 @@ export default React.memo(function InputText({ name, onChange, value }: InputTex
   return (
     <Form.Group className={styles.formGroup} controlId={name}>
       <Form.Label className={styles.label}>{name}</Form.Label>
-      <Form.Control type="text" name={name} value={value} onChange={onChange} />
+      <Form.Control className={styles.input} type="text" as="textarea" rows={2} name={name} value={value} onChange={onChange} />
     </Form.Group>
   );
 });
