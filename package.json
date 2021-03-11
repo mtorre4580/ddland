@@ -21,6 +21,7 @@
     }
   },
   "dependencies": {
+    "@fontsource/rocknroll-one": "^4.2.2",
     "@next/bundle-analyzer": "^10.0.8",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
