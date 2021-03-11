@@ -8,5 +8,6 @@ import Footer from './footer';
 import Items from './items';
 import Carousel from './carousel';
 import Whatsapp from './whatsapp';
+import List from './list';
 
-export { Title, Paragraph, Header, Image, Link, Video, Footer, Items, Carousel, Whatsapp };
+export { Title, Paragraph, Header, Image, Link, Video, Footer, Items, Carousel, Whatsapp, List };
