@@ -1,5 +1,6 @@
 import { NextApiResponse } from 'next';
 import landingRepository from '../../../repository/landing';
+import cacheService from '../../../services/cache';
 import withAuth, { NextApiRequestSession } from '../../../middlewares/auth';
 
 export default withAuth(async (req: NextApiRequestSession, res: NextApiResponse) => {
@@ -31,6 +32,7 @@ export default withAuth(async (req: NextApiRequestSession, res: NextApiResponse)
       }
       const response = await landingRepository.update(path, email, body);
       if (response) {
+        cacheService.delete(path.toString());
         return res.json(response);
       }
       return res.status(400).json({ msg: 'Invalid' });
