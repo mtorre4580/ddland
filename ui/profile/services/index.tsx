@@ -5,7 +5,7 @@ import axios, { AxiosResponse } from 'axios';
  * @return {Promise}
  */
 function logoutUser(): Promise<AxiosResponse> {
-  return axios.get('/api/logout');
+  return axios.post('/api/logout');
 }
 
 /**
