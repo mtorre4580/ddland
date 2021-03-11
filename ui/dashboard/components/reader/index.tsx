@@ -2,7 +2,7 @@ import React from 'react';
 import * as Components from '../../../components';
 
 interface ReaderProps {
-  blocks: object[];
+  blocks: any[];
 }
 
 export default React.memo(function Reader({ blocks }: ReaderProps) {

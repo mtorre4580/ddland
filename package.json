@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "lint": "eslint ./middlewares/** ./repository/** ./services/** ./pages/** ./pages/api/** --ext .ts,.tsx",
+    "lint": "eslint ./middlewares/** ./repository/** ./services/** ./pages/** ./pages/api/** ./ui/** --ext .ts,.tsx",
     "pretty-quick": "pretty-quick",
     "prettier": "prettier --write '**/*.{tsx,scss}'",
     "release": "standard-version",

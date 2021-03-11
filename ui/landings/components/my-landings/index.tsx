@@ -38,8 +38,8 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
 
   /**
    * Handler to show the user confirmation to proceed to delete the current landing
-   * @param path string
-   * @param index number
+   * @param {string} path
+   * @param {number} index
    */
   const handleOnRemove = (path: string, index: number) => dispatch(Actions.deleteIntention(path, index));
 
@@ -50,7 +50,6 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
 
   /**
    * Handler to delete the current web selected if the user confirm
-   * @param path string
    */
   const handleOnConfirmRemove = async () => {
     try {
@@ -66,7 +65,7 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
 
   /**
    * Handler to share the landing selected to generate QR
-   * @param name string
+   * @param {string} name
    */
   const handleOnShare = (name: string) => dispatch(Actions.shareLandingIntention(name));
 

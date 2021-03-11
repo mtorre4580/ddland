@@ -6,8 +6,10 @@ import { I18nContext } from '../../../shared/i18n-provider';
 import i18n from './i18n';
 import styles from './form-save.module.scss';
 
+type onSaveCallback = (path: string, title: string) => void;
+
 interface FormSaveProps {
-  onSave: Function;
+  onSave: onSaveCallback;
 }
 
 export default React.memo(function FormSave({ onSave }: FormSaveProps) {
@@ -18,7 +20,7 @@ export default React.memo(function FormSave({ onSave }: FormSaveProps) {
 
   /**
    * Handler onSubmit event to notify the save landing
-   * @param event React.SyntheticEvent
+   * @param {React.SyntheticEvent} event
    */
   const handleOnSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -27,7 +29,7 @@ export default React.memo(function FormSave({ onSave }: FormSaveProps) {
 
   /**
    * Handler to change the current state of the inputs when user change...
-   * @param event React.ChangeEvent<HTMLInputElement>
+   * @param {React.ChangeEvent<HTMLInputElement>} event
    */
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;

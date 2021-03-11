@@ -1,13 +1,13 @@
 import * as DefaultValues from './properties';
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 interface LandingRequest {
   path?: string;
   title: string;
-  blocks: object[];
+  blocks: any[];
 }
 
-const blocks = {
+const blocks: { [key: string]: any } = {
   es: [
     { id: 'Footer', description: 'Contenido que va en la parte inferior de tu página' },
     { id: 'Header', description: 'Contenido que va en la parte superior de tu página' },
@@ -36,18 +36,18 @@ const blocks = {
 
 /**
  * Retrieve the current elements to generate the web
- * @param locale string
- * @return object[]
+ * @param {string} locale
+ * @return {object[]}
  */
-function getBlocks(locale: string = 'es') {
-  // @ts-ignore
+function getBlocks(locale = 'es') {
   return blocks[locale];
 }
 
 /**
  * Retrieve the current properties avalaibles for the Element
- * @param type string
- * @return object
+ * @param {string} id
+ * @param {string} locale
+ * @return {object}
  */
 function getDefaultValues(id: string, locale: string) {
   return (DefaultValues as any)[id][locale];
@@ -55,38 +55,38 @@ function getDefaultValues(id: string, locale: string) {
 
 /**
  * Save a new landing for the current user
- * @param request LandingRequest
- * @return Promise
+ * @param {LandingRequest} request
+ * @return {Promise}
  */
-function saveLanding(request: LandingRequest) {
+function saveLanding(request: LandingRequest): Promise<AxiosResponse> {
   return axios.post('/api/landings', request);
 }
 
 /**
  * Upate the current landing
- * @param path string
- * @param request object
- * @return Promise
+ * @param {string} path
+ * @param {LandingRequest} request
+ * @return {Promise}
  */
-function updateLanding(path: string, request: LandingRequest) {
+function updateLanding(path: string, request: LandingRequest): Promise<AxiosResponse> {
   return axios.put(`/api/landings${path}`, request);
 }
 
 /**
  * Retrieve if exits any landing with the current path
- * @param path string
- * @return Promise
+ * @param {string} path
+ * @return {Promise}
  */
-function getLandingWithPath(path: string) {
+function getLandingWithPath(path: string): Promise<AxiosResponse> {
   return axios.get('/api/landings', { params: { path } });
 }
 
 /**
  * Upload any image to the api pictures
- * @param file File
- * @return Promise
+ * @param {File} file
+ * @return {Promise}
  */
-function uploadImage(file: File) {
+function uploadImage(file: File): Promise<AxiosResponse> {
   const request = new FormData();
   request.append('image', file);
   return axios.post('/api/pictures', request, {

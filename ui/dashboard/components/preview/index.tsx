@@ -5,7 +5,7 @@ import { I18nContext } from '../../../shared/i18n-provider';
 import styles from './preview.module.scss';
 
 interface PreviewProps {
-  blocks: object[];
+  blocks: any[];
 }
 
 export default React.memo(function Preview({ blocks }: PreviewProps) {

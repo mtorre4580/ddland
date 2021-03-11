@@ -23,7 +23,7 @@ export default React.memo(function InputImage({ name, value, onChange, texts }: 
 
   /**
    * Handler to upload the image when the file is change
-   * @param event Evet
+   * @param {Event} event
    */
   const handleOnChangeFile = async (event: any) => {
     try {
@@ -55,8 +55,8 @@ export default React.memo(function InputImage({ name, value, onChange, texts }: 
 
   /**
    * Validate the format type of the file
-   * @param format string
-   * @return boolean
+   * @param {string} format
+   * @return {boolean}
    */
   const isValid = (format: string) => {
     const regex = /.(gif|jpe?g|bmp|png|webp)$/;

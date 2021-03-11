@@ -1,20 +1,23 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 
 /**
  * Logout the current user and destroy the session
- * @return Promise
+ * @return {Promise}
  */
-function logoutUser() {
+function logoutUser(): Promise<AxiosResponse> {
   return axios.get('/api/logout');
 }
 
 /**
  * Modify the current password for the user logged
- * @param oldPassword string
- * @param newPassword string
- * @return Promise
+ * @param {string} oldPassword
+ * @param {string} newPassword
+ * @return {Promise}
  */
-function changePasswordUser(request: { oldPassword: string; newPassword: string }, email: string) {
+function changePasswordUser(
+  request: { oldPassword: string; newPassword: string },
+  email: string,
+): Promise<AxiosResponse> {
   return axios.put(`/api/users/${email}`, request);
 }
 

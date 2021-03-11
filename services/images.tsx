@@ -20,11 +20,11 @@ class ImagesService {
 
   /**
    * Upload the image to cloudinary service
-   * @param {string} path 
+   * @param {string} path
    * @param {string} name
    * @return {Promise}
    */
-  public async upload(path: string, name: string): Promise<{ url: string, secure_url: string }> {
+  public async upload(path: string, name: string): Promise<{ url: string; secure_url: string }> {
     try {
       const eagerOptions = { width: 300, height: 300, format: 'jpg' };
       const { url, secure_url } = await v2.uploader.upload(path, {

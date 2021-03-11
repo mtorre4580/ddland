@@ -20,7 +20,7 @@ export default React.memo(function FormLogin() {
 
   /**
    * Handler the onChange event for the Inputs
-   * @param event
+   * @param {React.ChangeEvent<HTMLInputElement>} event
    */
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -29,7 +29,7 @@ export default React.memo(function FormLogin() {
 
   /**
    * Handler the onSubmit event Form
-   * @param event
+   * @param {React.SyntheticEvent} event
    */
   const handleOnSubmit = async (event: React.SyntheticEvent) => {
     event.preventDefault();

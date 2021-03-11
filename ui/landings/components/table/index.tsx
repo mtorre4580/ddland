@@ -6,10 +6,13 @@ import { I18nContext } from '../../../shared/i18n-provider';
 import i18n from './i18n';
 import styles from './table.module.scss';
 
+type onRemoveCallback = (path: string, index: number) => void;
+type onShareCallback = (path: string) => void;
+
 interface LandingsTableProps {
   landings: ILanding[];
-  onRemove: Function;
-  onShare: Function;
+  onRemove: onRemoveCallback;
+  onShare: onShareCallback;
 }
 
 export default React.memo(function LandingsTable({ landings, onRemove, onShare }: LandingsTableProps) {
@@ -18,7 +21,7 @@ export default React.memo(function LandingsTable({ landings, onRemove, onShare }
 
   /**
    * Format the current Dates to show the user
-   * @param date Date
+   * @param {Date} date
    */
   const formatDate = (date: Date) => new Date(date).toLocaleDateString();
 

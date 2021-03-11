@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import styles from './color-picker.module.scss';
 
+type onChangeColor = (color: string) => void;
+
 interface ColorPickerProps {
   value: string;
-  onChangeColor: Function;
+  onChangeColor: onChangeColor;
 }
 
 export default React.memo(function ColorPicker({ value, onChangeColor }: ColorPickerProps) {
@@ -12,6 +14,7 @@ export default React.memo(function ColorPicker({ value, onChangeColor }: ColorPi
 
   /**
    * Handler on change to replace the current color selected by the user
+   * @param {React.ChangeEvent} event
    */
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const colorSelected = event.target.value;
