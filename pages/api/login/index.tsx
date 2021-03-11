@@ -1,9 +1,10 @@
 import { NextApiResponse } from 'next';
+import { NextApiRequestSession } from '../../../middlewares/auth';
 import withSession from '../../../middlewares/session';
 import userRepository from '../../../repository/user';
 import hashService from '../../../services/hash';
 
-export default withSession(async (req, res: NextApiResponse) => {
+export default withSession(async (req: NextApiRequestSession, res: NextApiResponse) => {
   try {
     const { email, password: currentPassword } = req.body;
     const user = await userRepository.get(email);

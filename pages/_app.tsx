@@ -3,7 +3,6 @@ import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { I18nProvider, Translations } from '../ui/shared/i18n-provider';
 import { StateInspector } from 'reinspect';
-
 import '../styles/globals.scss';
 
 const i18n: Translations = {

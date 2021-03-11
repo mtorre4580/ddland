@@ -11,5 +11,10 @@
   },
   "globals": {
     "React": "writable"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

@@ -9,10 +9,10 @@ class UserService extends ModelMongo {
 
   /**
    * Checker to validate the properties for the current model
-   * @param user IUser
-   * @return string | null
+   * @param {IUser} user
+   * @return {string|null}
    */
-  public validate(user: IUser) {
+  public validate(user: IUser): string | null {
     const { error } = Joi.object({
       email: Joi.string().required(),
       password: Joi.string().required(),
@@ -27,10 +27,10 @@ class UserService extends ModelMongo {
 
   /**
    * Retrieve the user by the email
-   * @param email string
-   * @return Promise
+   * @param {string} email
+   * @return {Promise}
    */
-  public async get(email: string) {
+  public async get(email: string|string[]): Promise<IUser> {
     const user = (await this.findOne({ email })) || null;
     if (user) {
       const { _id, ...infoUser } = user;
@@ -41,29 +41,29 @@ class UserService extends ModelMongo {
 
   /**
    * Store the user in the collection
-   * @param user IUser
-   * @return Promise
+   * @param {IUser} user
+   * @return {Promise}
    */
-  public save(user: IUser) {
+  public save(user: IUser): Promise<string | undefined> {
     return this.insertOne(user);
   }
 
   /**
    * Update the user properties
-   * @param email string
-   * @param user IUser
-   * @return Promise
+   * @param {string} email
+   * @param {IUser} user
+   * @return {Promise}
    */
-  public update(email: string | string[], user: IUser) {
+  public update(email: string | string[], user: IUser): Promise<IUser> {
     return this.findAndUpdateOne({ email }, user);
   }
 
   /**
    * Delete the user by the email
-   * @param email string
-   * @return Promise
+   * @param {string} email
+   * @return {Promise}
    */
-  public delete(email: string | string[]) {
+  public delete(email: string | string[]): Promise<{ msg: string } | undefined> {
     return this.deleteOne({ email });
   }
 }

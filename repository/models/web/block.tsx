@@ -1,3 +1,3 @@
 export default interface IBlock {
-  [key: string]: object;
+  [key: string]: { [key: string]: string | number };
 }

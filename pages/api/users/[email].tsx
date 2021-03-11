@@ -1,9 +1,9 @@
 import { NextApiResponse } from 'next';
 import userRepository from '../../../repository/user';
-import withAuth from '../../../middlewares/auth';
+import withAuth, { NextApiRequestSession } from '../../../middlewares/auth';
 import hashService from '../../../services/hash';
 
-export default withAuth(async (req, res: NextApiResponse) => {
+export default withAuth(async (req: NextApiRequestSession, res: NextApiResponse) => {
   const {
     method,
     body = {},

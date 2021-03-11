@@ -1,8 +1,8 @@
 import { NextApiResponse } from 'next';
 import landingRepository from '../../../repository/landing';
-import withAuth from '../../../middlewares/auth';
+import withAuth, { NextApiRequestSession } from '../../../middlewares/auth';
 
-export default withAuth(async (req, res: NextApiResponse) => {
+export default withAuth(async (req: NextApiRequestSession, res: NextApiResponse) => {
   const {
     method,
     body = {},

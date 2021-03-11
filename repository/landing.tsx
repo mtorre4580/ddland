@@ -9,8 +9,8 @@ class LandingService extends ModelMongo {
 
   /**
    * Checker to validate the properties for the current model
-   * @param landing ILanding
-   * @return string | null
+   * @param {ILanding} landing
+   * @return {string|null}
    */
   public validate(landing: ILanding) {
     const { error } = Joi.object({
@@ -26,9 +26,9 @@ class LandingService extends ModelMongo {
 
   /**
    * Retrieve the current landing by the path
-   * @param path string
-   * @param author string
-   * @return Promise
+   * @param {string} path
+   * @param {string} author
+   * @return {Promise}
    */
   public get(path: string | string[]) {
     return this.findOne({ path: this.getPath(path) });
@@ -36,8 +36,8 @@ class LandingService extends ModelMongo {
 
   /**
    * Retrieve all the landings by the user
-   * @param author string
-   * @return Promise
+   * @param {string} author
+   * @return {Promise}
    */
   public getAll(author: string) {
     return this.find({ author });
@@ -45,9 +45,9 @@ class LandingService extends ModelMongo {
 
   /**
    * Save the current landing for the user
-   * @param author string
-   * @param landing ILanding
-   * @return Promise
+   * @param {string} author
+   * @param {ILanding} landing
+   * @return {Promise}
    */
   public save(author: string, landing: ILanding) {
     return this.insertOne({ ...landing, author, path: this.getPath(landing.path) });
@@ -55,10 +55,10 @@ class LandingService extends ModelMongo {
 
   /**
    * Update the current landing by the path and the current user
-   * @param path string
-   * @param author string
-   * @param landing ILanding
-   * @return Promise
+   * @param  {string} path
+   * @param  {string} author
+   * @param  {ILanding} landing
+   * @return {Promise}
    */
   public update(path: string | string[], author: string, landing: ILanding) {
     return this.findAndUpdateOne({ path: this.getPath(path), author }, landing);
@@ -66,9 +66,9 @@ class LandingService extends ModelMongo {
 
   /**
    * Remove the current landing by the path and the current user
-   * @param path string
-   * @param author string
-   * @return Promise
+   * @param {string} path
+   * @param {string} author
+   * @return {Promise}
    */
   public delete(path: string | string[], author: string) {
     return this.deleteOne({ path: this.getPath(path), author });
@@ -76,8 +76,8 @@ class LandingService extends ModelMongo {
 
   /**
    * Retrieve the full path
-   * @param path string
-   * @return string
+   * @param {string} path
+   * @return {string}
    */
   private getPath(path: string | string[]) {
     return `/${path}`;

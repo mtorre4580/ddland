@@ -6,8 +6,8 @@ const DEPLOYMENT_STATUS_URL = 'https://api.github.com/repos/mtorre4580/ddland/de
 
 /**
  * Handler to notify when the deploy has finish and the status
- * @param req NextApiRequest
- * @param res NextApiResponse
+ * @param {NextApiRequest} req
+ * @param {NextApiResponse} res
  */
 const handler = async (req: NextApiRequest, res: NextApiResponse): Promise<void> => {
   await deploymentBadgeHandler(req, res, {

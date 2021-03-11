@@ -11,10 +11,10 @@ class HashService {
 
   /**
    * Generate the hash for the current text
-   * @param text string
-   * @return Promise
+   * @param {string} text 
+   * @return {Promise}
    */
-  public async encrypt(text: string) {
+  public async encrypt(text: string): Promise<string> {
     try {
       const salt = await bcrypt.genSalt(this.BCRYPT_SALT_ROUNDS);
       const hash = await bcrypt.hash(text, salt);
@@ -27,11 +27,11 @@ class HashService {
 
   /**
    * Compare between two strings has same hash
-   * @param text string
-   * @param text2 string
-   * @return Promise
+   * @param {string} text 
+   * @param {string} text2
+   * @return {Promise}
    */
-  public async compare(text: string, text2: string) {
+  public async compare(text: string, text2: string) : Promise<boolean> {
     try {
       const status = await bcrypt.compare(text, text2);
       return status;

@@ -1,4 +1,4 @@
-import { Db } from 'mongodb';
+import { Db, FilterQuery } from 'mongodb';
 import { connectToDatabase } from './mongodb';
 import LoggerService from '../../services/logger';
 
@@ -13,10 +13,10 @@ class Model {
 
   /**
    * Wrapper for insertOne
-   * @param model object
-   * @return Promise
+   * @param {object} model
+   * @return {Promise}
    */
-  protected async insertOne(model: any) {
+  protected async insertOne(model: any): Promise<string | undefined> {
     const db: Db = await this.connect();
     try {
       const { insertedId } = await db
@@ -30,11 +30,11 @@ class Model {
 
   /**
    * Wrapper for find and update the current model
-   * @param query object
-   * @param model object
-   * @return Promise
+   * @param {FilterQuery} query
+   * @param {object} model
+   * @return {Promise}
    */
-  protected async findAndUpdateOne(query: object, model: any) {
+  protected async findAndUpdateOne(query: FilterQuery<any>, model: any): Promise<any> {
     const db: Db = await this.connect();
     try {
       const modelToUpdate = { ...model, updated_at: new Date() };
@@ -50,10 +50,10 @@ class Model {
 
   /**
    * Wrapper to delete one item by query
-   * @param query object
-   * @return Promise
+   * @param {FilterQuery} query
+   * @return {Promise}
    */
-  protected async deleteOne(query: object) {
+  protected async deleteOne(query: FilterQuery<any>): Promise<{ msg: string } | undefined> {
     const db: Db = await this.connect();
     try {
       const { deletedCount } = await db.collection(this.collection).deleteOne(query);
@@ -68,10 +68,10 @@ class Model {
 
   /**
    * Wrapper to findOne any model via query
-   * @param query object
-   * @return Promise
+   * @param {FilterQuery} query
+   * @return {Promise}
    */
-  protected async findOne(query: object) {
+  protected async findOne(query: FilterQuery<any>): Promise<any> {
     const db: Db = await this.connect();
     try {
       const model = await db.collection(this.collection).findOne(query);
@@ -83,10 +83,10 @@ class Model {
 
   /**
    * Wrapper to find model via query object
-   * @param query object
-   * @return Promise
+   * @param {FilterQuery} query
+   * @return {Promise}
    */
-  protected async find(query: object) {
+  protected async find(query: FilterQuery<any>): Promise<any[] | undefined> {
     const db: Db = await this.connect();
     try {
       const models = await db.collection(this.collection).find(query).toArray();
@@ -98,7 +98,7 @@ class Model {
 
   /**
    * Handler connection for mongoDB with the current DB
-   * @return Promise
+   * @return {Promise}
    */
   private async connect(): Promise<Db> {
     const { client, db } = await connectToDatabase();
@@ -111,10 +111,11 @@ class Model {
 
   /**
    * Handler the error for mongoDB connections and querys
-   * @param exception Error
-   * @param friendlyMessage string
+   * @param {Error} exception
+   * @param {string} friendlyMessage
+   * @throws {Error}
    */
-  private handleException(exception: Error, friendlyMessage: string) {
+  private handleException(exception: Error, friendlyMessage: string): void {
     this.logger.log(friendlyMessage, exception);
     throw new Error(friendlyMessage);
   }

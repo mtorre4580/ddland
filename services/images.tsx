@@ -11,20 +11,20 @@ class ImagesService {
 
   /**
    * Check if the current format is valid
-   * @param name string
-   * @return boolean
+   * @param {string} name
+   * @return {boolean}
    */
-  public isValid(name: string) {
+  public isValid(name: string): boolean {
     return this.regex.test(name);
   }
 
   /**
    * Upload the image to cloudinary service
-   * @param path string
-   * @param name string
-   * @return Promise
+   * @param {string} path 
+   * @param {string} name
+   * @return {Promise}
    */
-  public async upload(path: string, name: string) {
+  public async upload(path: string, name: string): Promise<{ url: string, secure_url: string }> {
     try {
       const eagerOptions = { width: 300, height: 300, format: 'jpg' };
       const { url, secure_url } = await v2.uploader.upload(path, {
@@ -41,10 +41,10 @@ class ImagesService {
 
   /**
    * Retrieve the name of the image without the extension
-   * @param path string
-   * @return string
+   * @param {string} path
+   * @return {string}
    */
-  private getName(path: string) {
+  private getName(path: string): string {
     const [name] = path.split(this.regex);
     return name;
   }
