@@ -1,12 +1,12 @@
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { RequestUser } from '../../login/effects/models';
 
 /**
  * Register the user
- * @param request RequestUser
- * @return Promise
+ * @param {RequestUser} request
+ * @return {Promise}
  */
-function registerUser(request: RequestUser) {
+function registerUser(request: RequestUser): Promise<AxiosResponse> {
   return axios.post('/api/users', request);
 }
 

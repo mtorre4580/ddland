@@ -16,5 +16,5 @@ export interface Action {
 
 export interface Block {
   id: string;
-  values: object;
+  values: any;
 }

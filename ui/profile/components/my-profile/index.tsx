@@ -20,7 +20,7 @@ export default React.memo(function MyProfile({ user }: MyProfileProps) {
 
   /**
    * Format the current Dates to show the user
-   * @param date Date
+   * @param {Date} date
    */
   const formatDate = (date: Date) => new Date(date).toLocaleDateString();
 

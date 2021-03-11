@@ -12,7 +12,7 @@ export default React.memo(function FormSingle({ block, onEditApply, texts }: For
 
   /**
    * Handler to change the current state of the inputs when user change...
-   * @param event React.ChangeEvent<HTMLInputElement>
+   * @param {React.ChangeEvent<HTMLInputElement>} event
    */
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -24,7 +24,7 @@ export default React.memo(function FormSingle({ block, onEditApply, texts }: For
 
   /**
    * Handler onSubmit event to notify the edition of the current block
-   * @param event React.SyntheticEvent
+   * @param {React.SyntheticEvent} event
    */
   const handleOnSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -33,7 +33,7 @@ export default React.memo(function FormSingle({ block, onEditApply, texts }: For
 
   /**
    * Handler the selection of the current color for texts
-   * @param color string
+   * @param {string} color
    */
   const handleOnChangeColor = (color: string) => {
     setFormProperties({

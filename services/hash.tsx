@@ -11,7 +11,7 @@ class HashService {
 
   /**
    * Generate the hash for the current text
-   * @param {string} text 
+   * @param {string} text
    * @return {Promise}
    */
   public async encrypt(text: string): Promise<string> {
@@ -27,11 +27,11 @@ class HashService {
 
   /**
    * Compare between two strings has same hash
-   * @param {string} text 
+   * @param {string} text
    * @param {string} text2
    * @return {Promise}
    */
-  public async compare(text: string, text2: string) : Promise<boolean> {
+  public async compare(text: string, text2: string): Promise<boolean> {
     try {
       const status = await bcrypt.compare(text, text2);
       return status;

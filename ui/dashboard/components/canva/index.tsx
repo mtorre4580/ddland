@@ -10,11 +10,16 @@ import FormEdit from '../form-edit';
 import styles from './canva.module.scss';
 import { TYPE_DRAG_BLOCK } from '../block';
 
+type onAddCallback = (block: any) => void;
+type onEditCallback = (index: number, block: any) => void;
+type onRemoveCallback = (index: number) => void;
+type onSortCallback = (dragIndex: number, hoverIndex: number) => void;
+
 interface CanvaProps {
-  onAdd: Function;
-  onRemove: Function;
-  onEdit: Function;
-  onSort: Function;
+  onAdd: onAddCallback;
+  onRemove: onRemoveCallback;
+  onEdit: onEditCallback;
+  onSort: onSortCallback;
   blocks: any[];
 }
 
@@ -37,8 +42,8 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit,
 
   /**
    * Handler the action to edit the current block
-   * @param index number
-   * @param block Block
+   * @param {number} index
+   * @param {object} block
    */
   const handleOnEdit = (index: number, block: any) => {
     setIsEdit(true);
@@ -52,7 +57,7 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit,
 
   /**
    * Handler the event when user edit the block and accept the new changes
-   * @param block Block
+   * @param {object} block
    */
   const handleOnEditApply = (block: any) => {
     setCurrentEdition({

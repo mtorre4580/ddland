@@ -4,9 +4,11 @@ import FormMultiple from '../form-multiple';
 import { I18nContext } from '../../../shared/i18n-provider';
 import i18n from './i18n';
 
+type onEditApplyCallback = (block: { id: string; values: any }) => void;
+
 export interface FormEditionProps {
   block: any;
-  onEditApply: Function;
+  onEditApply: onEditApplyCallback;
   texts: { [key: string]: string };
 }
 

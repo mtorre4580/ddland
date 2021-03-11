@@ -23,7 +23,7 @@ import styles from './editor.module.scss';
 import FormSave from '../form-save';
 
 interface EditorProps {
-  landing: ILanding | object;
+  landing: ILanding | any;
   firstEdit: boolean;
 }
 
@@ -44,27 +44,27 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
 
   /**
    * Handler when user add block to the Dashboard
-   * @param block Block
+   * @param {Block} block
    */
   const handleOnAdd = (block: Models.Block) => dispatch(Actions.addBlock(block));
 
   /**
    * Handler when user remove block to the Dashboard
-   * @param index number
+   * @param {number} index
    */
   const handleOnRemove = (index: number) => dispatch(Actions.removeBlock(index));
 
   /**
    * Handler when user edit success the block
-   * @param index number
-   * @param block Block
+   * @param {number} index
+   * @param {Block} block
    */
   const handleOnEdit = (index: number, block: Models.Block) => dispatch(Actions.editBlock(index, block));
 
   /**
    * Handler when user sort the block (up, down)
-   * @param dragIndex number
-   * @param hoverIndex number
+   * @param {number} dragIndex
+   * @param {number} hoverIndex
    */
   const handleOnSort = (dragIndex: number, hoverIndex: number) => dispatch(Actions.sortBlock(dragIndex, hoverIndex));
 
@@ -101,6 +101,8 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
 
   /**
    * Handler the modal to confirm the save
+   * @param {string} pathSelected
+   * @param {string} titleSelected
    */
   const handleOnSave = async (pathSelected: string, titleSelected: string) => {
     try {

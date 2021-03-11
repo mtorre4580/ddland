@@ -12,7 +12,7 @@ const I18nContext: React.Context<string> = createContext('en');
 
 interface I18nProviderProps {
   locale?: string;
-  children: any;
+  children: React.ReactNode;
 }
 
 function I18nProvider({ locale = 'en', children }: I18nProviderProps) {

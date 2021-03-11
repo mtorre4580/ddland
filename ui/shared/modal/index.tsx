@@ -39,7 +39,7 @@ export default React.memo(function Modal({ title, children, open, onClose }: Mod
 
   /**
    * Handler the event to close when user key the escape key
-   * @param event KeyboardEvent
+   * @param {KeyboardEvent} event
    */
   const handleEscapeEvent = (event: KeyboardEvent) => {
     if (event.keyCode === 27) {

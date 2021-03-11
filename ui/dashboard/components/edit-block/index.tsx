@@ -6,15 +6,19 @@ import i18n from './i18n';
 import { I18nContext } from '../../../shared/i18n-provider';
 import styles from './edit-block.module.scss';
 
+type onEditCallback = (index: number, block: any) => void;
+type onRemoveCallback = (index: number) => void;
+type onSortCallback = (dragIndex: number, hoverIndex: number) => void;
+
 interface EditBlockProps {
   block: {
     id: string;
     values: any;
   };
   index: number;
-  onRemove: Function;
-  onEdit: Function;
-  onSort: Function;
+  onRemove: onRemoveCallback;
+  onEdit: onEditCallback;
+  onSort: onSortCallback;
 }
 
 // The type to support dragging

@@ -3,10 +3,12 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import styles from './button-float.module.scss';
 
+type onClickCallback = () => void;
+
 interface ButtonFloatProps {
-  children: any;
-  style: object;
-  onClick?: any;
+  children: React.ReactNode;
+  style: { [key: string]: string };
+  onClick?: onClickCallback;
   tooltip?: string;
 }
 

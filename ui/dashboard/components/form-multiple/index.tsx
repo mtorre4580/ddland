@@ -18,7 +18,7 @@ export default React.memo(function FormMultiple({ block, onEditApply, texts }: F
 
   /**
    * Handler onSubmit event to notify the edition of the current block
-   * @param event React.SyntheticEvent
+   * @param {React.SyntheticEvent} event
    */
   const handleOnSubmit = (event: React.SyntheticEvent) => {
     event.preventDefault();
@@ -27,7 +27,8 @@ export default React.memo(function FormMultiple({ block, onEditApply, texts }: F
 
   /**
    * Handler to change the current state of the inputs when user change...
-   * @param event React.ChangeEvent<HTMLInputElement>
+   * @param {React.ChangeEvent<HTMLInputElement>} event
+   * @param {number} index
    */
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>, index: number) => {
     const { name, value } = event.target;
