@@ -9,10 +9,10 @@ class Logger {
 
   /**
    * Log the current message info|error
-   * @param msg string
-   * @param args object
+   * @param {string} msg
+   * @param {object} args
    */
-  public log(msg: string, ...args: any[]) {
+  public log(msg: string, ...args: any[]): void {
     this.logger(msg, ...args);
   }
 }

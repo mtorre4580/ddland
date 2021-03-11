@@ -5,7 +5,7 @@ import withAuth from '../../../middlewares/auth';
 
 /**
  * Handler to retrieve the current data via formData (image field)
- * @param req NextApiRequest
+ * @param {NextApiRequest} req 
  */
 const handleForm = async (req: NextApiRequest): Promise<any> => {
   const form = new IncomingForm();

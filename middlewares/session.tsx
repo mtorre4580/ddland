@@ -2,7 +2,8 @@ import { Handler, withIronSession } from 'next-iron-session';
 
 /**
  * Middleware to handle the current session for the user
- * @param handler
+ * @param {Handler} handler
+ * @return {Promise}
  */
 export default function withSession(handler: Handler) {
   return withIronSession(handler, {

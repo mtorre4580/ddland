@@ -25,7 +25,7 @@ export const getServerSideProps = withSession(async ({ req, res, query }) => {
     try {
       const [, pathWithoutSlash] = path.split('/');
       const landing = await landingRepository.get(pathWithoutSlash);
-      const landingParse: any = JSON.parse(JSON.stringify(landing));
+      const landingParse = JSON.parse(JSON.stringify(landing));
       return {
         props: {
           landing: landingParse,

@@ -20,7 +20,7 @@ interface ProfilePageProps {
   user: IUser;
 }
 
-export const getServerSideProps = withSession(async ({ req, res }) => {
+export const getServerSideProps = withSession(({ req, res }) => {
   const user = req.session.get('user');
 
   if (user === undefined) {
