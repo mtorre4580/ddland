@@ -19,6 +19,7 @@ const blocks: { [key: string]: any } = {
     { id: 'Items', description: 'Agrega 3 items en una fila' },
     { id: 'Carousel', description: 'Agrega un carousel de imágenes' },
     { id: 'Whatsapp', description: 'Agrega un botón de whatsapp para que puedan contactarte' },
+    { id: 'List', description: 'Agrega una lista' },
   ],
   en: [
     { id: 'Footer', description: 'Content that goes at the bottom of your page' },
@@ -31,6 +32,7 @@ const blocks: { [key: string]: any } = {
     { id: 'Items', description: 'Add 3 items in a row' },
     { id: 'Carousel', description: 'Add an image carousel' },
     { id: 'Whatsapp', description: 'Add a whatsapp button so they can contact you' },
+    { id: 'List', description: 'Add a list' },
   ],
 };
 
