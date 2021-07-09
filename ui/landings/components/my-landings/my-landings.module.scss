@@ -3,6 +3,7 @@
 .presentation {
   background-color: $color-principal;
   color: $color-white;
+  margin-bottom: 0;
 }
 
 .modalActions {
@@ -40,5 +41,6 @@
   .emptyLandings {
     text-align: center;
     padding: 10px;
+    color: $color-white;
   }
 }

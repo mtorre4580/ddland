@@ -1,5 +1,16 @@
+@import '../../../../styles/colors';
+
 .actions {
   .actionButton {
     margin: 0 4px;
+  }
+}
+
+.table {
+  tr {
+    background-color: $color-blue-dark;
+  }
+  td {
+    background-color: $color-principal;
   }
 }

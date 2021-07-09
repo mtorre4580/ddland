@@ -26,7 +26,7 @@ export default React.memo(function LandingsTable({ landings, onRemove, onShare }
   const formatDate = (date: Date) => new Date(date).toLocaleDateString();
 
   return (
-    <Table responsive hover>
+    <Table responsive hover striped variant="dark" className={styles.table}>
       <thead>
         <tr>
           <th>{texts.url}</th>
@@ -45,16 +45,16 @@ export default React.memo(function LandingsTable({ landings, onRemove, onShare }
               <td>{formatDate(landing.created_at)}</td>
               <td>{landing.updated_at ? formatDate(landing.updated_at) : texts.noModifications}</td>
               <td className={styles.actions}>
-                <Button href={`/dashboard?path=${landing.path}`} className={styles.actionButton} variant="link">
+                <Button href={`/dashboard?path=${landing.path}`} variant="outline-light" className={styles.actionButton}>
                   {texts.edit}
                 </Button>
-                <Button className={styles.actionButton} variant="link" onClick={() => onRemove(landing.path, index)}>
+                <Button className={styles.actionButton} variant="outline-light" onClick={() => onRemove(landing.path, index)}>
                   {texts.delete}
                 </Button>
-                <Button href={landing.path} target="_blank" className={styles.actionButton} variant="link">
+                <Button href={landing.path} target="_blank" variant="outline-light" className={styles.actionButton}>
                   {texts.preview}
                 </Button>
-                <Button className={styles.actionButton} variant="link" onClick={() => onShare(landing.path)}>
+                <Button className={styles.actionButton} variant="outline-light" onClick={() => onShare(landing.path)}>
                   {texts.share}
                 </Button>
               </td>

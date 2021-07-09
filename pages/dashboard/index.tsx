@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import withSession from '../../middlewares/session';
 import Navigation from '../../ui/shared/navigation';
+import Footer from '../../ui/shared/footer';
 import Editor from '../../ui/dashboard/components/editor';
 import landingRepository from '../../repository/landing';
 import ILanding from '../../repository/models/web/landing';
@@ -55,6 +56,7 @@ export default function Dashboard({ landing, isEdit }: DashboardPageProps) {
       <main className={styles.dashboard}>
         <Editor landing={landing} firstEdit={isEdit} />
       </main>
+      <Footer />
     </>
   );
 }

@@ -14,11 +14,11 @@ export const TYPE_DRAG_BLOCK = 'block';
 export default React.memo(function Block({ id, description }: BlockProps) {
   const [, drag] = useDrag({ type: TYPE_DRAG_BLOCK, item: () => ({ id }) });
   return (
-    <Card bg="success" className={styles.block} text="light" ref={drag}>
+    <Card className={styles.block} text="light" ref={drag}>
       <Card.Header className={styles.title} as="h2">
         {id}
       </Card.Header>
-      <Card.Body>
+      <Card.Body className={styles.description}>
         <Card.Text>{description}</Card.Text>
       </Card.Body>
     </Card>

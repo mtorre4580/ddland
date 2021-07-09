@@ -38,7 +38,7 @@ $default-height-images: 400px;
       padding: 20px !important;
       border-radius: 0.25rem;
       @media only screen and (min-width: $desktop) {
-        padding: 0;
+        padding: 0 !important;
       }
     }
 

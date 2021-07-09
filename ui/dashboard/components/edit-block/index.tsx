@@ -91,10 +91,10 @@ export default React.memo(function EditBlock({ block, index, onRemove, onEdit, o
           {block.id}
         </Card.Title>
         <div className={styles.actions}>
-          <Button variant="link" onClick={handleRemove}>
+          <Button variant="outline-light" onClick={handleRemove}>
             {texts.remove}
           </Button>
-          <Button variant="link" onClick={handleEdit}>
+          <Button variant="outline-light" onClick={handleEdit}>
             {texts.edit}
           </Button>
         </div>

@@ -1,10 +1,16 @@
 @import '../../../../styles/mixins';
+@import '../../../../styles/colors';
 
 .block {
+  background: $color-principal;
   margin-bottom: 0.5rem;
   @include draggeable(true);
 
   .title {
     font-size: 1.2rem;
+    background-color: $color-blue-dark;
+  }
+  .description {
+    border: 2px dashed $color-blue-dark;
   }
 }

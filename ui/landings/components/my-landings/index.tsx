@@ -92,11 +92,11 @@ export default React.memo(function MyLandings({ items = [] }: MyLandingsProps) {
             height={128}
             width={128}
             className={styles.startImage}
-            src="/start.svg"
+            src="/information.svg"
             alt="Let's start to create landings"
           />
           <p className={styles.emptyLandings}>{texts.emptyLandings}</p>
-          <Button variant="link" href="/dashboard">
+          <Button variant="outline-light" href="/dashboard">
             {texts.goDashboard}
           </Button>
         </div>

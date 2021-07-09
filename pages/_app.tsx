@@ -22,6 +22,8 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        {/* Viewport */}
+        <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
         {/* Open Graph */}
         <meta property="og:title" content="DDLand" />
         <meta property="og:description" content={texts.description} />

@@ -52,41 +52,44 @@ export default React.memo(function FormPassword({ email }: FormPasswordProps) {
   };
 
   return (
-    <Form className={styles.formPassword} onSubmit={handleOnSubmit}>
-      <Form.Group controlId="formOldPassword">
-        <Form.Label>{texts.currentPassword}</Form.Label>
-        <Form.Control
-          type="password"
-          name="oldPassword"
-          required
-          placeholder={texts.placeholderCurrentPassword}
-          value={form.oldPassword}
-          onChange={handleOnChange}
-          autoComplete="old password"
-        />
-      </Form.Group>
-      <Form.Group controlId="formNewPassword">
-        <Form.Label>{texts.newPassword}</Form.Label>
-        <Form.Control
-          type="password"
-          name="newPassword"
-          required
-          placeholder={texts.placeholderNewPassword}
-          value={form.newPassword}
-          onChange={handleOnChange}
-          autoComplete="new password"
-        />
-      </Form.Group>
-      {updated && <p>{texts.updatedPassword}</p>}
-      {!loading && (
-        <Button variant="link" type="submit">
-          <span>{texts.modify}</span>
-        </Button>
-      )}
-      {loading && <Progress text={texts.updatingPassword} />}
-      <Alert className={styles.errorText} show={error !== null} variant="danger">
-        {error}
-      </Alert>
-    </Form>
+    <>
+      <h2 className={styles.title}>Modificar datos personales</h2>
+      <Form className={styles.formPassword} onSubmit={handleOnSubmit}>
+        <Form.Group controlId="formOldPassword">
+          <Form.Label className={styles.label}>{texts.currentPassword}</Form.Label>
+          <Form.Control
+            type="password"
+            name="oldPassword"
+            required
+            placeholder={texts.placeholderCurrentPassword}
+            value={form.oldPassword}
+            onChange={handleOnChange}
+            autoComplete="old password"
+          />
+        </Form.Group>
+        <Form.Group controlId="formNewPassword">
+          <Form.Label className={styles.label}>{texts.newPassword}</Form.Label>
+          <Form.Control
+            type="password"
+            name="newPassword"
+            required
+            placeholder={texts.placeholderNewPassword}
+            value={form.newPassword}
+            onChange={handleOnChange}
+            autoComplete="new password"
+          />
+        </Form.Group>
+        {updated && <p>{texts.updatedPassword}</p>}
+        {!loading && (
+          <Button variant="outline-light" type="submit">
+            <span>{texts.modify}</span>
+          </Button>
+        )}
+        {loading && <Progress text={texts.updatingPassword} />}
+        <Alert className={styles.errorText} show={error !== null} variant="danger">
+          {error}
+        </Alert>
+      </Form>
+    </>
   );
 });

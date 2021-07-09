@@ -3,6 +3,7 @@ import withSession from '../../middlewares/session';
 import styles from '../../styles/Profile.module.scss';
 import Navigation from '../../ui/shared/navigation';
 import { I18nContext, Translations } from '../../ui/shared/i18n-provider';
+import Footer from '../../ui/shared/footer';
 import IUser from '../../repository/models/user';
 import MyProfile from '../../ui/profile/components/my-profile';
 import { useContext } from 'react';
@@ -49,6 +50,7 @@ export default function Profile({ user }: ProfilePageProps) {
       <main className={styles.profile}>
         <MyProfile user={user} />
       </main>
+      <Footer />
     </>
   );
 }
