@@ -78,6 +78,7 @@ export default React.memo(function FormMultiple({ block, onEditApply, texts }: F
           <p className={styles.titleBlock}>{texts.hintStepForm}</p>
           {Object.keys(item).map((key: string, position: number) => (
             <Input
+              label={texts[key] ? texts[key] : key}
               name={key}
               texts={texts}
               key={position}

@@ -13,4 +13,7 @@
   td {
     background-color: $color-principal;
   }
+  thead tr th, tbody tr td {
+    border: 0;
+  }
 }

@@ -8,6 +8,13 @@ const translations: Translations = {
     upload: 'Subir imagen',
     loadingUpload: 'Subiendo imagen, espere unos segundos, hasta que generemos la url',
     invalidFormat: 'Formato no soportado, solo se admiten (jpg, gif, png, webp)',
+    title: 'título',
+    subtitle: 'subtítulo',
+    src: 'link',
+    text: 'texto',
+    href: 'dirección',
+    phone: 'celular',
+    url: 'dirección',
   },
   en: {
     accept: 'Confirm',
