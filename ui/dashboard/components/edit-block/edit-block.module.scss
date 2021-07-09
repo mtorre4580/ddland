@@ -1,7 +1,10 @@
 @import '../../../../styles/mixins';
+@import '../../../../styles/colors';
 
 .editBlock {
-  margin: 4px;
+  margin: 10px;
+  background-color: $color-principal;
+  color: $color-white;
   @include draggeable(false);
 
   .titleBlock {
@@ -11,5 +14,9 @@
   .actions {
     display: flex;
     justify-content: flex-end;
+
+    button {
+      margin: 0 10px;
+    }
   }
 }

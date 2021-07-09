@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { useReducer } from 'reinspect';
-import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
@@ -38,7 +37,6 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
     (basic) => basic,
     'DASHBOARD_PAGE',
   );
-  const router = useRouter();
   const locale = useContext(I18nContext);
   const texts = i18n[locale];
 
@@ -92,7 +90,9 @@ export default React.memo(function Editor({ landing = {}, firstEdit }: EditorPro
   /**
    * Handler the user preview, redirect to show the landing created
    */
-  const handlePreview = () => router.push(path);
+  const handlePreview = () => {
+    window.open(path, '_blank');
+  }
 
   /**
    * Handler the modal to cancel

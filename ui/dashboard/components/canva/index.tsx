@@ -88,8 +88,8 @@ export default React.memo(function Canva({ onAdd, blocks = [], onRemove, onEdit,
       <section ref={dropRef} className={styles.canva}>
         {blocks.length === 0 && (
           <div className={styles.letStart}>
-            <Image height={64} width={64} className={styles.image} src="/start.svg" alt="Let start to edit" />
-            <p>{texts.hint}</p>
+            <Image height={120} width={120} className={styles.image} src="/drag.svg" alt="Let start to edit" />
+            <p className={styles.hint}>{texts.hint}</p>
           </div>
         )}
         {blocks.length > 0 && (
