@@ -48,7 +48,7 @@ export default React.memo(function FormSingle({ block, onEditApply, texts }: For
       {Object.keys(values)
         .filter((key: string) => key !== 'color')
         .map((key: string, index: number) => (
-          <Input key={index} name={key} texts={texts} value={formProperties[key]} onChange={handleOnChange} />
+          <Input key={index} name={key} label={texts[key] ? texts[key] : key} texts={texts} value={formProperties[key]} onChange={handleOnChange} />
         ))}
       <Button variant="outline-light" type="submit">
         {texts.accept}

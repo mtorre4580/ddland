@@ -9,17 +9,17 @@ interface LandingRequest {
 
 const blocks: { [key: string]: any } = {
   es: [
-    { id: 'Footer', description: 'Contenido que va en la parte inferior de tu página' },
-    { id: 'Header', description: 'Contenido que va en la parte superior de tu página' },
-    { id: 'Image', description: 'Agrega cualquier imagen ya sea por url o subiendola' },
-    { id: 'Link', description: 'Agrega un hipervinculo a tu página' },
-    { id: 'Paragraph', description: 'Agrega un parráfo con texto básico' },
-    { id: 'Title', description: 'Agrega un título a tu página' },
+    { id: 'Footer', description: 'Contenido que va en la parte inferior de tu página', label: 'Pie de página' },
+    { id: 'Header', description: 'Contenido que va en la parte superior de tu página', label: 'Encabezado' },
+    { id: 'Image', description: 'Agrega cualquier imagen ya sea por link o subiendola', label: 'Imagen', },
+    { id: 'Link', description: 'Agrega un hipervínculo a tu página' },
+    { id: 'Paragraph', description: 'Agrega un parráfo con texto básico', label: 'Parráfo' },
+    { id: 'Title', description: 'Agrega un título a tu página' , label: 'Título' },
     { id: 'Video', description: 'Agrega un video de diferentes sitios' },
     { id: 'Items', description: 'Agrega 3 items en una fila' },
     { id: 'Carousel', description: 'Agrega un carousel de imágenes' },
-    { id: 'Whatsapp', description: 'Agrega un botón de whatsapp para que puedan contactarte' },
-    { id: 'List', description: 'Agrega una lista' },
+    { id: 'Whatsapp', description: 'Agrega un botón de whatsapp para que puedan contactarte', label: 'Contacto' },
+    { id: 'List', description: 'Agrega una lista', label: 'Lista' },
   ],
   en: [
     { id: 'Footer', description: 'Content that goes at the bottom of your page' },

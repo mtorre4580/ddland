@@ -8,10 +8,11 @@ interface InputImageProps {
   texts: { [key: string]: string };
   value: string;
   name: string;
+  label: string;
   onChange: any;
 }
 
-export default React.memo(function InputImage({ name, value, onChange, texts }: InputImageProps) {
+export default React.memo(function InputImage({ name, value, onChange, texts, label }: InputImageProps) {
   const [loading, setLoading] = useState(false);
   const [url, setUrl] = useState(value);
   const [error, setError] = useState('');
@@ -65,7 +66,7 @@ export default React.memo(function InputImage({ name, value, onChange, texts }: 
 
   return (
     <Form.Group className={styles.formGroup} controlId={name}>
-      <Form.Label className={styles.label}>{name}</Form.Label>
+      <Form.Label className={styles.label}>{label || name}</Form.Label>
       <Form.Control className={styles.input} type="text" name={name} value={url} onChange={onChange} />
       {!loading && (
         <Form.File accept=".gif,.jpeg,.bmp,.png,.webp" label={texts.upload} custom onChange={handleOnChangeFile} />
