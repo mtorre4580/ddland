@@ -24,7 +24,7 @@ export default React.memo(function CarouselWrapper({ items }: CarouselProps) {
         {items.map((item: Item, index: number) => {
           return (
             <Carousel.Item key={index}>
-              <img className="d-block" src={item.src} alt={item.title} />
+              <img className={styles.image} src={item.src} alt={item.title} />
               <Carousel.Caption>
                 <h3>{item.title}</h3>
                 {item.subtitle && <p>{item.subtitle}</p>}

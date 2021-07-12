@@ -1,3 +1,7 @@
 .carousel {
-  height: 340px;
+  padding-bottom: 20px;
+  .image {
+    max-height: 400px;
+    width: 100%;
+  }
 }

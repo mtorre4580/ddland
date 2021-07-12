@@ -2,6 +2,7 @@ import { Translations } from '../../../shared/i18n-provider';
 
 const translations: Translations = {
   es: {
+    title: 'Modificar datos personales',
     currentPassword: 'Contraseña Actual',
     placeholderCurrentPassword: 'Ingresá tu contraseña actual',
     newPassword: 'Nueva Contraseña',
@@ -11,6 +12,7 @@ const translations: Translations = {
     updatingPassword: 'Actualizando contraseña',
   },
   en: {
+    title: 'Modify personal data',
     currentPassword: 'Current Password',
     placeholderCurrentPassword: 'Enter your current password',
     newPassword: 'New Password',

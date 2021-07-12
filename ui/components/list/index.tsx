@@ -12,9 +12,12 @@ interface ListProps {
 export default React.memo(function ListWrapper({ items }: ListProps) {
   return (
     <ListGroup variant="flush">
-      {items.map((item: ItemList, index: number) => (
-        <ListGroup.Item key={index}>{item.text}</ListGroup.Item>
-      ))}
+      {items.map((item: ItemList, index: number) => {
+        if (item.text) {
+          return <ListGroup.Item key={index}>{item.text}</ListGroup.Item>
+        }
+        return null;
+      })}
     </ListGroup>
   );
 });

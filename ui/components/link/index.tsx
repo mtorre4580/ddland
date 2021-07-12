@@ -10,7 +10,7 @@ interface LinkProps {
 
 export default React.memo(function LinkWrapper({ text, href, color }: LinkProps) {
   return (
-    <Button variant="link" href={href} className={styles.link} style={{ color }}>
+    <Button variant="link" href={href} target="_blank" className={styles.link} style={{ color }}>
       {text}
     </Button>
   );
