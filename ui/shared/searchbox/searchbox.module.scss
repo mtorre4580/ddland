@@ -1,0 +1,12 @@
+@import '../../../styles/variables';
+@import '../../../styles/colors';
+
+.searchbox {
+  padding: 20px 0;
+
+  .search {
+    background-color: $color-blue-dark;
+    color: $color-white;
+    border: transparent;
+  }
+}

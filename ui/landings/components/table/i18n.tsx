@@ -12,6 +12,8 @@ const translations: Translations = {
     actions: 'Acciones',
     noModifications: 'Sin modificaciones',
     share: 'Compartir',
+    search: 'Buscar sitios',
+    noResults: 'Sin resultados de búsqueda',
   },
   en: {
     edit: 'Edit',
@@ -24,6 +26,8 @@ const translations: Translations = {
     actions: 'Actions',
     noModifications: 'No Modifications',
     share: 'Share',
+    search: 'Search landings',
+    noResults: 'No search results',
   },
 };
 

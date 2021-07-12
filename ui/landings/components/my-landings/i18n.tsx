@@ -14,7 +14,7 @@ const translations: Translations = {
     deletingLanding: 'Eliminando la landing, espere unos segundos',
     errorGeneric: 'Se produjo un error al eliminar la landing elegida',
     share: 'Compartir',
-    scanCode: 'Scanea el código QR con tu celular para visualizar la web en tu celular',
+    scanCode: 'Escanea el código QR con tu celular para visualizar la web en tu celular',
   },
   en: {
     title: 'My Landings',
