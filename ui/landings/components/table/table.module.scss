@@ -7,6 +7,7 @@
 }
 
 .table {
+  background-color: transparent;
   tr {
     background-color: $color-blue-dark;
   }
@@ -16,4 +17,11 @@
   thead tr th, tbody tr td {
     border: 0;
   }
+}
+
+.noResults {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  color: $color-white;
 }

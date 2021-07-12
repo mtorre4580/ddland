@@ -2,7 +2,7 @@ import { Translations } from '../i18n-provider';
 
 const translations: Translations = {
   es: {
-    hint: 'Diseña tus landings de manera sencilla y rápida',
+    hint: 'Diseña tus landings de manera rápida y sencilla',
     follow: 'Seguinos en',
   },
   en: {
