@@ -17,7 +17,7 @@ export default React.memo(function ItemsWrapper({ items }: ItemsProps) {
   return (
     <CardColumns className={styles.cardColumn}>
       {items.map((item: Item, index: number) => (
-        <Card key={index}>
+        <Card key={index} style={{maxWidth: '350px'}}>
           {item.src && <Card.Img variant="top" src={item.src} />}
           <Card.Body>
             <Card.Title>{item.title}</Card.Title>

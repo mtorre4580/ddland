@@ -53,7 +53,7 @@ export default React.memo(function FormPassword({ email }: FormPasswordProps) {
 
   return (
     <>
-      <h2 className={styles.title}>Modificar datos personales</h2>
+      <h2 className={styles.title}>{texts.title}</h2>
       <Form className={styles.formPassword} onSubmit={handleOnSubmit}>
         <Form.Group controlId="formOldPassword">
           <Form.Label className={styles.label}>{texts.currentPassword}</Form.Label>

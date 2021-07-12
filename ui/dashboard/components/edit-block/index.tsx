@@ -21,6 +21,16 @@ interface EditBlockProps {
   onSort: onSortCallback;
 }
 
+const Labels : { [key:string]: string } = {
+  Footer: 'Pie de página',
+  Header: 'Encabezado',
+  Image: 'Imagen',
+  Paragraph: 'Parráfo',
+  Title: 'Título',
+  Whatsapp: 'Contacto',
+  List: 'Lista',
+};
+
 // The type to support dragging
 export const TYPE_DRAG_EDIT_BLOCK = 'block-edit';
 
@@ -28,6 +38,7 @@ export default React.memo(function EditBlock({ block, index, onRemove, onEdit, o
   const ref: any = useRef(null);
   const locale = useContext(I18nContext);
   const texts = i18n[locale];
+  const label = Labels[block.id] || block.id;
 
   // Hook to drop and retrieve the current block
   const [, drop] = useDrop({
@@ -88,7 +99,7 @@ export default React.memo(function EditBlock({ block, index, onRemove, onEdit, o
     <Card ref={ref} className={styles.editBlock}>
       <Card.Body>
         <Card.Title className={styles.titleBlock} as="h2">
-          {block.id}
+          {label}
         </Card.Title>
         <div className={styles.actions}>
           <Button variant="outline-light" onClick={handleRemove}>

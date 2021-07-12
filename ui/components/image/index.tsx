@@ -4,8 +4,9 @@ import styles from './image.module.scss';
 
 interface ImageProps {
   src: string;
+  alt?: string;
 }
 
-export default React.memo(function ImageWrapper({ src }: ImageProps) {
-  return <Image className={styles.image} fluid thumbnail src={src} alt={`image from ${src}`} />;
+export default React.memo(function ImageWrapper({ src, alt }: ImageProps) {
+  return <Image className={styles.image} fluid thumbnail src={src} alt={alt ? alt : `from ${src}`} />;
 });
