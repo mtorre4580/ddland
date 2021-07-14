@@ -31,7 +31,7 @@
     "deployment-badge": "^1.1.0",
     "formidable": "^1.2.2",
     "joi": "^17.4.1",
-    "mongodb": "^3.6.10",
+    "mongodb": "^4.0.0",
     "next": "^11.0.1",
     "next-iron-session": "^4.1.11",
     "node-cache": "^5.1.2",
