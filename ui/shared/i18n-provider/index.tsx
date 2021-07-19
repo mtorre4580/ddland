@@ -19,4 +19,10 @@ function I18nProvider({ locale = 'en', children }: I18nProviderProps) {
   return <I18nContext.Provider value={locale}>{children}</I18nContext.Provider>;
 }
 
-export { I18nContext, I18nProvider };
+// Default locals
+const LOCALS = {
+  EN: 'en',
+  ES: 'es',
+};
+
+export { I18nContext, I18nProvider, LOCALS };

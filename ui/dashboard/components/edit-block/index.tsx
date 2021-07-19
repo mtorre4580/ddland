@@ -3,7 +3,7 @@ import { useDrop, useDrag } from 'react-dnd';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import i18n from './i18n';
-import { I18nContext } from '../../../shared/i18n-provider';
+import { I18nContext, LOCALS } from '../../../shared/i18n-provider';
 import styles from './edit-block.module.scss';
 
 type onEditCallback = (index: number, block: any) => void;
@@ -38,8 +38,8 @@ export default React.memo(function EditBlock({ block, index, onRemove, onEdit, o
   const ref: any = useRef(null);
   const locale = useContext(I18nContext);
   const texts = i18n[locale];
-  const label = Labels[block.id] || block.id;
-
+  const label = locale === LOCALS.EN ? block.id : Labels[block.id];
+  
   // Hook to drop and retrieve the current block
   const [, drop] = useDrop({
     accept: TYPE_DRAG_EDIT_BLOCK,
