@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Link from 'next/link';
@@ -14,6 +14,11 @@ interface NavigationProps {
 export default React.memo(function Navigation({ active = '/', fullNav }: NavigationProps) {
   const locale = useContext(I18nContext);
   const texts = i18n[locale];
+  const [activeKey, setActiveKey] = useState('');
+
+  useEffect(() => {
+    setActiveKey(window.location.pathname);
+  }, []);
 
   return (
     <Navbar collapseOnSelect expand="lg" fixed="top" className={styles.nav} variant="dark">
@@ -24,7 +29,7 @@ export default React.memo(function Navigation({ active = '/', fullNav }: Navigat
       </Link>
       <Navbar.Toggle aria-controls="responsive-navbar-ddland" />
       <Navbar.Collapse id="responsive-navbar-ddland">
-        <Nav defaultActiveKey={active} className="ml-auto" as="ul">
+        <Nav defaultActiveKey={active} activeKey={activeKey} className="ml-auto" as="ul">
           {!fullNav && (
             <>
               <Nav.Item as="li">

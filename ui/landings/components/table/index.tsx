@@ -64,7 +64,7 @@ export default React.memo(function LandingsTable({ landings, onRemove, onShare }
                 <td>{formatDate(landing.created_at)}</td>
                 <td>{landing.updated_at ? formatDate(landing.updated_at) : texts.noModifications}</td>
                 <td className={styles.actions}>
-                  <Button href={`/dashboard?path=${landing.path}`} variant="outline-light" className={styles.actionButton}>
+                  <Button href={`/${locale}/dashboard?path=${landing.path}`} variant="outline-light" className={styles.actionButton}>
                     {texts.edit}
                   </Button>
                   <Button className={styles.actionButton} variant="outline-light" onClick={() => onRemove(landing.path, index)}>
