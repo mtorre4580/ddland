@@ -15,6 +15,7 @@ const translations: Translations = {
     href: 'dirección',
     phone: 'celular',
     url: 'dirección',
+    emailResponse: 'Email',
   },
   en: {
     accept: 'Confirm',

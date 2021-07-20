@@ -13,6 +13,8 @@ env:
     - SECRET_COOKIE_PASSWORD=empty
     - COOKIE_NAME=empty
     - CLOUDINARY_URL=empty
+    - SENDGRID_API_KEY=empty
+    - SENDGRID_EMAIL=empty
 before_install:
   - npm install -g npm
 script:

@@ -20,6 +20,7 @@ const blocks: { [key: string]: any } = {
     { id: 'Carousel', description: 'Agrega un carousel de imágenes' },
     { id: 'Whatsapp', description: 'Agrega un botón de whatsapp para que puedan contactarte', label: 'Contacto' },
     { id: 'List', description: 'Agrega una lista', label: 'Lista' },
+    { id: 'Form', description: 'Agrega un formulario de contacto', label: 'Formulario' },
   ],
   en: [
     { id: 'Footer', description: 'Content that goes at the bottom of your page' },
@@ -33,6 +34,7 @@ const blocks: { [key: string]: any } = {
     { id: 'Carousel', description: 'Add an image carousel' },
     { id: 'Whatsapp', description: 'Add a whatsapp button so they can contact you' },
     { id: 'List', description: 'Add a list' },
+    { id: 'Form', description: 'Agrega un formulario de contacto' },
   ],
 };
 

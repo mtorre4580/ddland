@@ -9,5 +9,6 @@ import Items from './items';
 import Carousel from './carousel';
 import Whatsapp from './whatsapp';
 import List from './list';
+import Form from './form';
 
-export { Title, Paragraph, Header, Link, Image, Video, Footer, Items, Carousel, Whatsapp, List };
+export { Title, Paragraph, Header, Link, Image, Video, Footer, Items, Carousel, Whatsapp, List, Form };
