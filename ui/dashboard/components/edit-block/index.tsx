@@ -29,6 +29,11 @@ const Labels : { [key:string]: string } = {
   Title: 'Título',
   Whatsapp: 'Contacto',
   List: 'Lista',
+  Form: 'Formulario',
+  Carousel: 'Carousel',
+  Items: 'Items',
+  Video: 'Video',
+  Link: 'Link',
 };
 
 // The type to support dragging

@@ -23,6 +23,7 @@
   "dependencies": {
     "@fontsource/rocknroll-one": "^4.5.0",
     "@next/bundle-analyzer": "^11.0.1",
+    "@sendgrid/mail": "^7.4.5",
     "axios": "^0.21.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.0.2",
